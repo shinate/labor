@@ -21,4 +21,4 @@ markdown: redcarpet
 
 
 # Build settings
-exclude: [node_modules, src, gulpfile.js, package.json, build.sh, bower_components, README.md]
+exclude: [node_modules, src, gulpfile.js, package.json, build.sh, bower_components, README.md, gulp]
