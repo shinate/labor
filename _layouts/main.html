@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- head -->
+    {% include head.html %}
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="{{ "/assets/css/monokai_sublime.min.css" | prepend: site.url }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/style.min.css" | prepend: site.url }}" />
+    <!-- /stylesheets -->
+    <!-- scripts -->
+    <script src="{{ "/assets/js/zepto.min.js" | prepend: site.url }}"></script>
+    <!-- /scripts -->
+    <!-- /head -->
+  </head>
+  <body>
+
+    {{ content }}
+
+    {% if site.google_analytics %}
+    <!-- Google Analytics -->
+      {% include google-analytics.html %}
+    <!-- /Google Analytics -->
+    {% endif %}
+    {% if site.baidu_analytics %}
+    <!-- Baidu Analytics -->
+      {% include baidu-analytics.html %}
+    <!-- /Baidu Analytics -->
+    {% endif %}
+  </body>
+</html>

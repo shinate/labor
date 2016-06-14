@@ -1,0 +1,24 @@
+# Site settings
+title: LABOR
+email: shine.wangrs@gmail.com
+description: ""
+avatar: "/assets/img/avatar.png"
+# destination: "./_site/blog"
+# baseurl: "/blog" # the subpath of your site, e.g. /blog/
+url: "http://codante.org/labor"
+# url: "http://127.0.0.1:8000"
+hostname: "codante.org"
+# path/to/favicon for site. e.g. /assets/img/favicon.ico
+favicon: "/assets/img/favicon.ico"
+google_analytics: # google analytics id
+baidu_analytics: "b73a1c414265340e2dd6a77fa1ac1b75"
+disqus_shortname: # disqus_shortname for disqus comment system
+
+# highlight
+highlighter: pygments
+markdown: redcarpet
+# markdown: kramdown
+
+
+# Build settings
+exclude: [node_modules, src, gulpfile.js, package.json, build.sh, bower_components, README.md]
