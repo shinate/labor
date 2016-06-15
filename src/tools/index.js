@@ -101,6 +101,7 @@
 
             var startPos;
             var inputValue;
+            var isMoving = false;
 
             node.on('mousedown', function (e) {
                 if (nodes.input.get(0) === e.target) {
@@ -110,17 +111,24 @@
             }).on('mousemove', function (e) {
                 if (startPos != null) {
                     var offset = e.pageX - startPos;
-                    if (Math.abs(offset) >= 2) {
+                    if (!isMoving) {
+                        if (Math.abs(offset) >= 2) {
+                            isMoving = true;
+                        }
+                    }
+                    if (isMoving) {
                         nodes.input.val(limit(inputValue + Math.round(offset)));
-                        e.preventDefault();
                         nodes.input.blur();
+                        return false;
                     }
                 }
             }).on('mouseup', function () {
                 startPos = null;
+                isMoving = false;
             }).on('mouseout', function (e) {
                 if (!this.contains(e.relatedTarget)) {
                     startPos = null;
+                    isMoving = false;
                 }
             });
 
