@@ -1,0 +1,53 @@
+textarea {
+
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.tools-label,
+.tools-label:hover {
+  text-align: center;
+  width: 100px;
+  background-color: #4a4a4a;
+  color: #acacac;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  margin-right: 1px;
+  cursor: default;
+}
+
+.card {
+
+  min-height: 128px;
+  width: 100%;
+  max-width: 400px;
+  display: inline-block;
+  margin: 8px;
+  padding: 40px 16px 16px;
+  position: relative;
+  background-color: #646464;
+  display: inline-block;
+
+  .btn {
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .tools-title {
+    padding: 3px 6px;
+    font-size: @font-size-base;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-bottom-right-radius: 4px;
+    background-color: @gray-light;
+    color: @gray-dark;
+  }
+}

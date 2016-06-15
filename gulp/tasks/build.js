@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function (gulp, PLUGIN, CONF) {
-    gulp.task('build', ['css']);
+    gulp.task('build', ['css', 'topic']);
 };
