@@ -136,7 +136,7 @@
                 node.on($T.device.startEvt, function (e) {
                     if (nodes.input.get(0) === e.target) {
                         startPos = $T.getPosition(e).pageX;
-                        inputValue = +nodes.input.val() || 16;
+                        inputValue = +nodes.input.val();
                     }
                 }).on($T.device.moveEvt, function (e) {
                     if (startPos != null) {
