@@ -87,7 +87,7 @@
         }
 
         function limit(val) {
-            return Math.max(0, Math.min(1024, val + Math.round(offset)));
+            return Math.max(0, Math.min(1024, val));
         }
 
         return function (node) {
@@ -111,9 +111,9 @@
                 if (startPos != null) {
                     var offset = e.pageX - startPos;
                     if (Math.abs(offset) >= 2) {
-                        nodes.input.val();
+                        nodes.input.val(limit(inputValue + Math.round(offset)));
                         e.preventDefault();
-                        nodes.input.blur(limit(inputValue));
+                        nodes.input.blur();
                     }
                 }
             }).on('mouseup', function () {
