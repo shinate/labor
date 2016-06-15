@@ -7,6 +7,9 @@
 
     var $T = global.__TOOLS__;
 
+    $T.__MODEL__ = {};
+    $T.__INSTANCES__ = {};
+
     $T.device = (function () {
         // IOS desktop has touch events, make them busting
         var hasTouch = !!(('ontouchstart' in global && !/Mac OS X /.test(global.navigator.userAgent)) || global.DocumentTouch && document instanceof global.DocumentTouch);
@@ -19,6 +22,17 @@
             resizeEvt: 'onorientationchange' in global ? 'orientationchange' : 'resize'
         };
     })();
+
+    $T.getPosition = function (e) {
+        var oe = e;
+        if ('originalEvent' in oe) {
+            oe = e.originalEvent;
+        }
+        if ($T.device.hasTouch) {
+            oe = oe.changedTouches[0];
+        }
+        return oe;
+    };
 
     $T.__CARD__ = (function () {
 
@@ -46,20 +60,21 @@
     })();
 
     $(document).ready(function () {
-        var $I = $T.__INSTANCES__ = {};
+        var $I = $T.__INSTANCES__;
+        var $M = $T.__MODEL__;
 
         $('.card').each(function () {
             var el = $(this);
             var model = el.data('model');
             if (model) {
-                $I[model] = $T[model](el);
+                $I[model] = $M[model](el);
             }
         });
     });
 })(window);
 
 (function ($T) {
-    $T.tokenCreater = (function () {
+    $T.__MODEL__.tokenCreater = (function () {
 
         function randomString(length, complex) {
 
@@ -120,12 +135,12 @@
 
                 node.on($T.device.startEvt, function (e) {
                     if (nodes.input.get(0) === e.target) {
-                        startPos = e.pageX;
+                        startPos = $T.getPosition(e).pageX;
                         inputValue = +nodes.input.val() || 16;
                     }
                 }).on($T.device.moveEvt, function (e) {
                     if (startPos != null) {
-                        var offset = e.pageX - startPos;
+                        var offset = $T.getPosition(e).pageX - startPos;
                         if (!isMoving) {
                             if (Math.abs(offset) >= 2) {
                                 isMoving = true;
@@ -146,6 +161,7 @@
                         isMoving = false;
                     }
                 });
+
             })();
 
             node.find('[role="complex"] button').on('click', function () {
