@@ -89,7 +89,7 @@
         return function (node) {
 
             var it = $T.__CARD__(node);
-            
+
             var nodes = {};
 
             nodes.input = node.find('[role="length"] input');
@@ -107,7 +107,6 @@
                 if (startPos != null) {
                     var offset = e.pageX - startPos;
                     if (Math.abs(offset) >= 2) {
-                        console.log(offset);
                         nodes.input.val(Math.max(0, Math.min(1024, inputValue + Math.round(offset))));
                         e.preventDefault();
                         nodes.input.blur();
