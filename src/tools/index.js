@@ -7,6 +7,19 @@
 
     $T = global.__TOOLS__;
 
+    $T.__EVENTS__ = (function () {
+        // IOS desktop has touch events, make them busting
+        var hasTouch = !!(('ontouchstart' in global && !/Mac OS X /.test(global.navigator.userAgent)) || global.DocumentTouch && document instanceof global.DocumentTouch);
+        return {
+            hasTouch: hasTouch,
+            startEvt: hasTouch ? 'touchstart' : 'mousedown',
+            moveEvt: hasTouch ? 'touchmove' : 'mousemove',
+            endEvt: hasTouch ? 'touchend' : 'mouseup',
+            cancelEvt: hasTouch ? 'touchcancel' : 'mouseout',
+            resizeEvt: 'onorientationchange' in global ? 'orientationchange' : 'resize'
+        };
+    })();
+
     $T.__CARD__ = (function () {
 
         function size() {
@@ -99,16 +112,18 @@
             nodes.input = node.find('[role="length"] input');
             nodes.output = node.find('[role="panel"] textarea');
 
+            var device = $T.__EVENTS__;
+
             var startPos;
             var inputValue;
             var isMoving = false;
 
-            node.on('mousedown', function (e) {
+            node.on(device.startEvt, function (e) {
                 if (nodes.input.get(0) === e.target) {
                     startPos = e.pageX;
                     inputValue = +nodes.input.val() || 16;
                 }
-            }).on('mousemove', function (e) {
+            }).on(device.moveEvt, function (e) {
                 if (startPos != null) {
                     var offset = e.pageX - startPos;
                     if (!isMoving) {
@@ -122,10 +137,10 @@
                         return false;
                     }
                 }
-            }).on('mouseup', function () {
+            }).on(device.endEvt, function () {
                 startPos = null;
                 isMoving = false;
-            }).on('mouseout', function (e) {
+            }).on(device.cancelEvt, function (e) {
                 if (!this.contains(e.relatedTarget)) {
                     startPos = null;
                     isMoving = false;
