@@ -86,6 +86,10 @@
             return tmp.join('');
         }
 
+        function limit(val) {
+            return Math.max(0, Math.min(1024, val + Math.round(offset)));
+        }
+
         return function (node) {
 
             var it = $T.__CARD__(node);
@@ -107,9 +111,9 @@
                 if (startPos != null) {
                     var offset = e.pageX - startPos;
                     if (Math.abs(offset) >= 2) {
-                        nodes.input.val(Math.max(0, Math.min(1024, inputValue + Math.round(offset))));
+                        nodes.input.val();
                         e.preventDefault();
-                        nodes.input.blur();
+                        nodes.input.blur(limit(inputValue));
                     }
                 }
             }).on('mouseup', function () {
@@ -135,7 +139,9 @@
                 node.find('[role="complex"] .btn-success').each(function () {
                     c += +$(this).val();
                 });
-                nodes.output.val(randomString(+nodes.input.val() || 16, c));
+                var length = limit(+nodes.input.val() || 16);
+                nodes.input.val(length);
+                nodes.output.val(randomString(length, c));
             });
 
 
