@@ -54,7 +54,9 @@
                 },
                 hide: function () {
                     console.log('hide ' + name);
-                }
+                },
+                input: null,
+                output: null
             }
         }
     })();
