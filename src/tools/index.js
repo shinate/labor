@@ -112,42 +112,41 @@
             nodes.input = node.find('[role="length"] input');
             nodes.output = node.find('[role="panel"] textarea');
 
-            var device = $T.device;
+            (function () {
 
-            console.log(device);
+                var startPos;
+                var inputValue;
+                var isMoving = false;
 
-            var startPos;
-            var inputValue;
-            var isMoving = false;
-
-            node.on(device.startEvt, function (e) {
-                if (nodes.input.get(0) === e.target) {
-                    startPos = e.pageX;
-                    inputValue = +nodes.input.val() || 16;
-                }
-            }).on(device.moveEvt, function (e) {
-                if (startPos != null) {
-                    var offset = e.pageX - startPos;
-                    if (!isMoving) {
-                        if (Math.abs(offset) >= 2) {
-                            isMoving = true;
+                node.on($T.device.startEvt, function (e) {
+                    if (nodes.input.get(0) === e.target) {
+                        startPos = e.pageX;
+                        inputValue = +nodes.input.val() || 16;
+                    }
+                }).on($T.device.moveEvt, function (e) {
+                    if (startPos != null) {
+                        var offset = e.pageX - startPos;
+                        if (!isMoving) {
+                            if (Math.abs(offset) >= 2) {
+                                isMoving = true;
+                            }
+                        }
+                        if (isMoving) {
+                            nodes.input.val(limit(inputValue + Math.round(offset)));
+                            nodes.input.blur();
+                            return false;
                         }
                     }
-                    if (isMoving) {
-                        nodes.input.val(limit(inputValue + Math.round(offset)));
-                        nodes.input.blur();
-                        return false;
-                    }
-                }
-            }).on(device.endEvt, function () {
-                startPos = null;
-                isMoving = false;
-            }).on(device.cancelEvt, function (e) {
-                if (!this.contains(e.relatedTarget)) {
+                }).on($T.device.endEvt, function () {
                     startPos = null;
                     isMoving = false;
-                }
-            });
+                }).on($T.device.cancelEvt, function (e) {
+                    if (!this.contains(e.relatedTarget)) {
+                        startPos = null;
+                        isMoving = false;
+                    }
+                });
+            })();
 
             node.find('[role="complex"] button').on('click', function () {
                 var el = $(this);
