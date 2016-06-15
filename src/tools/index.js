@@ -5,7 +5,7 @@
 (function (global) {
     !global.__TOOLS__ && (global.__TOOLS__ = {});
 
-    $T = global.__TOOLS__;
+    var $T = global.__TOOLS__;
 
     $T.__EVENTS__ = (function () {
         // IOS desktop has touch events, make them busting
@@ -46,7 +46,7 @@
     })();
 
     $(document).ready(function () {
-        $I = $T.__INSTANCES__ = {};
+        var $I = $T.__INSTANCES__ = {};
 
         $('.card').each(function () {
             var el = $(this);
@@ -113,6 +113,8 @@
             nodes.output = node.find('[role="panel"] textarea');
 
             var device = $T.__EVENTS__;
+
+            console.log(device);
 
             var startPos;
             var inputValue;
