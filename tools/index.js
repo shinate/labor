@@ -147,7 +147,7 @@
                             }
                         }
                         if (isMoving) {
-                            nodes.input.val(limit(inputValue + Math.round(Math.pow(offset, 3) * 2 / node.width())));
+                            nodes.input.val(limit(inputValue + Math.round(Math.pow(offset, 3) / node.width())));
                             nodes.input.blur();
                             return false;
                         }
