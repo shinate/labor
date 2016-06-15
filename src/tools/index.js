@@ -7,7 +7,7 @@
 
     var $T = global.__TOOLS__;
 
-    $T.__EVENTS__ = (function () {
+    $T.device = (function () {
         // IOS desktop has touch events, make them busting
         var hasTouch = !!(('ontouchstart' in global && !/Mac OS X /.test(global.navigator.userAgent)) || global.DocumentTouch && document instanceof global.DocumentTouch);
         return {
@@ -112,7 +112,7 @@
             nodes.input = node.find('[role="length"] input');
             nodes.output = node.find('[role="panel"] textarea');
 
-            var device = $T.__EVENTS__;
+            var device = $T.device;
 
             console.log(device);
 
