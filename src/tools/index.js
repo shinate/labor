@@ -34,6 +34,61 @@
         return oe;
     };
 
+    $T.numberRange = function range(val, min, max) {
+        if (!!isNaN(min)) {
+            min = 0;
+        }
+        if (!!isNaN(max)) {
+            max = 1;
+        }
+        return Math.max(min, Math.min(max, val));
+    };
+
+    $T.slideInputRange = (function ($T) {
+
+        return function (target, node, min, max) {
+
+            var startPos;
+            var inputValue;
+            var isMoving = false;
+
+            if (node == null) {
+                node = target;
+            }
+
+            node.on($T.device.startEvt, function (e) {
+                if (target.get(0) === e.target) {
+                    startPos = $T.getPosition(e).pageX;
+                    inputValue = +target.val();
+                }
+            }).on($T.device.moveEvt, function (e) {
+                if (startPos != null) {
+                    var offset = $T.getPosition(e).pageX - startPos;
+                    if (!isMoving) {
+                        if (Math.abs(offset) >= 2) {
+                            isMoving = true;
+                        }
+                    }
+                    if (isMoving) {
+                        target.val($T.numberRange(inputValue + Math.round(Math.pow(offset, 3) / node.width()), min, max));
+                        target.blur();
+                        return false;
+                    }
+                }
+            }).on($T.device.endEvt, function () {
+                startPos = null;
+                isMoving = false;
+            }).on($T.device.cancelEvt, function (e) {
+                if (!this.contains(e.relatedTarget)) {
+                    startPos = null;
+                    isMoving = false;
+                }
+            });
+
+        };
+
+    })($T);
+
     $T.__CARD__ = (function () {
 
         function size() {
@@ -116,10 +171,6 @@
             return tmp.join('');
         }
 
-        function limit(val) {
-            return Math.max(0, Math.min(1024, val));
-        }
-
         return function (node) {
 
             var it = $T.__CARD__(node);
@@ -128,43 +179,6 @@
 
             nodes.input = node.find('[role="length"] input');
             nodes.output = node.find('[role="panel"] textarea');
-
-            (function () {
-
-                var startPos;
-                var inputValue;
-                var isMoving = false;
-
-                node.on($T.device.startEvt, function (e) {
-                    if (nodes.input.get(0) === e.target) {
-                        startPos = $T.getPosition(e).pageX;
-                        inputValue = +nodes.input.val();
-                    }
-                }).on($T.device.moveEvt, function (e) {
-                    if (startPos != null) {
-                        var offset = $T.getPosition(e).pageX - startPos;
-                        if (!isMoving) {
-                            if (Math.abs(offset) >= 2) {
-                                isMoving = true;
-                            }
-                        }
-                        if (isMoving) {
-                            nodes.input.val(limit(inputValue + Math.round(Math.pow(offset, 3) / node.width())));
-                            nodes.input.blur();
-                            return false;
-                        }
-                    }
-                }).on($T.device.endEvt, function () {
-                    startPos = null;
-                    isMoving = false;
-                }).on($T.device.cancelEvt, function (e) {
-                    if (!this.contains(e.relatedTarget)) {
-                        startPos = null;
-                        isMoving = false;
-                    }
-                });
-
-            })();
 
             node.find('[role="complex"] button').on('click', function () {
                 var el = $(this);
@@ -180,11 +194,12 @@
                 node.find('[role="complex"] .btn-success').each(function () {
                     c += +$(this).val();
                 });
-                var length = limit(+nodes.input.val() || 16);
+                var length = $T.numberRange(+nodes.input.val() || 16, 0, 1024);
                 nodes.input.val(length);
                 nodes.output.val(randomString(length, c));
             });
 
+            $T.slideInputRange(nodes.input, node, 0, 1024);
 
             it.input = function () {
 
