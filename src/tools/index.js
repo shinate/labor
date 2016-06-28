@@ -173,7 +173,6 @@
                 } else {
                     el.addClass('btn-success');
                 }
-                el.blur();
             });
 
             node.find('.create').on('click', function () {
