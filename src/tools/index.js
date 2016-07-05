@@ -139,7 +139,7 @@
                 '0123456789',
                 'abcdefghijklmnopqrstuvwxyz',
                 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                '+_)(*&^%$#@!~=-`;:<>,.?/\\|'
+                '()`~!@#$%^&*-+=|{}[]:;\'<>,.?/'
             ];
 
             var source;
