@@ -5,7 +5,7 @@ if [ -z $1 ];then
     comments="Publish"
 fi
 
-gulp && jekyll build
+gulp && jekyll build && gulp clean
 git add .
 git commit -m "${comments}"
 git push origin gh-pages
