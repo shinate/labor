@@ -5,7 +5,7 @@ description: ""
 avatar: "/assets/img/avatar.png"
 # destination: "./_site/blog"
 # baseurl: "/blog" # the subpath of your site, e.g. /blog/
-baseurl: "/labor"
+# baseurl: "/labor"
 url: "http://codante.org/labor"
 # url: "http://127.0.0.1:8000"
 hostname: "codante.org"
