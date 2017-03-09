@@ -5,7 +5,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
 
     gulp.task('clean', function () {
         return gulp.src([
-            './tools'
+            './tool'
         ]).pipe(PLUGIN.clean());
     });
 };
