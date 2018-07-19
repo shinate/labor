@@ -1,5 +1,5 @@
 {
-  "name": "codante-labor",
+  "name": "labor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,31 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/shinate/labor.git"
   },
-  "devDependencies": {
-    "child-process-promise": "^2.0.2",
-    "gulp": "^3.9.1",
-    "gulp-add-src": "^0.2.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-concat": "^2.4.3",
-    "gulp-cssmin": "^0.1.6",
-    "gulp-less": "^3.0.3",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^1.1.0",
-    "json-config-reader": "^2.0.1",
-    "require-dir": "^0.3.0",
-    "through2": "^2.0.0"
-  },
-  "author": "shiante",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/shinate/labor/issues"
   },
   "homepage": "https://github.com/shinate/labor#readme",
   "dependencies": {
-    "gulp-clean-css": "^3.0.3",
-    "gulp-riot": "^1.1.0",
-    "riot": "^3.3.2"
+    "bootstrap": "^4.1.2",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
