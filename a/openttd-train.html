@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train</title>
+    <link type="text/css" media="all" rel="stylesheet" href="/build/styles/bootstrap.min.css">
+    <script src="/build/scripts/jquery.min.js"></script>
+    <script src="/build/scripts/bootstrap.min.js"></script>
+    <script src="/build/scripts/echarts.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mt-3">
+                <div class="card-body p-3 pt-4">
+                    <form class="form-inline">
+                        <div class="form-group mx-1 mb-2">
+                            <input name="P" class="form-control" placeholder="功率(匹马力)" value="2725"/>
+                        </div>
+                        <div class="form-group mx-1 mb-2">
+                            <input name="F" class="form-control" placeholder="牵引力(千牛)" value="450"/>
+                        </div>
+                        <div class="form-group mx-1 mb-2">
+                            <input name="V" class="form-control" placeholder="最大速度(千米/小时)" value="120"/>
+                        </div>
+                        <div class="form-group mx-1 mb-2">
+                            <input name="M" class="form-control" placeholder="重量(吨)" value="1022"/>
+                        </div>
+                    </form>
+                    <div class="form-group mx-1 mb-2">
+                        <button class="btn btn-primary" type="button">计算</button>
+                    </div>
+                </div>
+            </div>
+            <div id="report-card" class="card mt-3">
+                <div class="card-body" id="report" style="min-height: 560px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var myChart = echarts.init($('#report').get(0));
+
+    $('#report-card').hide();
+
+    $('button').on('click', function (e) {
+        e.preventDefault();
+
+        var DATA = {};
+
+        $('form').serializeArray().forEach(function (item) {
+            if ($.trim(item.value)) {
+                DATA[item.name] = parseFloat(item.value);
+            }
+        });
+
+        if ($.isEmptyObject(DATA)) {
+            return;
+        }
+
+        DATA.Po = DATA.P * 735.49875; // n.m/s
+        DATA.Fo = DATA.F * 1000; // n
+        DATA.Vo = DATA.V * 0.2777778; // m/s
+        DATA.Mo = DATA.M * 1000; // kg
+
+        DATA.VFmax = DATA.Po / DATA.Fo; // 在最大功率的限制下，以最大牵引力可达到的最大速度
+        DATA.FPmax = DATA.Po / DATA.Vo; //
+        DATA.Ao = DATA.Fo / DATA.Mo;
+
+        var V = 0;
+        var T = 0;
+        var timeStep = 0.1;
+        var F;
+
+        var FMAP = [];
+        var VMAP = [];
+        var TMAP = [];
+
+        while (V < DATA.Vo) {
+            if (DATA.Fo * V > DATA.Po) {
+                F = DATA.Po / V;
+            } else {
+                F = DATA.Fo;
+            }
+            V += (F / DATA.Mo) * timeStep;
+            T += timeStep;
+            FMAP.push(Math.round((F / 1000) * 100) / 100);
+            VMAP.push(Math.round((V / 0.2777778) * 100) / 100);
+            TMAP.push(Math.round(T * 100) / 100);
+        }
+
+        $('#report-card').show();
+
+        myChart.setOption({
+            title: {
+                text: 'Train start & acceleration process'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                right: 0,
+                data: ['牵引力输出', '速度']
+            },
+//            grid: {
+//                left: 0,
+//                right: 0,
+//                bottom: 0,
+//                containLabel: true
+//            },
+            xAxis: [
+                {
+                    boundaryGap: false,
+                    axisLine: {onZero: false},
+                    type: 'category',
+                    data: TMAP,
+                    name: '时间(秒)'
+                }
+            ],
+            yAxis: [
+                {
+                    name: '牵引力(千牛)',
+                    type: 'value'
+                },
+                {
+                    name: '速度(千米/时)',
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '牵引力输出',
+                    type: 'line',
+                    smooth: true,
+                    data: FMAP
+                },
+                {
+                    name: '速度',
+                    yAxisIndex: 1,
+                    type: 'line', smooth: true,
+                    data: VMAP
+                }
+            ]
+        });
+
+        return false;
+    });
+</script>
+</body>
+</html>
