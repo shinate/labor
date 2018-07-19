@@ -21,16 +21,16 @@
                 <div class="card-body p-3 pt-4">
                     <form class="form-inline">
                         <div class="form-group mx-1 mb-2">
-                            <input name="P" class="form-control" placeholder="功率(匹马力)" value="2725"/>
+                            <input name="P" class="form-control" placeholder="功率(匹马力)"/>
                         </div>
                         <div class="form-group mx-1 mb-2">
-                            <input name="F" class="form-control" placeholder="牵引力(千牛)" value="450"/>
+                            <input name="F" class="form-control" placeholder="牵引力(千牛)"/>
                         </div>
                         <div class="form-group mx-1 mb-2">
-                            <input name="V" class="form-control" placeholder="最大速度(千米/小时)" value="120"/>
+                            <input name="V" class="form-control" placeholder="最大速度(千米/小时)"/>
                         </div>
                         <div class="form-group mx-1 mb-2">
-                            <input name="M" class="form-control" placeholder="重量(吨)" value="1022"/>
+                            <input name="M" class="form-control" placeholder="重量(吨)"/>
                         </div>
                     </form>
                     <div class="form-group mx-1 mb-2">
@@ -55,13 +55,20 @@
 
         var DATA = {};
 
+        $('form').find('input').removeClass('is-invalid');
+
+        var checked = true;
         $('form').serializeArray().forEach(function (item) {
-            if ($.trim(item.value)) {
-                DATA[item.name] = parseFloat(item.value);
+            var value = parseFloat(item.value);
+            if (value && value > 0) {
+                DATA[item.name] = value;
+            } else {
+                $('form').find('input[name="' + item.name + '"]').addClass('is-invalid');
+                checked = false;
             }
         });
 
-        if ($.isEmptyObject(DATA)) {
+        if (!checked) {
             return;
         }
 
@@ -69,10 +76,6 @@
         DATA.Fo = DATA.F * 1000; // n
         DATA.Vo = DATA.V * 0.2777778; // m/s
         DATA.Mo = DATA.M * 1000; // kg
-
-        DATA.VFmax = DATA.Po / DATA.Fo; // 在最大功率的限制下，以最大牵引力可达到的最大速度
-        DATA.FPmax = DATA.Po / DATA.Vo; //
-        DATA.Ao = DATA.Fo / DATA.Mo;
 
         var V = 0;
         var T = 0;
