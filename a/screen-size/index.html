@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>screen size</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <style>
+
+        html, body {
+            overflow: hidden;
+        }
+
+        .panel {
+            position: absolute;
+            height: 100%;
+            width: 40vw;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, #555555, #111111 75%);
+        }
+
+        .panel-net {
+            height: 100%;
+            width: 100%;
+            background: transparent url("./nets.png") repeat scroll 50% 50%;
+        }
+
+        .panel-scaler {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .screen {
+            padding: 32px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+        .wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, .5);
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+        .controller {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .controller > div {
+            position: absolute;
+        }
+
+        .controller > .t,
+        .controller > .b,
+        .controller > .tl,
+        .controller > .tr,
+        .controller > .bl,
+        .controller > .br {
+            height: 16px;
+        }
+
+        .controller > .l,
+        .controller > .r,
+        .controller > .tl,
+        .controller > .tr,
+        .controller > .bl,
+        .controller > .br {
+            width: 16px;
+        }
+
+        .controller > .t {
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            cursor: ns-resize;
+            z-index: 1;
+        }
+
+        .controller > .b {
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            cursor: ns-resize;
+            z-index: 1;
+        }
+
+        .controller > .l {
+            bottom: 24px;
+            left: 24px;
+            top: 24px;
+            cursor: ew-resize;
+            z-index: 1;
+        }
+
+        .controller > .r {
+            bottom: 24px;
+            top: 24px;
+            right: 24px;
+            cursor: ew-resize;
+            z-index: 1;
+        }
+
+        .controller > .tl {
+            top: 24px;
+            left: 24px;
+            cursor: nwse-resize;
+            z-index: 2;
+        }
+
+        .controller > .tr {
+            top: 24px;
+            right: 24px;
+            cursor: nesw-resize;
+            z-index: 2;
+        }
+
+        .controller > .bl {
+            bottom: 24px;
+            left: 24px;
+            cursor: nesw-resize;
+            z-index: 2;
+        }
+
+        .controller > .br {
+            bottom: 24px;
+            right: 24px;
+            cursor: nwse-resize;
+            z-index: 2;
+        }
+
+        .ruler {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .wrap .cross-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 2px;
+            background-color: #ffffff;
+            overflow: visible;
+            text-align: center;
+        }
+
+        .wrap .cross-line i {
+            display: inline-block;
+            color: #ffffff;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 17px;
+            transform: translate3d(0, -16px, 0);
+        }
+
+        .wrap .cross-line:before, .wrap .cross-line:after {
+            content: '';
+            border-width: 2px;
+            border-color: #ffffff;
+            top: 1px;
+            height: 9px;
+            width: 9px;
+            position: absolute;
+            display: block;
+        }
+
+        .wrap .cross-line:before {
+            left: -1px;
+            border-style: solid none none solid;
+            transform: rotateZ(-45deg);
+            transform-origin: 0 0;
+        }
+
+        .wrap .cross-line:after {
+            right: -1px;
+            border-style: solid solid none none;
+            transform: rotateZ(45deg);
+            transform-origin: 100% 0;
+        }
+
+        .wrap .top-line, .wrap .left-line {
+            position: absolute;
+            border-width: 1px;
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        .wrap .top-line {
+            height: 32px;
+            top: -32px;
+            left: 0;
+            right: 0;
+            border-style: none solid;
+        }
+
+        .wrap .left-line {
+            width: 32px;
+            top: 0;
+            left: -32px;
+            bottom: 0;
+            border-style: solid none;
+        }
+
+        .wrap .left-line i, .wrap .top-line i {
+            font-style: normal;
+            word-break: keep-all;
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            position: absolute;
+            color: rgba(255, 255, 255, .5);
+            top: 50%;
+            left: 50%;
+        }
+
+        .wrap .left-line i {
+            transform: translate3d(-50%, -50%, 0) rotateZ(-90deg);
+        }
+
+        .wrap .top-line i {
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+<div id="panel" class="panel">
+    <div class="panel-net">
+        <div id="scaler" class="panel-scaler">
+            <div id="screen" class="screen">
+                <div id="controller" class="controller">
+                    <div x-effective="1" y-effective="1" class="tl"></div>
+                    <div x-effective="1" y-effective="1" class="tr"></div>
+                    <div x-effective="1" y-effective="1" class="br"></div>
+                    <div x-effective="1" y-effective="1" class="bl"></div>
+                    <div x-effective="0" y-effective="1" class="t"></div>
+                    <div x-effective="1" y-effective="0" class="r"></div>
+                    <div x-effective="0" y-effective="1" class="b"></div>
+                    <div x-effective="1" y-effective="0" class="l"></div>
+                </div>
+                <!--<canvas id="ruler" class="ruler"></canvas>-->
+                <div id="wrap" class="wrap">
+                    <div class="cross-line"></div>
+                    <div class="top-line"></div>
+                    <div class="left-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var config = {
+        defaultWidth: 67,
+        defaultHeight: 138.1,
+        pxmm: 2,
+        pxinch: 25.383 * 2,
+        accuracy: 2,
+        spaceborder: 32
+    };
+
+    var SCALE = 1;
+
+    var ACCURACY = Math.pow(10, config.accuracy);
+    function accuracy(num) {
+        return Math.ceil(num * ACCURACY) / ACCURACY;
+    }
+
+    var scaler = $('#scaler');
+    var panel = $('#panel');
+    var screen = $('#screen');
+    var wrap = screen.find('#wrap');
+    var controller = screen.find('#controller');
+    var ruler = screen.find('#ruler');
+
+    screen.css('width', ((config.defaultWidth * config.pxmm) + (config.spaceborder * 2)) + 'px');
+    screen.css('height', ((config.defaultHeight * config.pxmm) + (config.spaceborder * 2)) + 'px');
+
+    //    ruler.attr('width', screen.outerWidth());
+    //    ruler.attr('height', screen.outerHeight());
+
+    var w = screen.outerWidth();
+    var h = screen.outerHeight();
+    var p = screen.position();
+
+    p.left += w / 2;
+    p.top += h / 2;
+
+    console.log(w, h, p);
+
+    var moving = false;
+    var xEffective = false;
+    var yEffective = false;
+
+    controller.children().on('mousedown', function (e) {
+        e.preventDefault();
+        xEffective = $(this).attr('x-effective') == 1;
+        yEffective = $(this).attr('y-effective') == 1;
+        moving = true;
+    });
+
+    panel.on('mousemove', function (e) {
+        e.preventDefault();
+        if (!moving) {
+            return;
+        }
+
+        var width = (Math.abs((e.pageX - p.left) / SCALE) + config.spaceborder) * 2;
+        var height = (Math.abs((e.pageY - p.top) / SCALE) + config.spaceborder) * 2;
+
+        xEffective && screen.css('width', width);
+        yEffective && screen.css('height', height);
+
+//        xEffective && ruler.attr('width', width);
+//        yEffective && ruler.attr('height', height);
+//        canvasRender(ruler);
+
+        rulerRender();
+    });
+
+    panel.on('mouseup', function (e) {
+        e.preventDefault();
+        xEffective = yEffective = moving = false;
+    });
+
+    var scaleChange = 0;
+    panel.on('mousewheel', function (e) {
+        var delta = e.originalEvent.wheelDelta;
+        scaleChange += delta;
+        if (scaleChange > 0) {
+            scaleChange = 0;
+        } else if (scaleChange < -1e5) {
+            scaleChange = -1e5;
+        }
+        SCALE = 1 + Math.atan((scaleChange / 1e5) * 20) / (Math.PI * 0.6);
+
+        scaler.css('transform', 'scale(' + SCALE + ')');
+    });
+
+    $(window).on('resize', function () {
+        w = screen.outerWidth();
+        h = screen.outerHeight();
+        p = screen.position();
+
+        p.left += w / 2;
+        p.top += h / 2;
+    });
+
+
+    function rulerRender() {
+
+        var width = wrap.width();
+        var height = wrap.height();
+
+        var crossLine = wrap.find('.cross-line');
+        var radina = Math.atan((height - 12) / (width - 12));
+
+        crossLine.css('transform', 'translate3d(-50%, -50%, 0) rotateZ(' + (180 * radina / Math.PI ) + 'deg)');
+
+        var crossLength = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
+        crossLine.css('width', (crossLength - 24) + 'px');
+        crossLine.html('<i>' + accuracy(crossLength / config.pxmm) + ' mm<br>' + accuracy(crossLength / config.pxinch) + ' inch' + '</i>');
+
+        var topLine = wrap.find('.top-line');
+        topLine.html('<i>' + accuracy(width / config.pxmm) + ' mm<br>' + accuracy(width / config.pxinch) + ' inch' + '</i>');
+
+        var leftLine = wrap.find('.left-line');
+        leftLine.html('<i>' + accuracy(height / config.pxmm) + ' mm<br>' + accuracy(height / config.pxinch) + ' inch' + '</i>');
+    }
+
+    function canvasRender(canvas) {
+        var height = canvas.height();
+        var width = canvas.width();
+
+        var ctx = canvas.get(0).getContext('2d');
+
+        // ctx.lineWidth = 1;
+        ctx.strokeStyle = '#dfdfdf';
+        ctx.beginPath();
+        ctx.moveTo(32, 0);
+        ctx.lineTo(32, 32);
+        ctx.lineTo(0, 32);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(width - 32, 0);
+        ctx.lineTo(width - 32, 32);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, height - 32);
+        ctx.lineTo(32, height - 32);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.moveTo(32, 32);
+        ctx.lineTo(width - 32, height - 32);
+        ctx.stroke();
+    }
+
+    //    canvasRender(ruler);
+
+    rulerRender();
+
+</script>
+</body>
+</html>
