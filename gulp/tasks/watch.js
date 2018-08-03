@@ -15,7 +15,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 .pipe(PLUGIN.sourcemaps.init())
                 .pipe(PLUGIN.less())
                 .pipe(named(function (file) {
-                    file.base = CONF.src + '/less/';
+                    file.base = CONF.root + 'a';
                     var filepath = path.relative(file.base, file.path);
                     console.log('[' + colors.grey((new Date).toTimeString()) + ']', 'LESS Bundle');
                     console.log([
@@ -36,28 +36,23 @@ module.exports = function (gulp, PLUGIN, CONF) {
 
     gulp.task('watch-dev', ['build-dev', 'js-dev:watch', 'css-dev:watch']);
 
-    gulp.task('watch', ['build'], function () {
-        gulp.watch([
-            CONF.src + '/js/**/*.js',
-            CONF.src + '/less/**/*.less'
-        ], ['css', 'js']);
-    });
+    gulp.task('watch', ['js:dev:watch', 'css:dev:watch']);
 
-    gulp.task('js-dev:watch', ['build-dev'], PLUGIN.intelliWatch([
-        CONF.src + '/scripts/**/*.bundle.js',
-        '!' + CONF.src + '/scripts/*.min.js'
+    gulp.task('js:dev:watch', PLUGIN.intelliWatch([
+        CONF.root + 'a/**/*.bundle.js',
+        '!' + CONF.root + '/a/**/*.min.js'
     ], function (src) {
         return gulp.src(src)
             .pipe(PLUGIN.plumber())
             .pipe(named(function (file) {
                 var p = path.relative(file.base, file.path);
-                return path.relative(CONF.src + '/scripts', file.base) + '/' + p.slice(0, -path.extname(p).length);
+                return path.relative(CONF.root + 'a', file.base) + '/' + p.slice(0, -10);
             }))
             .pipe(ws(CONF.webpack(1)))
-            .pipe(gulp.dest(CONF.build + '/scripts'));
+            .pipe(gulp.dest(CONF.root + 'a'));
     }));
 
-    gulp.task('css-dev:watch', watch([
-        CONF.src + '/styles/**/*.less'
-    ], CONF.build + '/styles'));
+    gulp.task('css:dev:watch', watch([
+        CONF.root + 'a/**/*.less'
+    ], CONF.root + 'a'));
 };

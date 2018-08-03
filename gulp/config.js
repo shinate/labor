@@ -22,13 +22,15 @@ config.webpack = function (dev) {
         },
         resolve: {
             alias: {
-                'jquery': fs.realpathSync(config.src + '/scripts/assets/jquery-bridge.js')
+                'jquery': fs.realpathSync(config.src + '/scripts/model/jquery-bridge.js')
             }
-        }
+        },
+        mode: 'production'
     };
 
     if (dev) {
-        c.devtool = 'source-map'
+        c.devtool = 'source-map';
+        c.mode = 'development';
     }
 
     return c;
