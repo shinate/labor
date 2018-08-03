@@ -36,15 +36,8 @@ module.exports = window.CCTV = (function ($) {
         console.log(MATRIX_SOURCES);
 
         $(window).on('resize', this.reSizeScreens.bind(this));
-
-        // this.add('http://hls.open.ys7.com/openlive/e1cdd92412fb44ee857e10f771cb0db5.m3u8');
-        // this.add('http://hls.open.ys7.com/openlive/4c0dcd9d730f4a85b59a078f806209fe.m3u8');
-        // this.add('http://hls.open.ys7.com/openlive/46c404a581d247829d08c41a0ec4e394.m3u8');
     };
 
-    // http://hls.open.ys7.com/openlive/e1cdd92412fb44ee857e10f771cb0db5.m3u8
-    // http://hls.open.ys7.com/openlive/4c0dcd9d730f4a85b59a078f806209fe.m3u8
-    // http://hls.open.ys7.com/openlive/46c404a581d247829d08c41a0ec4e394.m3u8
     CP.add = function add(sources) {
 
         console.log(MATRIX_SOURCES.where('sources', sources));
