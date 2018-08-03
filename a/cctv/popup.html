@@ -8,7 +8,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 <body>
-<header></header>
+<header>
+    <button onclick="window.CCTV.reMatrix(-1)" type="button">&nbsp;-&nbsp;</button>
+    <button onclick="window.CCTV.reMatrix(1)" type="button">&nbsp;+&nbsp;</button>
+    <button onclick="window.CCTV.reflexMatrix()" type="button">FIT</button>
+</header>
 <section class="matrix"></section>
 <footer></footer>
 <script src="cctv.min.js"></script>
