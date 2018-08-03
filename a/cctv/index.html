@@ -2,25 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link type="text/css" rel="stylesheet" href="video-js.min.css"/>
-    <link type="text/css" rel="stylesheet" href="cctv.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <title>TMS</title>
 </head>
 <body>
-<header>
-    <button onclick="window.CCTV.reMatrix(-1)" type="button">&nbsp;-&nbsp;</button>
-    <button onclick="window.CCTV.reMatrix(1)" type="button">&nbsp;+&nbsp;</button>
-    <button onclick="window.CCTV.reflexMatrix()" type="button">FIT</button>
-</header>
-<section class="matrix"></section>
-<!--<script src="video.min.js"></script>-->
-<!--<script src="videojs-contrib-hlsjs.min.js"></script>-->
-<!--<script>-->
-<!--var player = videojs('#player');-->
-<!--videojs('example-video');-->
-<!--</script>-->
-<script src="cctv.js"></script>
+<button onclick="popup()" type="button">popup</button>
+<button onclick="popup_dev()" type="button">popup-dev</button>
+<script>
+    function popup_dev() {
+        OPENED_DEV = window.open('popup-dev.html', '_blank', 'width=1280,height=800,top=0,left=0,status=no,scrollbar=no,status=no');
+    }
 
+    function popup() {
+        OPENED = window.open('popup.html', '_blank', 'width=1280,height=800,top=0,left=0,status=no,scrollbar=no,status=no');
+    }
+</script>
 </body>
 </html>

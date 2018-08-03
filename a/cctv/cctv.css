@@ -17,6 +17,13 @@ header {
   width: 100%;
   height: 40px;
 }
+footer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
 .matrix {
   overflow: inherit;
   width: inherit;
@@ -25,11 +32,34 @@ header {
   flex-flow: row wrap;
 }
 .matrix > article {
+  position: relative;
   box-sizing: border-box;
   background-color: #4e555b;
   border: 5px solid #005cbf;
   display: none;
   overflow: hidden;
+}
+.matrix > article > .remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  width: 32px;
+  background-color: red;
+  z-index: 1;
+}
+.matrix > article > .reload {
+  position: absolute;
+  top: 0;
+  right: 32px;
+  height: 32px;
+  width: 32px;
+  background-color: blue;
+  z-index: 1;
+}
+.matrix > article > .video-js {
+  position: relative;
+  z-index: 0;
 }
 .matrix.matrix-1 > article:nth-child(-n+1) {
   display: initial;

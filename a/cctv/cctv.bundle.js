@@ -22,38 +22,47 @@ module.exports = window.CCTV = (function ($) {
     CP.init = function () {
         this.node = $('.matrix');
         for (var i = 0; i < MATRIX.max(); i++) {
-            var node = $('<article class="screen"></article>');
-            this.node.append(node);
+            var article = $('<article class="screen"><button type="button" class="reload"></button><button type="button" class="remove"></button></article>');
+            this.node.append(article);
             MATRIX_SOURCES.push({
                 ID: null,
-                container: node,
+                container: article,
                 sources: null,
-                playerDOM: null,
                 player: null
             });
         }
 
-        console.log(MATRIX_SOURCES);
-
         $(window).on('resize', this.reSizeScreens.bind(this));
+        this.node
+            .on('click', '.reload', function () {
+            })
+            .on('click', '.remove', function () {
+                var id = $(this).parent().find(':eq(0)').attr('id');
+                var handle = MATRIX_SOURCES.where('ID', id).first();
+                handle.player.dispose();
+                handle.player = null;
+                handle.sources = null;
+                handle.ID = null;
+            });
+
+        // this.add('http://hls.open.ys7.com/openlive/e1cdd92412fb44ee857e10f771cb0db5.m3u8');
+        // this.add('http://hls.open.ys7.com/openlive/4c0dcd9d730f4a85b59a078f806209fe.m3u8');
+        // this.add('http://hls.open.ys7.com/openlive/46c404a581d247829d08c41a0ec4e394.m3u8');
     };
 
     CP.add = function add(sources) {
-
-        console.log(MATRIX_SOURCES.where('sources', sources));
         if (MATRIX_SOURCES.where('sources', sources).count()) {
             return;
         }
-
         var SCREEN = getFreeScreen();
         SCREEN.sources = sources;
         SCREEN.ID = uniqueID();
-        SCREEN.playerDOM = $('' +
+        var dom = $('' +
             '<video id="' + SCREEN.ID + '" class="video-js" autoplay>' +
             '<source src="' + SCREEN.sources + '" type="application/x-mpegURL">' +
             '</video>');
-        SCREEN.container.append(SCREEN.playerDOM);
-        SCREEN.player = videojs(SCREEN.playerDOM.get(0));
+        SCREEN.container.prepend(dom);
+        SCREEN.player = videojs(dom.get(0));
 
         this.reflexMatrix();
     };
