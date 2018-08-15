@@ -20,9 +20,10 @@ module.exports = window.CCTV = (function ($) {
     var CP = CCTV.prototype;
 
     CP.init = function () {
+        var that = this;
         this.node = $('.matrix');
         for (var i = 0; i < MATRIX.max(); i++) {
-            var article = $('<article class="screen"><button type="button" class="reload"></button><button type="button" class="remove"></button></article>');
+            var article = $('<article class="screen"><button type="button" class="reload fa fa-sync-alt"></button><button type="button" class="remove fa fa-times"></button></article>');
             this.node.append(article);
             MATRIX_SOURCES.push({
                 ID: null,
@@ -32,17 +33,14 @@ module.exports = window.CCTV = (function ($) {
             });
         }
 
-        $(window).on('resize', this.reSizeScreens.bind(this));
+        $(window).on('resize', this.reSizeScreens.bind(this))
+
         this.node
             .on('click', '.reload', function () {
+                that.reload($(this).parent().find(':eq(0)').attr('id'));
             })
             .on('click', '.remove', function () {
-                var id = $(this).parent().find(':eq(0)').attr('id');
-                var handle = MATRIX_SOURCES.where('ID', id).first();
-                handle.player.dispose();
-                handle.player = null;
-                handle.sources = null;
-                handle.ID = null;
+                that.remove($(this).parent().find(':eq(0)').attr('id'));
             });
 
         // this.add('http://hls.open.ys7.com/openlive/e1cdd92412fb44ee857e10f771cb0db5.m3u8');
@@ -62,13 +60,41 @@ module.exports = window.CCTV = (function ($) {
             '<source src="' + SCREEN.sources + '" type="application/x-mpegURL">' +
             '</video>');
         SCREEN.container.prepend(dom);
+        SCREEN.container.addClass('screen-actived');
         SCREEN.player = videojs(dom.get(0));
 
         this.reflexMatrix();
     };
 
-    CP.remove = function remove(source) {
+    CP.remove = function remove(idOrSource) {
+        var SCREEN = getScreenByIdOrSource(idOrSource);
 
+        if (SCREEN == null) {
+            return;
+        }
+
+        SCREEN.container.removeClass('screen-actived');
+        SCREEN.player.dispose();
+        SCREEN.player = null;
+        SCREEN.sources = null;
+        SCREEN.ID = null;
+    };
+
+    CP.reload = function (id, sources) {
+        var SCREEN = getScreenByIdOrSource(id);
+
+        if (SCREEN == null) {
+            return;
+        }
+
+        if (sources != null) {
+            SCREEN.sources = sources;
+        }
+
+        SCREEN.player.pause();
+        SCREEN.player.src({type: 'application/x-mpegURL', src: SCREEN.sources});
+        SCREEN.player.load();
+        SCREEN.player.play();
     };
 
     CP.clear = function clear() {
@@ -118,6 +144,21 @@ module.exports = window.CCTV = (function ($) {
             });
         }
     };
+
+    function getScreenByIdOrSource(idOrSource) {
+        var SCREEN = null;
+        var s = MATRIX_SOURCES.where('ID', idOrSource);
+        if (s.count()) {
+            SCREEN = s.first();
+        } else {
+            s = MATRIX_SOURCES.where('sources', idOrSource);
+            if (s.count()) {
+                SCREEN = s.first();
+            }
+        }
+
+        return SCREEN;
+    }
 
     function getFreeScreen() {
         return MATRIX_SOURCES.where('sources', null).first();

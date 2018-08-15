@@ -8,7 +8,7 @@ body {
 body {
   overflow: hidden;
   box-sizing: border-box;
-  padding: 40px 0;
+  padding: 40px 0 0 0;
 }
 header {
   position: absolute;
@@ -18,9 +18,10 @@ header {
   height: 40px;
 }
 footer {
+  display: none;
   position: absolute;
-  top: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 40px;
 }
@@ -34,28 +35,42 @@ footer {
 .matrix > article {
   position: relative;
   box-sizing: border-box;
-  background-color: #4e555b;
-  border: 5px solid #005cbf;
+  box-shadow: 0 0 1px -1px #ffffff;
   display: none;
   overflow: hidden;
 }
-.matrix > article > .remove {
+.matrix > article > .remove,
+.matrix > article > .reload {
+  outline: none;
+  border: 0 none;
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 32px;
-  width: 32px;
-  background-color: red;
+  top: 5px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3333);
+  color: #000000;
+  display: none;
+  line-height: 48px;
+  height: 48px;
+  width: 48px;
   z-index: 1;
+  cursor: pointer;
+}
+.matrix > article > .remove:hover,
+.matrix > article > .reload:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.matrix > article > .remove {
+  font-size: 36px;
+  right: 5px;
 }
 .matrix > article > .reload {
-  position: absolute;
-  top: 0;
-  right: 32px;
-  height: 32px;
-  width: 32px;
-  background-color: blue;
-  z-index: 1;
+  font-size: 28px;
+  right: 58px;
+}
+.matrix > article.screen-actived:hover > .remove,
+.matrix > article.screen-actived:hover > .reload {
+  display: initial;
 }
 .matrix > article > .video-js {
   position: relative;
