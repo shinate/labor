@@ -14,7 +14,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             .pipe(gulp.dest(CONF.build + '/styles'));
     });
 
-    gulp.task('css-asset', function () {
+    gulp.task('css-asset',['css-bundled'], function () {
         return gulp.src([
             CONF.src + '/styles/*.css',
             '!' + CONF.src + '/styles/*.min.css'
@@ -65,7 +65,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
         });
     }
 
-    gulp.task('css:dev:watch', watch([
+    gulp.task('css:dev:watch',['css-asset'],  watch([
         CONF.root + 'a/**/*.less'
     ], CONF.root + 'a'));
 };
