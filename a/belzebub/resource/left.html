@@ -1,0 +1,153 @@
+<HTML>
+
+<HEAD>
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="StyleSheet" href="dtree.css" type="text/css"/>
+    <style type="text/css">
+        body {
+            background-color: #DDDDDD; /*AAABBB*/
+        }
+    </style>
+    <script type="text/javascript" src="dtree.js"></script>
+
+</HEAD>
+<BODY>
+
+<div class="dtree">
+    <p><a href="javascript: d.openAll();"><img src="images/nolines_plus.gif" alt="Plus sign">open all</a> | <a href="javascript: d.closeAll();"><img src="images/nolines_minus.gif" alt="Minus sign">close all</a></p>
+    <script type="text/javascript">
+
+        window.d = new dTree("d");
+
+        d.add(0, -1, "", "");
+        d.add(1, 0, "Introduction", "1_Introduction.html");
+
+        d.add(2, 0, "Concepts", "");
+
+        d.add(3, 2, "Difficulty & PlayerX", "2_Difficulty&PlayerX.html");
+        d.add(4, 2, "Potions & Elixirs", "3_Potions&Elixirs.html");
+        d.add(5, 2, "Scrolls & Spellbooks", "4_Scrolls&Spellbooks.html");
+        d.add(6, 2, "Shrines & Wells", "5_Shrines&Wells.html");
+
+        d.add(7, 0, "Quest List", "6_Quests.html", null, null, "images/chm_info.png", "images/chm_info.png", null);
+
+        d.add(8, 0, "Characters", "");
+
+        d.add(9, 8, "Warrior", "7_Warrior.html");
+        d.add(10, 8, "Rogue", "8_Rogue.html");
+        d.add(11, 8, "Sorcerer", "9_Sorcerer.html");
+        d.add(12, 8, "Barbarian", "10_Barbarian.html");
+        d.add(13, 8, "Necromancer", "11_Necromancer.html");
+        d.add(14, 8, "Assassin", "12_Assassin.html");
+
+        d.add(15, 0, "Items", "");
+        d.add(16, 15, "Armor Looks", "13_ArmorLooks.html", null, null, "images/chm_info.png", null);
+
+        d.add(17, 15, "Base", "14_BaseItems.html", null, null, "images/chm_page_book.png", "images/chm_page_book_open.png", null);
+
+        d.add(18, 17, "Head Gear", "14_BaseItems.html#head_gear");
+        d.add(19, 17, "Body Armors", "14_BaseItems.html#body_armors");
+        d.add(20, 17, "Waist Gear", "14_BaseItems.html#waist_gear");
+        d.add(21, 17, "Shields", "14_BaseItems.html#shields");
+        d.add(22, 17, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(23, 17, "1H Swords", "14_BaseItems.html#1h_swords");
+        d.add(24, 17, "2H Swords", "14_BaseItems.html#2h_swords");
+        d.add(25, 17, "1H Maces", "14_BaseItems.html#1h_maces");
+        d.add(26, 17, "2H Maces", "14_BaseItems.html#2h_maces");
+        d.add(27, 17, "2H Axes", "14_BaseItems.html#2h_axes");
+        d.add(28, 17, "2H Bows", "14_BaseItems.html#2h_bows");
+        d.add(29, 17, "2H Staves", "14_BaseItems.html#2h_staves");
+
+        d.add(30, 15, "Unique", "15_UniqueItems.html", null, null, "images/chm_page_book.png", "images/chm_page_book_open.png", null);
+
+        d.add(31, 30, "Jewelry", "15_UniqueItems.html#jewelry");
+        d.add(32, 30, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(33, 30, "Head Gear", "15_UniqueItems.html#head_gear");
+        d.add(34, 30, "Body Armors", "15_UniqueItems.html#body_armors");
+        d.add(35, 30, "Waist Gear", "15_UniqueItems.html#waist_gear");
+        d.add(36, 30, "Shields", "15_UniqueItems.html#shields");
+        d.add(37, 30, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(38, 30, "1H Swords", "15_UniqueItems.html#1h_swords");
+        d.add(39, 30, "2H Swords", "15_UniqueItems.html#2h_swords");
+        d.add(40, 30, "1H Maces", "15_UniqueItems.html#1h_maces");
+        d.add(41, 30, "2H Maces", "15_UniqueItems.html#2h_maces");
+        d.add(42, 30, "2H Axes", "15_UniqueItems.html#2h_axes");
+        d.add(43, 30, "1H CrossBows", "15_UniqueItems.html#1h_xbows");
+        d.add(44, 30, "2H Bows", "15_UniqueItems.html#2h_bows");
+        d.add(45, 30, "1H Wands", "15_UniqueItems.html#1h_wands");
+        d.add(46, 30, "2H Staves", "15_UniqueItems.html#2h_staves");
+
+        d.add(47, 15, "Sets", "16_SetItems.html", null, null, "images/chm_page_book.png", "images/chm_page_book_open.png", null);
+
+        d.add(48, 47, "Hsarus", "16_SetItems.html#HSARUS");
+        d.add(49, 47, "Artic", "16_SetItems.html#ARCTIC");
+        d.add(50, 47, "Berserker", "16_SetItems.html#BERSERKER");
+        d.add(51, 47, "Civerb", "16_SetItems.html#CIVERB");
+        d.add(52, 47, "Cathan", "16_SetItems.html#CATHAN");
+        d.add(53, 47, "Isenhart", "16_SetItems.html#ISENHART");
+        d.add(54, 47, "Cleglaw", "16_SetItems.html#CLEGLAW");
+        d.add(55, 47, "Sigon", "16_SetItems.html#SIGON");
+        d.add(56, 47, "Arcanna", "16_SetItems.html#ARCANNA");
+        d.add(57, 47, "Vidala", "16_SetItems.html#VIDALA");
+        d.add(58, 47, "Death", "16_SetItems.html#DEATH");
+        d.add(59, 47, "Angelic", "16_SetItems.html#ANGELIC");
+        d.add(60, 47, "Tancred", "16_SetItems.html#TANCRED");
+        d.add(61, 47, "Naj", "16_SetItems.html#NAJ");
+        d.add(62, 47, "Milabrega", "16_SetItems.html#MILABREGA");
+        d.add(63, 47, "Infernal", "16_SetItems.html#INFERNAL");
+        d.add(64, 47, "Iratha", "16_SetItems.html#IRATHA");
+        d.add(65, 47, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(66, 47, "Harridan", "16_SetItems.html#HARRIDAN");
+        d.add(67, 47, "Aldur", "16_SetItems.html#ALDUR");
+        d.add(68, 47, "Hwanin", "16_SetItems.html#HWANIN");
+        d.add(69, 47, "Thunderlord", "16_SetItems.html#THUNDERLORD");
+        d.add(70, 47, "TRIBUTE", "16_SetItems.html#TRIBUTE");
+        d.add(71, 47, "Greyscull", "16_SetItems.html#GREYSCULL");
+        d.add(72, 47, "Trang-Oul", "16_SetItems.html#TRANG-OUL");
+        d.add(73, 47, "Tal Rasha", "16_SetItems.html#TAL_RASHA");
+        d.add(74, 47, "Viz'Jaq Tar", "16_SetItems.html#VIZ_JAQ'TAR");
+        d.add(75, 47, "M'avina", "16_SetItems.html#M'AVINA");
+        d.add(76, 47, "Rathma", "16_SetItems.html#RATHMA");
+        d.add(77, 47, "Bul-Kathos", "16_SetItems.html#BUL-KATHOS");
+        d.add(78, 47, "Griswold", "16_SetItems.html#GRISWOLD");
+        d.add(79, 47, "Immortal King", "16_SetItems.html#IMMORTAL_KING");
+
+        d.add(80, 15, "Prefixes & Suffixes", "18_Prefixes&Suffixes.html", null, null, "images/chm_info.png", "images/chm_info.png", null);
+
+        d.add(81, 15, "Crafting Recipes", "18_CraftingRecipes.html", null, null, "images/chm_page_book.png", "images/chm_page_book_open.png", null);
+        d.add(82, 81, "Transmuting", "18_CraftingRecipes.html#TRANSMUTE");
+        d.add(83, 81, "Uptiering", "18_CraftingRecipes.html#UPTIER");
+        d.add(84, 81, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(85, 81, "Warrior", "18_CraftingRecipes.html#WARRIOR");
+        d.add(86, 81, "Rogue", "18_CraftingRecipes.html#ROGUE");
+        d.add(87, 81, "Sorcerer", "18_CraftingRecipes.html#SORCERER");
+        d.add(88, 81, "Barbarian", "18_CraftingRecipes.html#BARBARIAN");
+        d.add(89, 81, "Necromancer", "18_CraftingRecipes.html#NECROMANCER");
+        d.add(90, 81, "Assassin", "18_CraftingRecipes.html#ASSASSIN");
+        d.add(91, 81, "<s style='cursor:default;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</s>", "", null, null, "images/root.png", "images/root.png", null);
+        d.add(92, 81, "Caster Heroes", "18_CraftingRecipes.html#CASTER");
+        d.add(93, 81, "Fighter Heroes", "18_CraftingRecipes.html#FIGHTER");
+
+        d.add(94, 0, "Bestiary (unavailable)", "");
+
+        d.add(95, 94, "Cathedral", "19_Bestiary.html#CATHEDRAL");
+        d.add(96, 94, "Catacomb", "19_Bestiary.html#CATACOMB");
+        d.add(97, 94, "Cave", "19_Bestiary.html#CAVE");
+        d.add(98, 94, "Hell", "19_Bestiary.html#HELL");
+        d.add(99, 94, "Other Areas", "19_Bestiary.html#OTHER");
+
+        d.add(100, 0, "Information", "");
+
+        d.add(101, 100, "Forum & Site", "20_Forum&Site.html", null, null, "images/chm_info.png", "images/chm_info.png", null);
+        d.add(102, 100, "FAQ", "21_FAQ.html", null, null, "images/chm_question.png", "images/chm_question.png", null);
+        d.add(103, 100, "Documentation", "24_DOCSv3.0.html", null, null, "images/chm_info.png", "images/chm_info.png", null);
+
+
+        document.write(d);
+
+    </script>
+</div>
+
+</BODY>
+</HTML>
