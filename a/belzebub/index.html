@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <title>DIABLO 1 HD (Belzebub) HTML Documentation v3.0</title>
+    <link rel="shortcut icon" href="resource/images/favicon.ico">
+
+    <SCRIPT type="text/javascript">
+        function fgetCookie(cookieName) {
+
+            var cookieValue = '';
+            var posName = document.cookie.indexOf(escape(cookieName) + '=');
+            if (posName != -1) {
+                var posValue = posName + (escape(cookieName) + '=').length;
+                var endPos = document.cookie.indexOf(';', posValue);
+                if (endPos != -1) cookieValue = unescape(document.cookie.substring(posValue, endPos));
+                else cookieValue = unescape(document.cookie.substring(posValue));
+            }
+
+            if (cookieValue == '') {
+                return;
+            }
+            else {
+                document.getElementById('fbody').src = cookieValue;
+            }
+        }
+    </SCRIPT>
+
+</HEAD>
+
+<FRAMESET border=3 cols="198, *" onload="fgetCookie('cs_path');">
+    <FRAME name="left" id="fleft" marginWidth=5 marginHeight=5 src="resource/___left.htm"/>
+    <FRAME name="body" id="fbody" marginWidth=5 marginHeight=5 src="resource/24_DOCSv3.0.html"/>
+</FRAMESET>
+
+</HTML>

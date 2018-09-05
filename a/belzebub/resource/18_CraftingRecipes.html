@@ -1,0 +1,5220 @@
+<HTML>
+	<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+	<title>CRAFTING RECIPES</title>
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="m_2.css" />
+
+	<style type="text/css">
+
+		.hidden
+		{
+			display: none;
+		}
+		.clear_float, p, br
+		{
+			clear: both;
+		}
+		.clear_none
+		{
+			clear: none;
+		}
+		.comment
+		{
+			display: block;
+			clear: both;
+		}
+		
+	</style>
+
+	<script type="text/javascript">
+
+		function filter_fu()
+		{
+
+			var tables = document.getElementsByTagName('table');
+			var tables_len = tables.length; //222
+			var skip_last_x_tables = 1; //UPGRADE
+			var skip_first_x_tables = 4;
+
+			var tier_number = document.getElementById('tier_list').value;
+			tier_number = tier_number.match(/[0-9]/);
+			tier_number = (tier_number?tier_number:0);
+
+			var tier_row = 0;
+			var tier_column = 0;
+			var tt = new Array();
+			if (tier_number > 0)
+			{
+				tier_row = Math.floor((tier_number-1)/3) + 1;
+				tier_column = tier_number%5;
+			}
+
+			for (i=skip_first_x_tables-1; i<tables_len-skip_last_x_tables;i++)
+			{
+				var table = tables[i];
+				var table_rows = table.rows;
+
+				if (tier_number != 0)
+				{
+					//if (table.className == "item_table") //add a case if it's "tu_one"
+					//{
+						table_rows[1].getElementsByTagName('td')[1].className = "hidden";
+						table_rows[1].getElementsByTagName('td')[2].className = "hidden";
+						table_rows[1].getElementsByTagName('td')[3].className = "hidden";
+						table_rows[1].getElementsByTagName('td')[4].className = "hidden";
+						table_rows[2].getElementsByTagName('td')[0].className = "hidden";
+						table_rows[2].getElementsByTagName('td')[1].className = "hidden";
+						table_rows[2].getElementsByTagName('td')[2].className = "hidden";
+						table_rows[2].getElementsByTagName('td')[3].className = "hidden";
+
+						table_rows[tier_row].getElementsByTagName('td')[tier_column].className = "";
+
+						table.className = "tu_one";
+					//}
+				}
+				else
+				{
+					table_rows[1].getElementsByTagName('td')[1].className = "";
+					table_rows[1].getElementsByTagName('td')[2].className = "";
+					table_rows[1].getElementsByTagName('td')[3].className = "";
+					table_rows[2].getElementsByTagName('td')[0].className = "";
+					table_rows[2].getElementsByTagName('td')[1].className = "";
+					table_rows[2].getElementsByTagName('td')[2].className = "";
+
+					table.className = "item_table";
+				}
+			}
+
+			var zz = document.getElementsByTagName("div")[0].childNodes
+			var zz_len = zz.length
+
+			var ii = 0;
+			var jj = 0;
+			var last_el;
+			var last_table;
+			var tagname;
+			var max_table_height = 0;
+			var max_table_peroperties_height = 0;
+			for (i=0; i<zz_len;i++)
+			{
+
+				tagname = zz[i].tagName;
+				if (tier_number != 0)
+				{
+					if (tagname == "P")
+					{
+						if (ii>0)
+						{
+							last_el.className = "";
+						}
+						ii = 0;
+						jj = 0;
+					}
+					if (tagname == "BR")
+					{
+						ii++;
+						if (ii%2 == 1)
+						{
+							zz[i].className = "hidden clear_none";
+						}
+						else
+						{
+							zz[i].className = "clear_float"; //make this higherrrrr
+							ii = 0;
+						}
+						last_el = zz[i];
+					}
+					if ((tagname == "TABLE") && (zz[i].className == "tu_one"))
+					{
+						jj++;
+						if (jj%2 == 1)
+						{
+							if (tier_row == 1)
+							{
+								zz[i].rows[tier_row].getElementsByTagName('td')[tier_column].style.borderBottom = "1px solid black";
+							}
+							max_table_height = zz[i].clientHeight;
+							max_table_peroperties_height = zz[i].rows[tier_row].getElementsByTagName('td')[tier_column].clientHeight;
+						}
+						else
+						{
+							/////////////////if (zz[i].clientHeight > max_table_height)
+							if (tier_row == 1)
+							{
+								zz[i].rows[tier_row].getElementsByTagName('td')[tier_column].style.borderBottom = "1px solid black";
+							}
+							if (zz[i].clientHeight > last_table.clientHeight)
+							{
+								max_table_height = zz[i].clientHeight;
+								max_table_peroperties_height = zz[i].rows[tier_row].getElementsByTagName('td')[tier_column].clientHeight;
+							}
+							zz[i].style.height = max_table_height + "px";
+							last_table.style.height = max_table_height + "px";
+							zz[i].rows[tier_row].getElementsByTagName('td')[tier_column].style.height = max_table_peroperties_height + "px";
+							last_table.rows[tier_row].getElementsByTagName('td')[tier_column].style.height = max_table_peroperties_height + "px";
+						}
+						last_table = zz[i];
+					}
+				}
+				else
+				{
+					if (tagname == "BR")
+					{
+						zz[i].className = "";
+					}
+					if ((tagname == "TABLE") && (zz[i].className == "item_table"))
+					{
+						zz[i].rows[1].getElementsByTagName('td')[1].style.borderBottom = "";
+						zz[i].rows[1].getElementsByTagName('td')[2].style.borderBottom = "";
+						zz[i].rows[1].getElementsByTagName('td')[3].style.borderBottom = "";
+						zz[i].rows[1].getElementsByTagName('td')[4].style.borderBottom = "";
+						zz[i].style.height = "auto";
+						zz[i].rows[1].getElementsByTagName('td')[1].style.height = "auto";
+						zz[i].rows[1].getElementsByTagName('td')[2].style.height = "auto";
+						zz[i].rows[1].getElementsByTagName('td')[3].style.height = "auto";
+						zz[i].rows[1].getElementsByTagName('td')[4].style.height = "auto";
+						zz[i].rows[2].getElementsByTagName('td')[0].style.height = "auto";
+						zz[i].rows[2].getElementsByTagName('td')[1].style.height = "auto";
+						zz[i].rows[2].getElementsByTagName('td')[2].style.height = "auto";
+					}
+				}
+			}
+		}
+
+	</script>
+
+
+</HEAD>
+
+	<body class="content">
+<hr />
+	<div class="text_on_the_left">
+		<p class="genbig">CRAFTING RECIPES</p>
+		<p class="content">If you complete the Anvil of Fury quest crafting becomes available at the Anvil, but remember that you still need to find some recipes. For an easier crafting experience i've made a list with the Required Level to learn recipes, the materials needed and their results.</p>
+<hr />
+
+		<p class="genbig" id="TRANSMUTE"><b>Recipes for Transmuting</b></p>
+	
+	<table class='item_table'>
+	<tr><th colspan="6" class="orange">GEMS</th></tr>
+	<tr><td rowspan='1'><img src="images/items-crafting/0_FlawedGem.png"></td>
+			<td>
+				<div><span class="orange">FLAWED</span></div>
+					Already available<br />
+					<br />
+				<div>Materials:</div>
+					3 x Flawed Gem<br />
+					<br />
+				<div>Result:</div>
+					1 x Regular Gem<br /></span>
+			</td>
+			
+			<td class='img_middle' style="vertical-align:middle;"><img src="images/items-crafting/1_RegularGem.png"></td>
+			<td>
+				<div><span class="orange">REGULAR</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					3 x Regular Gem<br />
+					<br />
+				<div>Result:</div>
+					1 x Flawless Gem<br /></span>
+			</td>
+			<td class='img_middle' style="vertical-align:middle;"><img src="images/items-crafting/2_FlawlessGem.png"></td>
+			<td>
+				<div><span class="orange">FLAWLESS</span></div>
+					Required Level: 40<br />
+					<br />
+				<div>Materials:</div>
+					3 x Flawless Gem<br />
+					<br />
+				<div>Result:</div>
+					1 x Perfect Gem<br /></span>
+			</td>
+	</table><br />
+	
+	<p class="genbig" id="UPTIER"><b>Recipes for Uptiering</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">ARMOR PIECES</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/3_UptierRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">MAGIC</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					15 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Sapphire<br />
+					<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Armor piece (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RARE</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					10 x Crimson Oil<br />
+					&nbsp;&nbsp;5 x Symbol of Power<br />
+					&nbsp;&nbsp;7 x Flawless Topaz<br />
+					&nbsp;&nbsp;7 x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Armor piece (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">CRAFTED</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					6 x Silver Oil<br />
+					5 x Symbol of Power<br />
+					6 x Flawless Ruby<br />
+					6 x Flawless Amethyst<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Armor piece (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">UNIQUE</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					6 x Golden Oil<br />
+					5 x Symbol of Power<br />
+					5 x Perfect Topaz<br />
+					5 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Armor piece (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">SET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					5 x Golden Oil<br />
+					5 x Symbol of Power<br />
+					4 x Perfect Emerald<br />
+					4 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Armor piece (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+	
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">WEAPON TYPES</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/3_UptierRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">MAGIC</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					15 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Sapphire<br />
+					<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Weapon type (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RARE</span></div>
+					Required Level: 36<br />
+					<br />
+				<div>Materials:</div>
+					10 x Crimson Oil<br />
+					&nbsp;&nbsp;5 x Symbol of Power<br />
+					&nbsp;&nbsp;7 x Flawless Topaz<br />
+					&nbsp;&nbsp;7 x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Weapon type (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">CRAFTED</span></div>
+					Required Level: 36<br />
+					<br />
+				<div>Materials:</div>
+					6 x Silver Oil<br />
+					5 x Symbol of Power<br />
+					6 x Flawless Ruby<br />
+					6 x Flawless Amethyst<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Weapon type (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">UNIQUE</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					6 x Golden Oil<br />
+					5 x Symbol of Power<br />
+					5 x Perfect Topaz<br />
+					4 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Weapon type (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">SET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x ???<br />
+					??? x ???<br />
+					??? x ???<br />
+					??? x ???<br />
+					<br />
+				<div>Result:</div>
+					Tier 2 Weapon type (same class & affixes)<br />
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+	
+	<label for="tier_list" title="Item Tier Filter">Item Tier Filter:
+
+		<select name="tier_list" id="tier_list" size=1 title="Item Tier Filter" onchange="filter_fu();">
+			<option selected='selected'>All</option>		
+			<option>Tier 6</option>
+			<option>Tier 5</option>
+			<option>Tier 4</option>
+			<option>Tier 3</option>
+			<option>Tier 2</option>
+			<option>Tier 1</option>
+		</select></label>
+	
+	<p class="genbig" id="WARRIOR"><b>Recipes for Warrior</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">WARRIOR'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/4_WarriorRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Amethyst<br />
+					12 x Flawed Ruby<br />
+					12 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (2-5)<br />
+					+(6-10) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Amethyst<br />
+					&nbsp;&nbsp;5 x Flawed Ruby<br />
+					&nbsp;&nbsp;5 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (2-5)<br />
+					+(6-10) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Ruby<br />
+					10 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (6-10)<br />
+					+(6-10) to Vitality<br />
+					-1 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(31-75)% Enhanced Armor<br />
+					+(6-10) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(31-75)% Enhanced Armor<br />
+					+(6-10) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Amethyst<br />
+					&nbsp;&nbsp;4 x Flawed Ruby<br />
+					&nbsp;&nbsp;4 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(31-75)% Enhanced Armor<br />
+					+(6-10) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Ruby<br />
+					10 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(31-75)% Enhanced Armor<br />
+					+(6-10) to Vitality<br />
+					-1 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 27<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">CHAMPION'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/4_WarriorRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Amethyst<br />
+					10 x Ruby<br />
+					10 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (11-15)<br />
+					+(11-15) to Vitality<br />
+					-(1-2) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/19/21/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Amethyst<br />
+					&nbsp;&nbsp;7 x Ruby<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (11-15)<br />
+					+(11-15) to Vitality<br />
+					-(1-2) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/15/17/18/19/27<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Amethyst<br />
+					&nbsp;&nbsp;6 x Ruby<br />
+					&nbsp;&nbsp;6 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (16-25)<br />
+					+(11-15) to Vitality<br />
+					-2 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 16/18/19/22/27/29<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Amethyst<br />
+					&nbsp;&nbsp;7 x Ruby<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(41-100)% Enhanced Armor<br />
+					+(11-15) to Vitality<br />
+					Hit Recovery Speed: (5-10)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/16/17/19/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Amethyst<br />
+					&nbsp;&nbsp;7 x Ruby<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(41-100)% Enhanced Armor<br />
+					+(11-15) to Vitality<br />
+					Hit Recovery Speed: (5-10)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/16/17/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Amethyst<br />
+					&nbsp;&nbsp;5 x Ruby<br />
+					&nbsp;&nbsp;5 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(41-100)% Enhanced Armor<br />
+					+(11-15) to Vitality<br />
+					Hit Recovery Speed: (5-10)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/14/15/17/18/19/21/27<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Amethyst<br />
+					&nbsp;&nbsp;8 x Ruby<br />
+					&nbsp;&nbsp;8 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(41-100)% Enhanced Armor<br />
+					+(11-15) to Vitality<br />
+					-2 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/15/16/17/19/26/27/29/37<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">WARLORD'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/4_WarriorRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Amethyst<br />
+					&nbsp;&nbsp;8 x Flawless Ruby<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (16-25)<br />
+					+(16-25) to Vitality<br />
+					-2 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (16-25)<br />
+					+(16-25) to Vitality<br />
+					-2 Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (26-40)<br />
+					+(16-29) to Vitality<br />
+					-(3-4) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 19/21/22/27/29/32/33/35/37<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(56-100)% Enhanced Armor<br />
+					+(16-25) to Vitality<br />
+					Hit Recovery Speed: (11-20)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 19/25/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(56-100)% Enhanced Armor<br />
+					+(16-20) to Vitality<br />
+					Hit Recovery Speed: (11-20)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(56-100)% Enhanced Armor<br />
+					+(16-20) to Vitality<br />
+					Hit Recovery Speed: (11-20)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/30/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawed Amethyst<br />
+					??? x Flawed Ruby<br />
+					??? x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(???-???)% Enhanced Armor<br />
+					+(???-???) to Vitality<br />
+					-??? Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">GUARDIAN'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/4_WarriorRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (???-???)<br />
+					+(???-???) to Vitality<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (11-15)<br />
+					+(???-???) to Vitality<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Increased Armor: (???-???)<br />
+					+(???-???) to Vitality<br />
+					-??? Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(???-???)% Enhanced Armor<br />
+					+(???-???) to Vitality<br />
+					Hit Recovery Speed: (???-???)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(???-???)% Enhanced Armor<br />
+					+(???-???) to Vitality<br />
+					Hit Recovery Speed: (???-???)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;4 x Perfect Amethyst<br />
+					&nbsp;&nbsp;4 x Perfect Ruby<br />
+					&nbsp;&nbsp;4 x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(75-150)% Enhanced Armor<br />
+					+(21-30) to Vitality<br />
+					Hit Recovery Speed: (21-30)%<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-6) Random Affixes<br /></span>
+					Required Level: 29/30/33/37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;4 x Perfect Amethyst<br />
+					&nbsp;&nbsp;5 x Perfect Ruby<br />
+					&nbsp;&nbsp;5 x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(71-185)% Enhanced Armor<br />
+					+(21-30) to Vitality<br />
+					-(5-7) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 29/37<br />
+			</td>
+			</tr>
+	</table><br />
+
+		<p class="genbig" id="ROGUE"><b>Recipes for Rogue</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">ROGUE'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/5_RogueRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Emerald<br />
+					12 x Flawed Amethyst<br />
+					12 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(6-10) to Dexterity<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/19<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Emerald<br />
+					&nbsp;&nbsp;5 x Flawed Amethyst<br />
+					&nbsp;&nbsp;5 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(6-10) to Dexterity<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(6-10) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 16/17/18/19<br />
+			</td>
+			<td>
+				<div><span class="orange">BOW</span></div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(6-10) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 15/16/17/18<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(6-10) to Dexterity<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(6-10) to Dexterity<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Emerald<br />
+					&nbsp;&nbsp;4 x Flawed Amethyst<br />
+					&nbsp;&nbsp;4 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(6-10) to Dexterity<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">SCOUT'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/5_RogueRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					10 x Amethyst<br />
+					10 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-3)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-4)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/27<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					&nbsp;&nbsp;6 x Amethyst<br />
+					&nbsp;&nbsp;6 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (6-10) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 30<br />
+			</td>
+			<td>
+				<div><span class="orange">BOW</span></div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					&nbsp;&nbsp;8 x Amethyst<br />
+					&nbsp;&nbsp;8 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (6-10) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 30<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Emerald<br />
+					&nbsp;&nbsp;5 x Amethyst<br />
+					&nbsp;&nbsp;5 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Dexterity<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">STALKER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/5_RogueRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Emerald<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(16-20) to Dexterity<br />
+					Adds (6-9) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 32/33<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(6-10)%<br />
+					+(11-30) to Dexterity<br />
+					Adds (10-15) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 21/22/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">BOW</span></div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;7 x Flawless Amethyst<br />
+					&nbsp;&nbsp;7 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(6-10)%<br />
+					+(11-20) to Dexterity<br />
+					Adds (10-15) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 19/27/29/33/37<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Emerald<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(16-20) to Dexterity<br />
+					Adds (6-9) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(16-20) to Dexterity<br />
+					Adds (6-9) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/33<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">HARBINGER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/5_RogueRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BOW</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Dexterity<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+	</table><br />
+	
+		<p class="genbig" id="SORCERER"><b>Recipes for Sorcerer</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">SORCERER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/6_SorcererRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Sapphire<br />
+					12 x Flawed Topaz<br />
+					12 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(10-15)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/19<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Sapphire<br />
+					&nbsp;&nbsp;5 x Flawed Topaz<br />
+					&nbsp;&nbsp;5 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(10-15)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					10 x Flawed Topaz<br />
+					10 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(3-10) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 10/11/13/14/16/17<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					&nbsp;&nbsp;6 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(10-15)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13/14/16/<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					&nbsp;&nbsp;6 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(10-15)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 5/6/10/11/13/16/17<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Sapphire<br />
+					&nbsp;&nbsp;4 x Flawed Topaz<br />
+					&nbsp;&nbsp;4 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(10-15)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/3/4/5/6/7/9/11/13/14/18<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">WIZARD'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/6_SorcererRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 34<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					10 x Topaz<br />
+					10 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/19/21/25/27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/15/17/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;6 x Topaz<br />
+					&nbsp;&nbsp;6 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(21-30)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/17/19/22/25/27/29<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Sapphire<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/16/17/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Sapphire<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/16/18/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Sapphire<br />
+					&nbsp;&nbsp;5 x Topaz<br />
+					&nbsp;&nbsp;5 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/15/16/17/18/19/21/27<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">MAGE'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/6_SorcererRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Topaz<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Topaz<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(30-40)<br />
+					+(16-25) to Magic<br />
+					Regenerates (3-5) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-5) Random Affixes<br /></span>
+					Required Level: 19/22/25/27/29/37<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(21-30)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Topaz<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(21-30)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/27/29/33<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">ARCH-MAGE'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/6_SorcererRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Topaz<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Topaz<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Topaz<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Topaz<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Sapphire<br />
+					&nbsp;&nbsp;4 x Perfect Topaz<br />
+					&nbsp;&nbsp;4 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(30-40)<br />
+					+(21-30) to Magic<br />
+					Regenerates (5-6) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-6) Random Affixes<br /></span>
+					Required Level: 29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Topaz<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(???-???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+	
+		<p class="genbig" id="BARBARIAN"><b>Recipes for Barbarian</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">BARBARIAN'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/7_BarbarianRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Ruby<br />
+					12 x Flawed Amethyst<br />
+					12 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(3-5) to Strength<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/18/19/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Ruby<br />
+					&nbsp;&nbsp;5 x Flawed Amethyst<br />
+					&nbsp;&nbsp;5 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(3-5) to Strength<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13/14<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Ruby<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(3-5) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 15/16/17/19<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(3-5) to Strength<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/14/16/17/25<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(3-5) to Strength<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 5/6/8/9/10/11/13/14/16/25/29/45<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Ruby<br />
+					&nbsp;&nbsp;4 x Flawed Amethyst<br />
+					&nbsp;&nbsp;4 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(3-5) to Strength<br />
+					Adds (1-2) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/3/5/6/7/11/13/14/16/29/45<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">HIGHLANDER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/7_BarbarianRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Ruby<br />
+					10 x Amethyst<br />
+					10 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 17/18/19/21/25/27/29/45<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Ruby<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/19/21/27/29/37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Ruby<br />
+					&nbsp;&nbsp;6 x Amethyst<br />
+					&nbsp;&nbsp;6 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					+(11-15) to Strength<br />
+					Adds (6-10) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 30<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Ruby<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/16/17/18/19/21/25/27/29/45<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Ruby<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/16/19/21/25/27/29/45<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Ruby<br />
+					&nbsp;&nbsp;5 x Amethyst<br />
+					&nbsp;&nbsp;5 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(11-15) to Strength<br />
+					Adds (3-5) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/16/17/18/19/21/29/45<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">REAVER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/7_BarbarianRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 45<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(6-10)%<br />
+					+(16-20) to Strength<br />
+					Adds (10-15) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 22/25/27/29/33/35/36/37<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(16-20) to Strength<br />
+					Adds (6-9) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/27/29/33/37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">MAIL</span> (only medium armor)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(16-20) to Strength<br />
+					Adds (6-9) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/27/29/45<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">CONQUEROR'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/7_BarbarianRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span> (except bow)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					Adds (???-???) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">PLATE</span> (only heavy armor)</div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Ruby<br />
+					&nbsp;&nbsp;4 x Perfect Amethyst<br />
+					&nbsp;&nbsp;4 x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					+(21-30) to Strength<br />
+					Adds (10-13) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 30/33/37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;4 x Perfect Ruby<br />
+					&nbsp;&nbsp;4 x Perfect Amethyst<br />
+					&nbsp;&nbsp;4 x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					+(21-30) to Strength<br />
+					Adds (10-13) Points to Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 30/33/37/45<br />
+			</td>
+			</tr>
+	</table><br />
+	
+		<p class="genbig" id="NECROMANCER"><b>Recipes for Necromancer</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">NECROMANCER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/8_NecromancerRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Sapphire<br />
+					12 x Flawed Ruby<br />
+					12 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/18/19<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Sapphire<br />
+					&nbsp;&nbsp;5 x Flawed Ruby<br />
+					&nbsp;&nbsp;5 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">2 Random Affixes<br /></span>
+					Required Level: 9/11/13/14/15<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					10 x Flawed Ruby<br />
+					10 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(1-3) to (Spell From Page 2)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 10/11/13/14/16/17<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13/16<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Ruby<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/5/6/9/11/13/16/17/21/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Sapphire<br />
+					&nbsp;&nbsp;4 x Flawed Ruby<br />
+					&nbsp;&nbsp;4 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Vitality<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/5/6/7/9/11/13/14<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">CALLER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/8_NecromancerRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					10 x Ruby<br />
+					10 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/25/27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;7 x Ruby<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/27<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;6 x Ruby<br />
+					&nbsp;&nbsp;6 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(1-3) to (Spell From Page 3)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/22/25/29<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Sapphire<br />
+					&nbsp;&nbsp;7 x Ruby<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Flawed Sapphire<br />
+					&nbsp;&nbsp;7 x Flawed Ruby<br />
+					&nbsp;&nbsp;7 x Flawed Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Sapphire<br />
+					&nbsp;&nbsp;5 x Ruby<br />
+					&nbsp;&nbsp;5 x Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Vitality<br />
+					Regenerates (1-2) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">SUMMONER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/8_NecromancerRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;8 x Flawless Ruby<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Vitality<br />
+					Regenerates (3-4) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/37<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Vitality<br />
+					Regenerates (3-4) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(1-3) to (Spell From Page 6)<br />
+					+(16-20) to Vitality<br />
+					Regenerates (3-4) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 27/29/33/35<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Vitality<br />
+					Regenerates (3-4) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Ruby<br />
+					??? x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Vitality<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Ruby<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Vitality<br />
+					Regenerates (3-4) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/30/33<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">RITUALIST'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/8_NecromancerRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Sapphire<br />
+					&nbsp;&nbsp;5 x Perfect Ruby<br />
+					&nbsp;&nbsp;5 x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 6)<br />
+					+(21-30) to Vitality<br />
+					Regenerates (5-6) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Vitality<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Vitality<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Sapphire<br />
+					&nbsp;&nbsp;4 x Perfect Ruby<br />
+					&nbsp;&nbsp;4 x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 6)<br />
+					+(21-30) to Vitality<br />
+					Regenerates (5-6) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Vitality<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Ruby<br />
+					??? x Perfect Emerald<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Vitality<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+	
+		<p class="genbig" id="ASSASSIN"><b>Recipes for Assassin</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">ASSASSIN'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/9_AssassinRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Emerald<br />
+					12 x Flawed Amethyst<br />
+					12 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 17/19<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Emerald<br />
+					&nbsp;&nbsp;5 x Flawed Amethyst<br />
+					&nbsp;&nbsp;5 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">2 Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					10 x Flawed Amethyst<br />
+					10 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(20-35)% Enhanced Damage<br />
+					Critical Hit Chance : +(3-4)%<br />
+					+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 15/16/17/19<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16/17<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span> (only light armor)</div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Amethyst<br />
+					&nbsp;&nbsp;6 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16/17<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Emerald<br />
+					&nbsp;&nbsp;4 x Flawed Amethyst<br />
+					&nbsp;&nbsp;4 x Flawed Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-2) to Strength<br />
+					+(6-10) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 16<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">THIEF'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/9_AssassinRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					10 x Amethyst<br />
+					10 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/25/27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Emerald<br />
+					&nbsp;&nbsp;6 x Amethyst<br />
+					&nbsp;&nbsp;6 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(51-65)% Enhanced Damage<br />
+					Critical Hit Chance : +(5-6)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 30/31<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span> (only light armor)</div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Emerald<br />
+					&nbsp;&nbsp;7 x Amethyst<br />
+					&nbsp;&nbsp;7 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Emerald<br />
+					&nbsp;&nbsp;5 x Amethyst<br />
+					&nbsp;&nbsp;5 x Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(1-2)%<br />
+					+(3-5) to Strength<br />
+					+(11-15) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 21<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">ZEALOT'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/9_AssassinRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;8 x Flawless Amethyst<br />
+					&nbsp;&nbsp;8 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(11-15) to Strength<br />
+					+(16-20) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(11-15) to Strength<br />
+					+(16-20) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Emerald<br />
+					??? x Flawless Amethyst<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(11-15) to Strength<br />
+					+(16-20) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span> (only medium armor)</div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(11-15) to Strength<br />
+					+(16-20) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: 27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Amethyst<br />
+					&nbsp;&nbsp;6 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(3-4)%<br />
+					+(11-15) to Strength<br />
+					+(16-20) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29/33<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">FANATIC'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/9_AssassinRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Emerald<br />
+					&nbsp;&nbsp;4 x Perfect Amethyst<br />
+					&nbsp;&nbsp;4 x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(5-6)%<br />
+					Maximum Resist All : +(2-3)%<br />
+					+(16-20) to Strength<br />
+					+(20-30) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Amethyst<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Critical Hit Chance : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					+(???-???) to Strength<br />
+					+(???-???) to Dexterity<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+		<p class="genbig" id="CASTER"><b>Recipes for Caster Heroes</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">DISCIPLE'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/10_CasterHeroesRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 21<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Flawed Sapphire<br />
+					12 x Flawed Emerald<br />
+					12 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 17/18/19<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					12 x Flawed Sapphire<br />
+					&nbsp;&nbsp;5 x Flawed Emerald<br />
+					&nbsp;&nbsp;5 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13/14<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 19<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					10 x Flawed Emerald<br />
+					10 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 6/8/9/11/13/14/16<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/3/6/9/11/13/16/17<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 18<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					10 x Flawed Sapphire<br />
+					&nbsp;&nbsp;6 x Flawed Emerald<br />
+					&nbsp;&nbsp;6 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 9/11/13/16/19<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 16<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					&nbsp;&nbsp;4 x Flawed Sapphire<br />
+					&nbsp;&nbsp;4 x Flawed Emerald<br />
+					&nbsp;&nbsp;4 x Flawed Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 1)<br />
+					+(3-5) to Magic<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(1-2) Random Affixes<br /></span>
+					Required Level: 0/4/5/6/7/9/11/13/14/18<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">ENCHANTER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/10_CasterHeroesRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 34<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;2 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Arcane Token<br />
+					16 x Sapphire<br />
+					10 x Emerald<br />
+					10 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 17/18/19/21/25/27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/15/17/18/19/21/27<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 32<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					10 x Sapphire<br />
+					&nbsp;&nbsp;6 x Emerald<br />
+					&nbsp;&nbsp;6 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/14/17/19/21/22/25/29<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Sapphire<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 2)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/13/16/17/18/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 30<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;8 x Sapphire<br />
+					&nbsp;&nbsp;7 x Emerald<br />
+					&nbsp;&nbsp;7 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(2-4) Random Affixes<br /></span>
+					Required Level: 11/13/16/17/18/19/21/25/27<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 27<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;3 x Crimson Oil<br />
+					10 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Arcane Token<br />
+					&nbsp;&nbsp;6 x Sapphire<br />
+					&nbsp;&nbsp;5 x Emerald<br />
+					&nbsp;&nbsp;5 x Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Mana : +(15-20)<br />
+					+(11-15) to Magic<br />
+					Regenerates (1-2) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 11/15/16/17/18/19/21<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">CONJUROR'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/10_CasterHeroesRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Emerald<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/27/29/32/33<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: 43<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					10 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/29/33/35/37<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;8 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/27/29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					??? x Flawless Emerald<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Life per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;4 x Crimson Oil<br />
+					12 x Azure Oil<br />
+					&nbsp;&nbsp;4 x Symbol of Power<br />
+					&nbsp;&nbsp;6 x Flawless Sapphire<br />
+					&nbsp;&nbsp;6 x Flawless Emerald<br />
+					&nbsp;&nbsp;6 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 3)<br />
+					+(16-20) to Magic<br />
+					Regenerates (3-4) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 19/21/25/27/30/33<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="4" class="orange">SPELLWEAVER'S</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/10_CasterHeroesRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Sapphire<br />
+					&nbsp;&nbsp;5 x Perfect Emerald<br />
+					&nbsp;&nbsp;5 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 4)<br />
+					+(21-30) to Magic<br />
+					Regenerates (5-6) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 29/37/45<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">STAFF</span> (only)</div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					</div>Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;5 x Crimson Oil<br />
+					14 x Azure Oil<br />
+					&nbsp;&nbsp;2 x Alchemist's Box<br />
+					&nbsp;&nbsp;5 x Perfect Sapphire<br />
+					&nbsp;&nbsp;4 x Perfect Emerald<br />
+					&nbsp;&nbsp;4 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page 6)<br />
+					+(21-30) to Magic<br />
+					Regenerates (5-6) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(5-6) Random Affixes<br /></span>
+					Required Level: 29/33/37<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Crimson Oil<br />
+					??? x Azure Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					??? x Perfect Emerald<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">+(1-3) to (Spell From Page ???)<br />
+					+(???-???) to Magic<br />
+					Regenerates (???-???) Mana per 5 Sec<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+	
+		<p class="genbig" id="FIGHTER"><b>Recipes for Fighter Heroes</b></p>
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">BLAZING</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/11_FighterHeroesFireRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					6 x Silver Oil<br />
+					6 x Symbol of Power<br />
+					24 x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(21-30)%<br />
+					Maximum Resist Fire : +(5-7)%<br />
+					Adds 10 to 32 Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 24/27/29/33/34<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					6 x Silver Oil<br />
+					6 x Symbol of Power<br />
+					22 x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(21-30)%<br />
+					Maximum Resist Fire : +(5-7)%<br />
+					Adds 10 to 32 Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/30/33/37/41<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">VOLCANIC</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/11_FighterHeroesFireRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(???-???)%<br />
+					Maximum Resist Fire : +(???-???)%<br />
+					Adds ??? to ??? Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;4 x Alchemist's Box<br />
+					22 x Perfect Ruby<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Fire : +(31-40)%<br />
+					Maximum Resist Fire : +(8-10)%<br />
+					Adds 24 to 78 Fire Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 45<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">SPARKLING</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/12_FighterHeroesLightningRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					24 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(21-30)%<br />
+					Maximum Resist Lightning : +(5-7)%<br />
+					Adds 1 to 64 Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					24 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(21-30)%<br />
+					Maximum Resist Lightning : +(5-7)%<br />
+					Adds 1 to 64 Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					22 x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(21-30)%<br />
+					Maximum Resist Lightning : +(5-7)%<br />
+					Adds 1 to 64 Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">CHARGED</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/12_FighterHeroesLightningRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;4 x Alchemist's Box<br />
+					20 x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(31-40)%<br />
+					Maximum Resist Lightning : +(8-10)%<br />
+					Adds 1 to 156 Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 45<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;4 x Alchemist's Box<br />
+					18 x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(31-40)%<br />
+					Maximum Resist Lightning : +(8-10)%<br />
+					Adds 1 to 156 Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 45<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Topaz<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Lightning : +(???-???)%<br />
+					Maximum Resist Lightning : +(???-???)%<br />
+					Adds ??? to ??? Lightning Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">FREEZING</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/13_FighterHeroesColdRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					24 x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(21-30)%<br />
+					Maximum Resist Cold : +(5-7)%<br />
+					Adds 6 to 20 Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/33/35<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					24 x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(21-30)%<br />
+					Maximum Resist Cold : +(5-7)%<br />
+					Adds 6 to 20 Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/33<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 37<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					22 x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(21-30)%<br />
+					Maximum Resist Cold : +(5-7)%<br />
+					Adds 6 to 20 Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/30/33<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					26 x Flawless Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(21-30)%<br />
+					Maximum Resist Cold : +(5-7)%<br />
+					Adds 6 to 20 Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/37<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">???</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/13_FighterHeroesColdRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Sapphire<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist Cold : +(???-???)%<br />
+					Maximum Resist Cold : +(???-???)%<br />
+					Adds ??? to ??? Cold Damage<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+	
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">BRILLIANT</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/14_FighterHeroesAllRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Diamond<br />
+
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: 39<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					24 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(10-15)%<br />
+					Maximum Resist All : +(2-3)%<br />
+					-(3-4) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: 37<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;6 x Symbol of Power<br />
+					22 x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(10-15)%<br />
+					Maximum Resist All : +(2-3)%<br />
+					-(3-4) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(3-4) Random Affixes<br /></span>
+					Required Level: 25/27/29/30/33<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: 41<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Symbol of Power<br />
+					??? x Flawless Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			</tr>
+	</table><br />
+
+	<table class='item_table'>
+	<tr><th colspan="5" class="orange">RADIANT</th></tr>
+	<tr><td rowspan='2'><img src="images/items-crafting/14_FighterHeroesAllRecipe.png"></td>
+
+			<td>
+				<div><span class="orange">AMULET</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">RING</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">WEAPON</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>
+				<div><span class="orange">HELM</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">ARMOR</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">BELT</span></div>
+					Required Level: ???<br />
+					<br />
+				<div>Materials:</div>
+					??? x Silver Oil<br />
+					??? x Alchemist's Box<br />
+					??? x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(???-???)%<br />
+					Maximum Resist All : +(???-???)%<br />
+					-(???-???) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(???-???) Random Affixes<br /></span>
+					Required Level: ???<br />
+			</td>
+			<td>
+				<div><span class="orange">SHIELD</span></div>
+					Required Level: 50<br />
+					<br />
+				<div>Materials:</div>
+					&nbsp;&nbsp;6 x Silver Oil<br />
+					&nbsp;&nbsp;4 x Alchemist's Box<br />
+					22 x Perfect Diamond<br />
+					<br />
+				<div>Result:</div>
+					<span class="magic">Resist All : +(16-20)%<br />
+					Maximum Resist All : +(4-5)%<br />
+					-(5-7) Damage Taken From Enemies<br /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&<br />
+					<span class="magic">(4-5) Random Affixes<br /></span>
+					Required Level: 45<br />
+			</td>
+			</tr>
+	</table><br />
+	
+</body>
+</html>
