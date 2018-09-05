@@ -346,7 +346,7 @@ if (!Array.prototype.push) {
         return this.length;
     }
 }
-;
+
 if (!Array.prototype.pop) {
     Array.prototype.pop = function array_pop() {
         lastElement = this[this.length - 1];
@@ -354,4 +354,5 @@ if (!Array.prototype.pop) {
         return lastElement;
     }
 }
-;
+
+module.exports = window.dTree = dTree;
