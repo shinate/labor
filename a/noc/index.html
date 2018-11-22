@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>NOC - Component - DEMO</title>
+    <link href="../../build/styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.min.css" type="text/css" rel="stylesheet">
+    <script src="../../build/scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../build/scripts/html5shiv.min.js"></script>
+    <script src="../../build/scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- /header -->
+<div class="screen" id="main">
+    <h1 class="noc-main-title">广告数据中心</h1>
+    <div class="noc-contents flex-row">
+        <div rel="noc-component" source="data/cinema_total_list.json"
+             reflush="300" class="flex-col noc-contents-col">
+            <div id="noc-cooperative-cinema-overview" class="noc-component noc-card noc-overview" style="height: 256px">
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总合作影院</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="cinema_count"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">TMS/广告/卖品全部合作</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="ad_tms_goods_count"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+            <div id="noc-cinema-ad-list" class="noc-component noc-card noc-overview" style="height: 200px">
+                <div class="noc-component-caption">广告合作影院</div>
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖城市</div>
+                        <div class="noc-overview-value noc-color-red">
+                    <span
+                            yield="cinema_ad_list.city_ad"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">合作影院</div>
+                        <div class="noc-overview-value noc-color-blue">
+                    <span
+                            yield="cinema_ad_list.cinema_count_ad"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总银幕</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="cinema_ad_list.auditorium_ad"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总座位数</div>
+                        <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="cinema_ad_list.seat_ad"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">预计年覆盖人数</div>
+                        <div class="noc-overview-value noc-color-peach">
+                    <span
+                            yield="cinema_ad_list.peple_ad"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+            <div id="noc-cinema-tms-list" class="noc-component noc-card noc-overview" style="height: 200px">
+                <div class="noc-component-caption">TMS安装影院</div>
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖城市</div>
+                        <div class="noc-overview-value noc-color-red">
+                    <span
+                            yield="cinema_tms_list.city_tms"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">合作影院</div>
+                        <div class="noc-overview-value noc-color-blue">
+                    <span
+                            yield="cinema_tms_list.cinema_count_tms"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总银幕</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="cinema_tms_list.auditorium_tms"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总座位数</div>
+                        <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="cinema_tms_list.seat_tms"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">预计年覆盖人数</div>
+                        <div class="noc-overview-value noc-color-peach">
+                    <span
+                            yield="cinema_tms_list.peple_tms"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+            <div id="noc-cinema-goods-list" class="noc-component noc-card noc-overview" style="height: 200px">
+                <div class="noc-component-caption">卖品合作影院</div>
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖城市</div>
+                        <div class="noc-overview-value noc-color-red">
+                    <span
+                            yield="cinema_goods_list.city_goods"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">合作影院</div>
+                        <div class="noc-overview-value noc-color-blue">
+                    <span
+                            yield="cinema_goods_list.cinema_count_goods"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总银幕</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="cinema_goods_list.auditorium_goods"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">总座位数</div>
+                        <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="cinema_goods_list.seat_goods"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">预计年覆盖人数</div>
+                        <div class="noc-overview-value noc-color-peach">
+                    <span
+                            yield="cinema_goods_list.peple_goods"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+        </div>
+        <div class="flex-col noc-contents-col" style="padding-top: 128px;">
+            <div rel="noc-component" source="data/today_total_box_info.json"
+                 reflush="30">
+                <div class="noc-component noc-card noc-overview-vertical" style="height: 300px">
+                    <div class="noc-component-caption">
+                <span
+                        yield="date"
+
+                >----.--.--</span></div>
+                    <div class="flex-row-vertical noc-component-content">
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">今日总票房</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="box_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">今日总人次</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="view_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">今日总场次</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="play_num_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noc-component-coners-top"></div>
+                    <div class="noc-component-coners-bottom"></div>
+                </div>
+            </div>
+            <div rel="noc-component" source="data/year_total_box_info.json"
+                 reflush="300">
+                <div id="noc-all-cinema-overview" class="noc-component noc-card noc-overview" style="height: 192px">
+                    <div class="flex-row noc-component-content">
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">全国总影院</div>
+                            <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="cinema_total"
+                            render="flask"
+                    >-</span></div>
+                        </div>
+                        <div class="flex-col noc-separate-flex"></div>
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">全国总银幕</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="auditorium_total"
+                            render="flask"
+                    >-</span></div>
+                        </div>
+                        <div class="flex-col noc-separate-flex"></div>
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">全国总座位</div>
+                            <div class="noc-overview-value noc-color-cyan">
+                    <span
+                            yield="seat_total"
+                            render="flask"
+                    >-</span></div>
+                        </div>
+                    </div>
+                    <div class="noc-component-coners-top"></div>
+                    <div class="noc-component-coners-bottom"></div>
+                </div>
+            </div>
+            <div rel="noc-component" source="data/year_total_box_info.json"
+                 reflush="300">
+                <div class="noc-component noc-card noc-overview-vertical" style="height: 300px">
+                    <div class="noc-component-caption">
+                <span
+
+                >2018年全年累计数据</span></div>
+                    <div class="flex-row-vertical noc-component-content">
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">全年票房</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="box_office_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">全年总人次</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="people_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                        <div class="noc-content-row">
+                            <div class="noc-overview-label">全年总场次</div>
+                            <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="play_num_total"
+                            render="flask"
+                    >-</span> 万
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noc-component-coners-top"></div>
+                    <div class="noc-component-coners-bottom"></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-col noc-contents-col" rel="noc-component"
+             reflush="300" source="data/stars_ad_data.json">
+            <div id="noc-map-advance-cover-cinema" class="noc-component" style="height: 536px;">
+                <div class="flex-row noc-component-content" yield="location_data" render="nocChinaMapRender"></div>
+            </div>
+            <div id="noc-all-advance-cover-cinema" class="noc-component noc-card noc-overview" style="height: 192px">
+                <div class="noc-component-caption">星火广告覆盖</div>
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖总人次</div>
+                        <div class="noc-overview-value noc-color-red">
+                    <span
+                            yield="people_total"
+                            render="flask"
+                    >-</span> 万
+                        </div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖总场次</div>
+                        <div class="noc-overview-value noc-color-blue">
+                    <span
+                            yield="play_num_total"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">覆盖城市总数</div>
+                        <div class="noc-overview-value noc-color-orange">
+                    <span
+                            yield="cinema_total"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+            <div id="noc-all-advance-overview" class="noc-component noc-card noc-overview" style="height: 160px">
+                <div class="noc-component-caption">星火广告数据</div>
+                <div class="flex-row noc-component-content">
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">广告总数</div>
+                        <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="content_total"
+                            render="flask"
+                    >-</span></div>
+                    </div>
+                    <div class="flex-col noc-separate-flex"></div>
+                    <div class="flex-col noc-content-col">
+                        <div class="noc-overview-label">广告总时长</div>
+                        <div class="noc-overview-value noc-color-peach">
+                    <span
+                            yield="duration_total"
+                            render="flask"
+                    >-</span> 分钟
+                        </div>
+                    </div>
+                </div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+        </div>
+        <div class="flex-col noc-contents-col">
+            <div rel="noc-component" source="data/ad_order.json"
+                 id="noc-advance-ring-chat" class="noc-component noc-card"
+                 style="height: 460px;">
+                <div class="title-left noc-color-white">星火广告排序情况</div>
+                <div class="title-right noc-color-white">星火广告时间分布</div>
+                <div class="flex-row noc-component-content" yield="__ROOT__" render="nocRingChatRender"></div>
+                <div class="noc-component-coners-top"></div>
+                <div class="noc-component-coners-bottom"></div>
+            </div>
+            <div source="data/content_play.json" rel="noc-component"
+                 rows="4">
+                <div id="noc-advance-settle" class="noc-component noc-card noc-table" style="height: 268px">
+                    <div class="noc-component-caption">星火广告投放</div>
+                    <div class="flex-row-vertical noc-component-content">
+                        <div class="flex-col noc-table-header">
+                            <div class="flex-row noc-table-row">
+                                <div>广告名称</div>
+                                <div>时长</div>
+                                <div>场次</div>
+                                <div>人次</div>
+                            </div>
+                        </div>
+                        <div class="flex-col noc-table-body">
+                            <div render="table" yield="__ROOT__">
+                                <div class="flex-row noc-table-row">
+                                    <div
+                                            class="noc-color-white"
+                                            column="content_name"
+                                    >-
+                                    </div>
+                                    <div
+                                            class="noc-color-green"
+                                            column="duration"
+                                    >-
+                                    </div>
+                                    <div
+                                            class="noc-color-blue"
+                                            column="play_count"
+                                    >-
+                                    </div>
+                                    <div
+                                            class="noc-color-cyan"
+                                            column="people_zoom"
+                                    >-
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noc-component-coners-top"></div>
+                    <div class="noc-component-coners-bottom"></div>
+                </div>
+            </div>
+            <div rel="noc-component" source="data/sku.json"
+                 reflush="300">
+                <div class="noc-component noc-card noc-overview" style="height: 160px">
+                    <div class="noc-component-caption">星火合作影院广告监控</div>
+                    <div class="flex-row noc-component-content">
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">广告库存总时长</div>
+                            <div class="noc-overview-value noc-color-blue">
+                    <span
+                            yield="total_duration"
+                            render="flask"
+                    >-</span> 分钟
+                            </div>
+                        </div>
+                        <div class="flex-col noc-separate-flex"></div>
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">已使用库存</div>
+                            <div class="noc-overview-value noc-color-red">
+                    <span
+                            yield="use_duration"
+                            render="flask"
+                    >-</span> 分钟
+                            </div>
+                        </div>
+                        <div class="flex-col noc-separate-flex"></div>
+                        <div class="flex-col noc-content-col">
+                            <div class="noc-overview-label">使用占比</div>
+                            <div class="noc-overview-value noc-color-green">
+                    <span
+                            yield="duration_radio"
+                            render="flask"
+                    >-</span> %
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noc-component-coners-top"></div>
+                    <div class="noc-component-coners-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="effects-layer">
+        <div class="effects-round"
+             style="opacity: .2; left: 30%; top: 75%; transform: translate3d(-50%, -50%, 0) scale3d(.5, .5, 1)">
+            <div class="effects-rotate"></div>
+        </div>
+        <div class="effects-round"
+             style="opacity: .3; left: 30%; top: 75%; transform: translate3d(-50%, -50%, 0) scale3d(.4, .4, 1)">
+            <div class="effects-rotate-anti"></div>
+        </div>
+        <div class="effects-round"
+             style="opacity: .1; left: 60%; top: 45%; transform: translate3d(-50%, -50%, 0) scale3d(.8, .8, 1)">
+            <div class="effects-rotate" style="animation-duration: 30s"></div>
+        </div>
+        <div class="effects-round"
+             style="opacity: .2; left: 60%; top: 45%; transform: translate3d(-50%, -50%, 0) scale3d(.5, .5, 1)">
+            <div class="effects-rotate-anti" style="animation-duration: 20s"></div>
+        </div>
+        <div class="effects-round"
+             style="opacity: .2; left: 0; top: 0; transform: translate3d(-50%, -50%, 0) scale3d(2, 2, 1)">
+            <div class="effects-rotate-anti" style="animation-duration: 60s"></div>
+        </div>
+        <div class="border-corner border-corner-top-left"></div>
+        <div class="border-corner border-corner-top-right"></div>
+        <div class="border-corner border-corner-bottom-right"></div>
+        <div class="border-corner border-corner-bottom-left"></div>
+        <div class="border-top"></div>
+    </div>
+    <canvas id="noc-bg-star"></canvas>
+</div>
+<!-- footer -->
+
+<script src="main.min.js"></script>
+<script>
+    screenController($('.screen'), {
+        width: 3840,
+        height: 1080,
+        type: screenController.TYPE_COVER
+    });
+    stars($('#noc-bg-star').get(0));
+</script>
+<script src="../../build/scripts/assets/echarts4/echarts.min.js"></script>
+<script src="../../build/scripts/assets/echarts4/maps/china.js"></script>
+<script>
+    var chinaMap = echarts.init(document.querySelector('#noc-map-advance-cover-cinema > .noc-component-content'));
+    chinaMap.hideLoading();
+    var option = {
+        title: {
+            x: 'center',
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+        legend: {
+            orient: 'vertical',
+            y: 'bottom',
+            x: 'right',
+            data: ['sell_area'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        silent: true,
+        geo: {
+            show: true,
+            map: 'china',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: 'rgba(35, 120, 230, .5)',
+                    borderColor: 'rgba(60, 194, 255, .75)'
+                },
+                emphasis: {
+                    areaColor: '#2B91B7'
+                }
+            }
+        },
+        series: [
+            {
+                name: '影院',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                symbol: 'pin',
+                symbolSize: 32,
+//                symbolSize: function (val) {
+//                    var a = (maxSize4Pin - minSize4Pin) / (max - min);
+//                    var b = minSize4Pin - a * min;
+//                    b = maxSize4Pin - a * max;
+//                    return a * val[2] + b;
+//                },
+                label: {
+                    normal: {
+                        show: false,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 22
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(236, 142, 58, 0.91)' //标志颜色
+                    }
+                },
+                zlevel: 6
+            }
+        ]
+    };
+    chinaMap.setOption(option);
+
+    window.nocChinaMapRender = function (el, data) {
+        var data = {
+            series: [
+                {
+                    data: data.map(function (item) {
+                        return {name: '', value: item};
+                    })
+                }
+            ]
+        };
+        chinaMap.setOption(data);
+    };
+</script>
+<script>
+    var ringChat = echarts.init(document.querySelector('#noc-advance-ring-chat > .noc-component-content'));
+    ringChat.hideLoading();
+    var option = {
+        color: [
+            'rgba(236, 142, 58, 0.9)',
+            'rgba(207, 63, 55, 0.9)',
+            'rgba(69, 149, 154, 0.9)',
+            'rgba(94, 191, 68, 0.9)',
+            'rgba(237, 111, 86, 0.9)',
+            'rgba(0, 160, 255, 0.9)'
+        ],
+        label: {
+            fontSize: 22
+        },
+        calculable: false,
+        series: [
+            {
+                name: '星火广告排序情况',
+                type: 'pie',
+                radius: ['16%', '50%'],
+                center: ['25%', '60%']
+            },
+            {
+                name: '星火广告时间分布',
+                type: 'pie',
+                radius: ['16%', '50%'],
+                center: ['70%', '60%']
+            }
+        ]
+    };
+    ringChat.setOption(option);
+
+    window.nocRingChatRender = function (el, data) {
+        var data = {
+            series: [
+                {data: data.rank_people_list},
+                {data: data.duration_list}
+            ]
+        };
+        ringChat.setOption(data);
+    };
+</script>
+<script>
+    $('[rel="noc-component"]').each(function () {
+        new nocComponent($(this));
+    });
+</script>
+</body>
+</html>

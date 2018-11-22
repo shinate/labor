@@ -1,0 +1,107 @@
+@import "./style/flex";
+@import "./style/noc";
+
+body {
+  background-color: #000;
+}
+
+#main {
+  font-size: 32px;
+  color: #00a0ff;
+  overflow: hidden;
+}
+
+#noc-map-advance-cover-cinema {
+  position: relative;
+  overflow: visible;
+
+  .noc-component-content {
+    position: absolute;
+    height: 720px;
+    width: e("calc(100% + 64px)");
+    bottom: -96px;
+    right: -32px
+  }
+}
+
+#noc-cinema-ad-list,
+#noc-cinema-tms-list,
+#noc-cinema-goods-list {
+  .noc-overview-label {
+    padding-top: .8em;
+  }
+  .noc-overview-value {
+    padding-top: .4em;
+  }
+}
+
+#noc-all-cinema-overview,
+#noc-all-advance-overview {
+  .noc-overview-value {
+    font-size: 1.5em;
+  }
+}
+
+#noc-cooperative-cinema-overview {
+  .noc-overview-label {
+    padding-top: 1.4em;
+    font-size: 1em;
+  }
+  .noc-overview-value {
+    font-size: 1.8em;
+  }
+}
+
+#noc-all-advance-cover-cinema {
+  .noc-overview-label {
+    padding-top: .8em;
+  }
+}
+
+#noc-all-advance-cover-cinema {
+  .noc-overview-value {
+    padding-top: 0.3em;
+    font-size: 1.5em;
+  }
+}
+
+#noc-advance-ring-chat {
+  .title-left,
+  .title-right {
+    position: absolute;
+    top: 64px;
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+
+  .title-left {
+    left: 25%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .title-right {
+    left: 70%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+#noc-advance-settle .noc-table-row {
+  > *:nth-child(1) {
+    width: 45%;
+  }
+
+  > *:nth-child(2) {
+    width: 10%;
+    text-align: right;
+  }
+
+  > *:nth-child(3) {
+    width: 20%;
+    text-align: right;
+  }
+
+  > *:nth-child(4) {
+    width: 25%;
+    text-align: right;
+  }
+}

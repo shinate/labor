@@ -1,0 +1,50 @@
+.effects-layer {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  .effects-round {
+    position: absolute;
+
+    > * {
+      border-radius: 256px;
+      height: 512px;
+      width: 512px;
+      border-width: 16px;
+      border-style: solid;
+      border-color: @noc-color-blue transparent;
+    }
+  }
+
+  .effects-rotate {
+    animation: rotate 5s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .effects-rotate-anti {
+    animation: rotate-anti 5s linear infinite;
+  }
+
+  @keyframes rotate-anti {
+    0% {
+      transform: rotateZ(360deg);
+    }
+
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+
+}

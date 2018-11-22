@@ -1,0 +1,203 @@
+// 标题
+.noc-main-title {
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  z-index: 1001;
+  line-height: 1;
+  color: fade(@noc-color-white, 75%);
+  letter-spacing: .2em;
+  font-size: 1.5em;
+  font-weight: bold;
+  transform: translate3d(-50%, 0, 0);
+}
+
+// 内容
+.noc-contents {
+  z-index: 1000;
+  padding: 32px 48px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+// 栅格列
+.noc-contents-col {
+  padding: 32px 16px;
+  overflow: hidden;
+
+  > * + * {
+    margin-top: 32px;
+  }
+}
+
+// 组件
+.noc-component {
+  position: relative;
+
+  .noc-component-content {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .noc-separate-flex {
+    flex-basis: 1px;
+    flex-grow: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(19, 135, 255, 0.5), rgba(0, 0, 0, 0));
+  }
+}
+
+// 卡片带背景的组件
+.noc-card {
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 16px;
+  box-shadow: inset 0 0 128px rgba(35, 120, 230, .3);
+
+  .noc-component-content {
+    padding: 32px 0 16px 0;
+  }
+
+  .noc-component-caption {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate3d(32px, -50%, 0);
+    font-size: .8em;
+    padding: .3em .5em .3em .75em;
+    border-radius: 8px;
+    line-height: 1;
+    background: linear-gradient(to right, rgba(3, 163, 238, 0.6) 5px, rgba(58, 120, 148, .5) 5px, rgba(58, 120, 148, .2));
+  }
+
+  .noc-component-coners-top, .noc-component-coners-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    &:before, &:after {
+      content: ' ';
+      height: 16px;
+      width: 16px;
+      border-width: 2px;
+      border-style: none;
+      border-color: #e1faff;
+    }
+  }
+  .noc-component-coners-top {
+    top: 0;
+    &:before {
+      -webkit-border-top-left-radius: 16px;
+      border-style: solid none none solid;
+      float: left;
+    }
+    &:after {
+      -webkit-border-top-right-radius: 16px;
+      border-style: solid solid none none;
+      float: right;
+    }
+  }
+  .noc-component-coners-bottom {
+    bottom: 0;
+    &:before {
+      -webkit-border-bottom-left-radius: 16px;
+      border-style: none none solid solid;
+      float: left;
+    }
+    &:after {
+      -webkit-border-bottom-right-radius: 16px;
+      border-style: none solid solid none;
+      float: right;
+    }
+  }
+}
+
+// 横一行翻牌器显示
+.noc-overview {
+  .noc-overview-label, .noc-overview-value {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 1.4;
+  }
+
+  .noc-overview-label {
+    color: @noc-color-white;
+    font-size: 0.7777em;
+    padding-top: 0.4em;
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+
+  .noc-overview-value {
+
+  }
+
+  .noc-content-col {
+    padding: 0 16px;
+  }
+}
+
+// 竖排显示
+.noc-overview-vertical {
+
+  .noc-overview-label, .noc-overview-value {
+    display: inline-block;
+    width: auto;
+    line-height: 1.4;
+  }
+
+  .noc-overview-label {
+    text-align: right;
+    height: 60%;
+  }
+
+  .noc-overview-value {
+    font-size: 1.8em;
+  }
+
+  .noc-component-content {
+    padding: 56px 0 16px 0;
+  }
+
+  .noc-component-caption {
+    font-size: 1.2em;
+    left: 50%;
+    transform: translate3d(-50%, -30%, 0);
+    color: @noc-color-white;
+    padding: .3em 1em;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgba(3, 163, 238, .6) 5%, rgba(58, 120, 148, .5) 5%, rgba(58, 120, 148, .5) 95%, rgba(3, 163, 238, 0.6) 95%, rgba(3, 163, 238, 0.6));
+  }
+
+  .noc-content-row {
+    text-align: center;
+  }
+}
+
+// 滚动表格
+.noc-table {
+  .noc-component-content {
+
+    .noc-table-header, .noc-table-body {
+      padding: 0 1em;
+      overflow: hidden;
+    }
+
+    .noc-table-header {
+      font-size: .8em;
+      max-height: 1.5em;
+      line-height: 1.5;
+      color: @noc-color-white;
+    }
+
+    .noc-table-body,
+    .noc-table-header {
+      .noc-table-row {
+        & > * {
+          overflow: hidden;
+          word-break: keep-all;
+          white-space: nowrap;
+          padding: 0 .5em;
+        }
+      }
+    }
+  }
+}
