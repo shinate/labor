@@ -15,6 +15,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
     gulp.task('style:assets', function () {
         return gulp.src(CONF.source.style.assets.src)
             .pipe(PLUGIN.plumber())
+            .pipe(PLUGIN.less())
             .pipe(PLUGIN.cssmin())
             .pipe(PLUGIN.rename({
                 suffix: '.min'
@@ -47,7 +48,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 buf.push(colors.bold('Asset') + "\t" + colors.bold('Size'));
 
                 console.log('[' + colors.grey((new Date).toString()) + ']', 'LESS Bundle');
-                console.table(buf.reverse(), {align: 'r'});
+                console.columns(buf.reverse(), {align: 'r'});
             });
     }
 
