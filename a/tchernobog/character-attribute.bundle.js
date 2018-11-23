@@ -3,10 +3,8 @@ var MASK = [4, 1, 3, 7, 0, 5, 2, 6];
 
 function encode(value) {
     var value = parseInt(value);
-    console.log(value);
-    if (value < (1 << 31) || value > 0x7FFFFFFF)
+    if (value < -0x80000000 || value > 0x7FFFFFFF)
         return '';
-    console.log(value);
     return ZERO_BASE.map(function (_B_, i) {
         var mask = MASK[i] * 4;
         return ('0' + (((((0xF << mask) & value) >> mask) + _B_) & 0xFF).toString(16).toUpperCase()).slice(-2);
