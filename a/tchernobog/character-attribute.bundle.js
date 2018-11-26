@@ -17,7 +17,7 @@ $('#BTN_ENCODE').on('click', function () {
 });
 
 function decode(hex) {
-    var hex = hex.replace(/\ /g, '');
+    var hex = hex.replace(/[\x20]/g, '');
     if (hex.length < 16)
         return '';
     return eval(ZERO_BASE.map(function (_B_, i) {
