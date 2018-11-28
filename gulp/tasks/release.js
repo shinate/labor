@@ -8,7 +8,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             execa.shellSync('git add .');
             execa.shellSync('git commit -m "release"');
             execa.shellSync('git push');
-            console.log(new Date().toTimeString());
+            console.log(new Date().toLocaleTimeString());
         } catch (e) {
             console.log(e)
         }
