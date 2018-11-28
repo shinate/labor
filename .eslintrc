@@ -5,7 +5,6 @@
     "jquery": true
   },
   "rules": {
-    "no-undef": "error",
-    "no-spaced-func": 2
+    "no-undef": "error"
   }
 }
