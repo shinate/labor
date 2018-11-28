@@ -9,7 +9,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             execa.shellSync('git add .');
             execa.shellSync('git commit -m "release"');
             execa.shellSync('git push');
-            console.log('[' + colors.grey((new Date()).toLocaleTimeString()) + ']', colors.bold.red('Release complete'));
+            console.log('[' + colors.grey((new Date()).toLocaleTimeString()) + ']', colors.bold.yellow('Release complete'));
         } catch (e) {
             console.log(e)
         }

@@ -8,7 +8,9 @@
     "server": "http-server ./ -p 19823",
     "save": "git add . && git commit -m \"SAVE\" && git push",
     "build": "gulp build",
-    "dev": "gulp watch"
+    "dev": "gulp watch",
+    "release": "gulp release",
+    "publish": "gulp"
   },
   "repository": "git+https://github.com/shinate/labor.git",
   "author": "shinate <shine.wangrs@gmail.com>",
