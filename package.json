@@ -10,7 +10,7 @@
     "build": "gulp build",
     "dev": "gulp watch",
     "release": "gulp release",
-    "publish": "gulp"
+    "publish": "gulp build && gulp release"
   },
   "repository": "git+https://github.com/shinate/labor.git",
   "author": "shinate <shine.wangrs@gmail.com>",
