@@ -47,7 +47,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             .on('end', function () {
                 buf.push(colors.bold('Asset') + "\t" + colors.bold('Size'));
 
-                console.log('[' + colors.grey((new Date).toString()) + ']', 'LESS Bundle');
+                console.log('[' + colors.grey((new Date).toLocaleTimeString()) + ']', 'LESS Bundle');
                 console.columns(buf.reverse(), {align: 'r'});
             });
     }

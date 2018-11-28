@@ -1,6 +1,7 @@
 'use strict';
 
 var execa = require('execa')
+var colors = require('colors');
 
 module.exports = function (gulp, PLUGIN, CONF) {
     gulp.task('release', function (cb) {
@@ -8,7 +9,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             execa.shellSync('git add .');
             execa.shellSync('git commit -m "release"');
             execa.shellSync('git push');
-            console.log(new Date().toLocaleTimeString());
+            console.log('[' + colors.grey((new Date()).toLocaleTimeString()) + ']', colors.bold.red('Release complete'));
         } catch (e) {
             console.log(e)
         }
