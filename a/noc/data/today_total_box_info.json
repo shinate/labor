@@ -1,1 +1,10 @@
-{"code":0,"msg":"success","response":{"date":"2018.11.22","box_total":"4608.3","view_total":"132.0","play_num_total":"9.1"}}
+{
+  "code": 0,
+  "msg": "success",
+  "response": {
+    "date": "2018.11.22",
+    "box_total": "4608.3",
+    "view_total": "132.0",
+    "play_num_total": "9.1"
+  }
+}

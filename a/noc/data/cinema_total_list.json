@@ -1,1 +1,29 @@
-{"code":0,"msg":"success","response":{"cinema_count":5849,"ad_tms_goods_count":1417,"cinema_ad_list":{"city_ad":331,"cinema_count_ad":3563,"auditorium_ad":19456,"seat_ad":2338733,"peple_ad":1004879327},"cinema_tms_list":{"city_tms":273,"cinema_count_tms":1417,"auditorium_tms":8603,"seat_tms":960699,"peple_tms":417550250},"cinema_goods_list":{"city_goods":310,"cinema_count_goods":3866,"auditorium_goods":24224,"seat_goods":3132326,"peple_goods":1426098434}}}
+{
+  "code": 0,
+  "msg": "success",
+  "response": {
+    "cinema_count": 5849,
+    "ad_tms_goods_count": 1417,
+    "cinema_ad_list": {
+      "city_ad": 331,
+      "cinema_count_ad": 3563,
+      "auditorium_ad": 19456,
+      "seat_ad": 2338733,
+      "peple_ad": 1004879327
+    },
+    "cinema_tms_list": {
+      "city_tms": 273,
+      "cinema_count_tms": 1417,
+      "auditorium_tms": 8603,
+      "seat_tms": 960699,
+      "peple_tms": 417550250
+    },
+    "cinema_goods_list": {
+      "city_goods": 310,
+      "cinema_count_goods": 3866,
+      "auditorium_goods": 24224,
+      "seat_goods": 3132326,
+      "peple_goods": 1426098434
+    }
+  }
+}

@@ -1,1 +1,12 @@
-{"code":0,"msg":"success","response":{"cinema_total":"10,619","auditorium_total":"63,073","seat_total":"8,349,246","people_total":"156,121.9","play_num_total":"7,732.6","box_office_total":"5,519,278.6"}}
+{
+  "code": 0,
+  "msg": "success",
+  "response": {
+    "cinema_total": "10,619",
+    "auditorium_total": "63,073",
+    "seat_total": "8,349,246",
+    "people_total": "156,121.9",
+    "play_num_total": "7,732.6",
+    "box_office_total": "5,519,278.6"
+  }
+}
