@@ -1,0 +1,19 @@
+{
+  "code": 0,
+  "msg": "success",
+  "response": {
+    "deviceSerial": "C19942994",
+    "channelNo": 1,
+    "deviceName": "C6C(C19942994)",
+    "hls": "http:\/\/hls.open.ys7.com\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108.m3u8",
+    "hlsHd": "http:\/\/hls.open.ys7.com\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108.hd.m3u8",
+    "rtmp": "rtmp:\/\/rtmp.open.ys7.com\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108",
+    "rtmpHd": "rtmp:\/\/rtmp.open.ys7.com\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108.hd",
+    "flvAddress": "https:\/\/flvopen.ys7.com:9188\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108.flv",
+    "hdFlvAddress": "https:\/\/flvopen.ys7.com:9188\/openlive\/084f239b5ecb4dc49e5f5e7bc2bac108.hd.flv",
+    "status": 1,
+    "exception": 0,
+    "ret": "200",
+    "desc": "\u83b7\u53d6\u6210\u529f!"
+  }
+}

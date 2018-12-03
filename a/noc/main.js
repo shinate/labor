@@ -40,28 +40,25 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(101);
+	module.exports = __webpack_require__(1);
 
 
 /***/ }),
-
-/***/ 101:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(102);
-	__webpack_require__(104);
-	__webpack_require__(105);
-	__webpack_require__(106);
-	__webpack_require__(109)($('.screen'));
+	__webpack_require__(2);
+	__webpack_require__(4);
+	__webpack_require__(5);
+	__webpack_require__(6);
+	__webpack_require__(9)($('.screen'));
 
 /***/ }),
-
-/***/ 102:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -84,7 +81,7 @@
 	;(function(factory) {
 	    'use strict';
 	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(103)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof exports !== 'undefined') {
 	        module.exports = factory(require('jquery'));
 	    } else {
@@ -3103,8 +3100,7 @@
 	}));
 
 /***/ }),
-
-/***/ 103:
+/* 3 */
 /***/ (function(module, exports) {
 
 	/**
@@ -3113,8 +3109,7 @@
 	module.exports = window.jQuery;
 
 /***/ }),
-
-/***/ 104:
+/* 4 */
 /***/ (function(module, exports) {
 
 	/**
@@ -3274,8 +3269,7 @@
 	module.exports = window.screenController = SC;
 
 /***/ }),
-
-/***/ 105:
+/* 5 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -3385,12 +3379,11 @@
 	}
 
 /***/ }),
-
-/***/ 106:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var formatNum = __webpack_require__(107);
-	var parseNum = __webpack_require__(108);
+	var formatNum = __webpack_require__(7);
+	var parseNum = __webpack_require__(8);
 	
 	var DEFAULT_OPTIONS = {};
 	
@@ -3573,11 +3566,10 @@
 	};
 
 /***/ }),
-
-/***/ 107:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	const parseNum = __webpack_require__(108)
+	const parseNum = __webpack_require__(8)
 	
 	/* global Intl */
 	
@@ -3642,8 +3634,7 @@
 
 
 /***/ }),
-
-/***/ 108:
+/* 8 */
 /***/ (function(module, exports) {
 
 	'use strict'
@@ -3673,11 +3664,10 @@
 
 
 /***/ }),
-
-/***/ 109:
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var screenfull = __webpack_require__(110);
+	var screenfull = __webpack_require__(10);
 	
 	module.exports = window.FullScreenSwitcher = function (node) {
 	    var fullSceneBTN = $('<a href="#"></a>').appendTo($('body'))
@@ -3730,8 +3720,7 @@
 	};
 
 /***/ }),
-
-/***/ 110:
+/* 10 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -3905,6 +3894,5 @@
 
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=main.js.map

@@ -1,4 +1,4 @@
-// var videojs = require('video.js');
+var videojs = window.videojs; // require('video.js');
 var collect = require('collect.js');
 
 // require('videojs-contrib-hls.js');

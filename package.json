@@ -44,6 +44,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^1.5.1",
     "less": "^3.8.1",
+    "map-stream": "^0.0.7",
     "path": "^0.12.7",
     "pretty-columns": "^1.2.0",
     "require-dir": "^1.0.0",

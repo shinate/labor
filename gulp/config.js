@@ -73,6 +73,16 @@ config.source = {
             release: path.join(config.root, 'a')
         }
     },
+    html: {
+        bundle: {
+            base: path.join(config.root, 'a'),
+            src: [
+                path.join(config.root, 'a/**/*.bundle.html')
+            ],
+            dev: path.join(config.root, 'a'),
+            release: path.join(config.root, 'a')
+        }
+    },
     manifest: {
         base: config.src,
         src: [
