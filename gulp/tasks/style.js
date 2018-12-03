@@ -2,7 +2,7 @@
 
 var named = require('vinyl-named');
 var path = require('path');
-var colors = require('colors');
+var chalk = require('chalk');
 
 module.exports = function (gulp, PLUGIN, CONF) {
 
@@ -40,14 +40,14 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 file.path = file.path.replace(/\.bundle/, '');
                 file.base = CONF.source.style.bundle.base;
                 var filepath = path.relative(file.base, file.path);
-                buf.push(colors.blue.bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' kB');
+                buf.push(chalk.blue.bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' kB');
                 this.queue(file);
             }))
             .pipe(gulp.dest(CONF.source.style.bundle.release))
             .on('end', function () {
-                buf.push(colors.bold('Asset') + "\t" + colors.bold('Size'));
+                buf.push(chalk.bold('Asset') + "\t" + chalk.bold('Size'));
 
-                console.log('[' + colors.grey((new Date).toLocaleTimeString()) + ']', 'LESS Bundle');
+                console.log('[' + chalk.grey((new Date).toLocaleTimeString()) + ']', 'LESS Bundle');
                 console.columns(buf.reverse(), {align: 'r'});
             });
     }
