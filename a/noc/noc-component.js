@@ -72,11 +72,11 @@ NCP.reload = function reload() {
 };
 
 NCP.render = function renderSET(data) {
-    for (var yield in this.yields) {
-        if (this.yields.hasOwnProperty(yield)) {
-            var value = getValue(data, yield);
+    for (var y in this.yields) {
+        if (this.yields.hasOwnProperty(y)) {
+            var value = getValue(data, y);
             if (value != null) {
-                var el = this.yields[yield];
+                var el = this.yields[y];
                 // 渲染器
                 this.getRenderer(el.attr('render'))(el, value);
             }

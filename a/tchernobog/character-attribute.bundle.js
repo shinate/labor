@@ -1,6 +1,10 @@
+// BASE 0
 var ZERO_BASE = [0xF1, 0x52, 0x49, 0xE9, 0xAE, 0xF1, 0x90, 0xBB];
+
+// Offsets
 var MASK = [4, 1, 3, 7, 0, 5, 2, 6];
 
+// Int => HEX
 function encode(value) {
     if (value > -0x80000000 && value < 0xFFFFFFFF) {
         value = parseInt(value) & 0xFFFFFFFF;
@@ -28,6 +32,7 @@ $('#BTN_ENCODE').on('click', function () {
     return false;
 });
 
+// HEX => Int
 function decode(hex) {
     var hex = hex.replace(/[\x20]/g, '');
     if (hex.length >= 16) {

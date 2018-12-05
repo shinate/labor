@@ -1,38 +1,30 @@
-var content = document.querySelector("body");
+var WSservice = require('./WSservice')
 
-if ("WebSocket" in window) {
-    var node = document.createElement("p");
-    node.innerText = "您的浏览器支持 WebSocket!";
-    content.appendChild(node);
+var ADP = new WSservice({
+    url: "ws://123.57.43.13:20001/web_socket/ad_manage"
+});
 
-    // 打开一个 web socket
-    var client = new WebSocket("ws://123.57.43.13:20001");
+ADP.on('message', function (e) {
+    commandRoute(e.data);
+});
 
-    client.onopen = function () {
-        // Web Socket 已连接上，使用 send() 方法发送数据
-        client.send("发送数据");
-        var node = document.createElement("p");
-        node.innerText = "数据发送中...";
-        content.appendChild(node);
-    };
-
-    client.onmessage = function (evt) {
-        console.log(evt);
-        var received_msg = evt.data;
-        var node = document.createElement("p");
-        node.innerText = received_msg;
-        content.appendChild(node);
-    };
-
-//        ws.onclose = function () {
-//          // 关闭 websocket
-//          alert("连接已关闭...");
-//        };
+function commandRoute(data) {
+    // 解析协议、内容
+    pool('[' + (new Date()).toTimeString().slice(0, 8) + '] REV ' + data);
 }
 
-else {
-    // 浏览器不支持 WebSocket
-    var node = document.createElement("p");
-    node.innerText = "您的浏览器不支持 WebSocket!";
-    content.appendChild(node);
+var messagePool = document.querySelector('#message');
+function pool(message) {
+    var p = document.createElement('p');
+    p.innerText = message;
+    messagePool.appendChild(p);
+
+    messagePool.scrollTop = p.offsetTop;
 }
+
+document.querySelector('#send').addEventListener('click', function (e) {
+    e.preventDefault();
+    var m = Math.random().toString(36).substring(2);
+    ADP.send(m);
+    pool('[' + (new Date()).toTimeString().slice(0, 8) + '] SED ' + m);
+}, false);

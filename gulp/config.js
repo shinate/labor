@@ -130,26 +130,7 @@ config.isProduction = function () {
     return config.env === config.ENV_PRODUCTION;
 };
 
-config.webpackConfig = function (p) {
-    var c = {
-        output: {
-            filename: '[name].js'
-        },
-        resolve: {
-            alias: {
-                'jquery': path.resolve(config.src + '/scripts/model/jquery-bridge.js')
-            }
-        }
-    };
-
-    c.mode = config.env;
-
-    if (!p) {
-        c.devtool = 'source-map';
-    }
-
-    return c;
-};
+config.webpackConfig = require('./webpack.config')(config);
 
 /**
  * Environmental coordinator
