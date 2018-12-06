@@ -19,7 +19,7 @@ module.exports = function (config) {
                         use: 'vue-template-loader'
                     },
                     {
-                        test: /\.m?js$/,
+                        test: /\.mjs$/,
                         exclude: /(node_modules|bower_components)/,
                         use: {
                             loader: 'babel-loader',

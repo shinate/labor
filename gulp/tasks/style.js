@@ -37,7 +37,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             })))
             .pipe(CONF.EC(null, PLUGIN.sourcemaps.write('./')))
             .pipe(named(function (file) {
-                file.path = file.path.replace(/\.bundle/, '');
+                file.path = file.path.replace(/\.dev/, '');
                 file.base = CONF.source.style.bundle.base;
                 var filepath = path.relative(file.base, file.path);
                 buf.push(chalk.blue.bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' kB');

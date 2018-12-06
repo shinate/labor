@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./a/tchernobog/character-attribute.bundle.js":
-/*!****************************************************!*\
-  !*** ./a/tchernobog/character-attribute.bundle.js ***!
-  \****************************************************/
+/***/ "./a/tchernobog/character-attribute.dev.js":
+/*!*************************************************!*\
+  !*** ./a/tchernobog/character-attribute.dev.js ***!
+  \*************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3156,13 +3156,13 @@ __webpack_require__(/*! ./_typed-array */ "./node_modules/core-js/modules/_typed
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************!*\
-  !*** multi ./a/tchernobog/character-attribute.bundle.js ***!
-  \**********************************************************/
+/*!*******************************************************!*\
+  !*** multi ./a/tchernobog/character-attribute.dev.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/tchernobog/character-attribute.bundle.js */"./a/tchernobog/character-attribute.bundle.js");
+module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/tchernobog/character-attribute.dev.js */"./a/tchernobog/character-attribute.dev.js");
 
 
 /***/ })

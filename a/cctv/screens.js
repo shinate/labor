@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./a/cctv/screens.bundle.js":
-/*!**********************************!*\
-  !*** ./a/cctv/screens.bundle.js ***!
-  \**********************************/
+/***/ "./a/cctv/screens.dev.js":
+/*!*******************************!*\
+  !*** ./a/cctv/screens.dev.js ***!
+  \*******************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2022,13 +2022,13 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 /***/ }),
 
 /***/ 0:
-/*!****************************************!*\
-  !*** multi ./a/cctv/screens.bundle.js ***!
-  \****************************************/
+/*!*************************************!*\
+  !*** multi ./a/cctv/screens.dev.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/cctv/screens.bundle.js */"./a/cctv/screens.bundle.js");
+module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/cctv/screens.dev.js */"./a/cctv/screens.dev.js");
 
 
 /***/ })

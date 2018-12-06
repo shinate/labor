@@ -14,7 +14,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
         return gulp.src(src || CONF.source.html.bundle.src)
             .pipe(PLUGIN.plumber())
             .pipe(named(function (file) {
-                file.path = file.path.replace(/\.bundle/, '');
+                file.path = file.path.replace(/\.dev/, '');
                 file.base = CONF.source.html.bundle.base;
                 var filepath = path.relative(file.base, file.path);
                 buf.push(chalk.keyword('orange').bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' kB');

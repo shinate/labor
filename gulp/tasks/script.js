@@ -26,7 +26,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
         return gulp.src(src || CONF.source.script.bundle.src)
             .pipe(PLUGIN.plumber())
             .pipe(named(function (file) {
-                return path.relative(CONF.source.script.bundle.base, file.path).slice(0, -10);
+                return path.relative(CONF.source.script.bundle.base, file.path).slice(0, -7);
             }))
             .pipe(ws(CONF.webpackConfig(CONF.isProduction())))
             .pipe(CONF.EC(PLUGIN.uglify()))

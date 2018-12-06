@@ -1,4 +1,4 @@
-var WSservice = require('./WSservice')
+var WSservice = require('./WSservice').default;
 
 var ADP = new WSservice({
     url: "ws://123.57.43.13:20001/web_socket/ad_manage"
@@ -28,3 +28,5 @@ document.querySelector('#send').addEventListener('click', function (e) {
     ADP.send(m);
     pool('[' + (new Date()).toTimeString().slice(0, 8) + '] SED ' + m);
 }, false);
+
+window.AAA = ADP;

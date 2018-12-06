@@ -1,85 +1,85 @@
-var EventEmitter = require('events');
+const EventEmitter = require('events');
 
-var DEFAULT_CONFIG = {
+const DEFAULT_CONFIG = {
     url: '',
     protocol: ''
-};
-
-function WSservice(config) {
-    this.config = Object.assign({}, DEFAULT_CONFIG, config);
-    this.$ws = null;
-    this.$event = new EventEmitter();
-    this._messagePool = [];
-
-    this.on('open', this.releaseMessagePool);
-    this.connect();
 }
 
-var WSSP = WSservice.prototype;
+class WSservice {
 
-WSSP.isOnline = function () {
-    return this.$ws.readyState === WebSocket.OPEN;
-};
-
-WSSP.isOffline = function () {
-    return this.$ws.readyState === WebSocket.CLOSED;
-};
-
-WSSP.connect = function () {
-    this.$ws = new WebSocket(this.config.url);
-
-    this.$ws.onopen = function () {
-        this.emit('open');
-    }.bind(this);
-
-    this.$ws.onmessage = function (e) {
-        this.emit('message', e);
-    }.bind(this);
-
-    this.$ws.onclose = function () {
-        this.emit('close');
-    }.bind(this);
-};
-
-WSSP.reconnect = function () {
-    if (this.isOffline()) {
+    constructor(config) {
+        this.config = Object.assign({}, DEFAULT_CONFIG, config)
+        this.$ws = null
+        this.$event = new EventEmitter()
+        this._messagePool = []
+        this.on('open', this.releaseMessagePool)
         this.connect();
     }
-};
 
-WSSP.send = function (content) {
-    if (this.isOnline()) {
-        this.$ws.send(content);
-    } else {
-        this.reconnect();
-        this._messagePool.push(content);
+    isOnline() {
+        return this.$ws.readyState === WebSocket.OPEN
     }
-};
 
-WSSP.close = function () {
-    return this.$ws && this.$ws.close();
-};
+    isOffline() {
+        return this.$ws.readyState === WebSocket.CLOSED;
+    }
 
-WSSP.releaseMessagePool = function () {
-    this._messagePool.forEach(function (message) {
-        this.$ws.send(message);
-    }.bind(this));
-};
+    connect() {
+        this.$ws = new WebSocket(this.config.url);
 
-WSSP.on = function () {
-    this.$event.on.apply(this, arguments);
-};
+        this.$ws.onopen = () => {
+            this.emit('open');
+        }
 
-WSSP.once = function () {
-    this.$event.once.apply(this, arguments);
-};
+        this.$ws.onmessage = (e) => {
+            this.emit('message', e);
+        }
 
-WSSP.off = function () {
-    this.$event.off.apply(this, arguments);
-};
+        this.$ws.onclose = () => {
+            this.emit('close');
+        }
+    }
 
-WSSP.emit = function () {
-    this.$event.emit.apply(this, arguments);
-};
+    reconnect() {
+        if (this.isOffline()) {
+            this.connect();
+        }
+    }
 
-module.exports = WSservice;
+    send(content) {
+        if (this.isOnline()) {
+            this.$ws.send(content);
+        } else {
+            this.reconnect();
+            this._messagePool.push(content);
+        }
+    }
+
+    close() {
+        return this.$ws && this.$ws.close();
+    }
+
+    releaseMessagePool() {
+        this._messagePool.forEach((message) => {
+            this.$ws.send(message);
+        })
+    }
+
+    on() {
+        this.$event.on.apply(this, arguments);
+    }
+
+    once() {
+        this.$event.once.apply(this, arguments);
+    }
+
+    off() {
+        this.$event.off.apply(this, arguments);
+    }
+
+    emit() {
+        this.$event.emit.apply(this, arguments);
+    }
+}
+
+export default WSservice

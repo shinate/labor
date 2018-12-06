@@ -41,7 +41,7 @@ config.source = {
         bundle: {
             base: path.join(config.root, 'a'),
             src: [
-                path.join(config.root, 'a/**/*.bundle.js')
+                path.join(config.root, 'a/**/*.dev.js')
             ],
             dev: path.join(config.root, 'a'),
             release: path.join(config.root, 'a')
@@ -67,7 +67,7 @@ config.source = {
         bundle: {
             base: path.join(config.root, 'a'),
             src: [
-                path.join(config.root, 'a/**/*.bundle.less')
+                path.join(config.root, 'a/**/*.dev.less')
             ],
             dev: path.join(config.root, 'a'),
             release: path.join(config.root, 'a')
@@ -77,7 +77,7 @@ config.source = {
         bundle: {
             base: path.join(config.root, 'a'),
             src: [
-                path.join(config.root, 'a/**/*.bundle.html')
+                path.join(config.root, 'a/**/*.dev.html')
             ],
             dev: path.join(config.root, 'a'),
             release: path.join(config.root, 'a')

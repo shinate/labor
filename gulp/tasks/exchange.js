@@ -18,8 +18,9 @@ module.exports = function (gulp, PLUGIN, CONF) {
             'a/**/*.bundle.*'
         ])
             .pipe(named(function (file) {
-                return file.path.replace('.bundle', '.dev');
+                file.path = file.path.replace('.bundle', '.dev');
+                this.queue(file);
             }))
-            .pipe(gulp.dist('a'));
+            .pipe(gulp.dest('a'));
     });
 };

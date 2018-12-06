@@ -2884,10 +2884,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./a/noc/main.bundle.js":
-/*!******************************!*\
-  !*** ./a/noc/main.bundle.js ***!
-  \******************************/
+/***/ "./a/noc/main.dev.js":
+/*!***************************!*\
+  !*** ./a/noc/main.dev.js ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5544,13 +5544,13 @@ module.exports = window.jQuery;
 /***/ }),
 
 /***/ 0:
-/*!************************************!*\
-  !*** multi ./a/noc/main.bundle.js ***!
-  \************************************/
+/*!*********************************!*\
+  !*** multi ./a/noc/main.dev.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/noc/main.bundle.js */"./a/noc/main.bundle.js");
+module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/noc/main.dev.js */"./a/noc/main.dev.js");
 
 
 /***/ })
