@@ -1,12 +1,13 @@
-var WSservice = require('./WSservice').default;
+// var WSService = require('./lib/WSService').default;
+var ETMSClient = require('./ETMSClient').default;
 
-var ADP = new WSservice({
+var ADP = new ETMSClient({
     url: "ws://123.57.43.13:20001/web_socket/ad_manage"
 });
 
-ADP.on('message', function (e) {
-    commandRoute(e.data);
-});
+console.log(ADP);
+
+ADP.rev(commandRoute);
 
 function commandRoute(data) {
     // 解析协议、内容
@@ -28,5 +29,3 @@ document.querySelector('#send').addEventListener('click', function (e) {
     ADP.send(m);
     pool('[' + (new Date()).toTimeString().slice(0, 8) + '] SED ' + m);
 }, false);
-
-window.AAA = ADP;

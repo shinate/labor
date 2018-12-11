@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11357,12 +11357,12 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./a/vue/learning/template/components/buttonCounter.mjs":
-/*!**************************************************************!*\
-  !*** ./a/vue/learning/template/components/buttonCounter.mjs ***!
-  \**************************************************************/
+/***/ "./a/vue/learning/template/components/buttonCounter.js":
+/*!*************************************************************!*\
+  !*** ./a/vue/learning/template/components/buttonCounter.js ***!
+  \*************************************************************/
 /*! exports provided: default */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11375,7 +11375,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./a/vue/learning/node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-class-component */ "./a/vue/learning/node_modules/vue-class-component/dist/vue-class-component.common.js");
+/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_class_component__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./buttonCounter.html */ "./a/vue/learning/template/components/buttonCounter.html");
+/* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -11390,7 +11392,7 @@ var _class;
 
 
 
-var buttonCounter = _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__(_class = vue_class_component__WEBPACK_IMPORTED_MODULE_8__(_class =
+var buttonCounter = _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default()(_class = vue_class_component__WEBPACK_IMPORTED_MODULE_8___default()(_class =
 /*#__PURE__*/
 function (_Vue) {
   Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(buttonCounter, _Vue);
@@ -11437,7 +11439,7 @@ function (_Vue) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./a/vue/learning/node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _components_buttonCounter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/buttonCounter */ "./a/vue/learning/template/components/buttonCounter.mjs");
+/* harmony import */ var _components_buttonCounter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/buttonCounter */ "./a/vue/learning/template/components/buttonCounter.js");
 
 
 new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -12162,7 +12164,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 0:
+/***/ 5:
 /*!***************************************************!*\
   !*** multi ./a/vue/learning/template/main.dev.js ***!
   \***************************************************/
