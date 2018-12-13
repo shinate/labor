@@ -2,7 +2,7 @@
 var ETMSClient = require('./ETMSClient').default;
 
 var ADP = new ETMSClient({
-    url: "ws://123.57.43.13:20001/web_socket/ad_manage"
+    url: "ws://123.57.43.13:20002/cmc_socket"
 });
 
 console.log(ADP);

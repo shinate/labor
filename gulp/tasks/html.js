@@ -17,7 +17,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 file.path = file.path.replace(/\.dev/, '');
                 file.base = CONF.source.html.bundle.base;
                 var filepath = path.relative(file.base, file.path);
-                buf.push(chalk.keyword('orange').bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' kB');
+                buf.push(chalk.keyword('orange').bold(filepath) + "\t" + (parseInt(file.contents.length / 10) / 100) + ' KiB');
                 this.queue(file);
             }))
             .pipe(map(function (file, cb) {
@@ -41,7 +41,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 buf.push(chalk.bold('Asset') + "\t" + chalk.bold('Size'));
 
                 console.log('[' + chalk.grey((new Date).toLocaleTimeString()) + ']', 'HTML Bundle');
-                console.columns(buf.reverse(), {align: 'r'});
+                console.columns(buf.reverse(), {align: 'rr'});
             });
     }
 

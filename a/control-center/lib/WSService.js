@@ -1,7 +1,7 @@
 import WSAbstract from './WSAbstract'
 
 const DEFAULT_CONFIG = {
-    url: '',
+    url     : '',
     protocol: ''
 }
 
@@ -11,9 +11,9 @@ class WSService extends WSAbstract {
     config = {}
 
     constructor(config) {
-        super();
+        super()
         Object.assign(this.config, DEFAULT_CONFIG, config)
-        this.connect();
+        this.connect()
     }
 
     /**
@@ -39,18 +39,19 @@ class WSService extends WSAbstract {
      * @private
      */
     connect() {
-        this.$ws = new WebSocket(this.config.url);
+        this.$ws = new WebSocket(this.config.url)
 
         this.$ws.onopen = () => {
-            this.emit('open');
+            this.emit('open')
         }
 
         this.$ws.onmessage = (e) => {
-            this.emit('message', e.data || null);
+            console.log(e)
+            this.emit('message', e.data || null)
         }
 
         this.$ws.onclose = () => {
-            this.emit('close');
+            this.emit('close')
         }
     }
 
@@ -60,12 +61,12 @@ class WSService extends WSAbstract {
      */
     reconnect() {
         if (this.isOffline()) {
-            this.connect();
+            this.connect()
         }
     }
 
     send(content) {
-        this.$ws.send(content);
+        this.$ws.send(content)
     }
 
     onConnect(cb) {
@@ -77,7 +78,7 @@ class WSService extends WSAbstract {
     }
 
     close() {
-        return this.$ws && this.$ws.close();
+        return this.$ws && this.$ws.close()
     }
 }
 
