@@ -4,21 +4,21 @@ module.exports = window.stars = function stars(canvas) {
 
     var
         ctx = canvas.getContext('2d'),
-        w = canvas.width = window.innerWidth,
+        w   = canvas.width = window.innerWidth,
         h = canvas.height = window.innerHeight,
 
-        hue = 217,
-        stars = [],
-        count = 0,
+        hue      = 217,
+        stars    = [],
+        count    = 0,
         maxStars = 2000;
 
 // Thanks @jackrugile for the performance tip! https://codepen.io/jackrugile/pen/BjBGoM
 // Cache gradient
     var canvas2 = document.createElement('canvas'),
-        ctx2 = canvas2.getContext('2d');
+        ctx2    = canvas2.getContext('2d');
     canvas2.width = 100;
     canvas2.height = 100;
-    var half = canvas2.width / 2,
+    var half      = canvas2.width / 2,
         gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
     gradient2.addColorStop(0.025, '#fff');
     gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
@@ -48,7 +48,7 @@ module.exports = window.stars = function stars(canvas) {
     }
 
     function maxOrbit(x, y) {
-        var max = Math.max(x, y),
+        var max      = Math.max(x, y),
             diameter = Math.round(Math.sqrt(max * max + max * max));
         return diameter / 2;
     }
@@ -68,8 +68,8 @@ module.exports = window.stars = function stars(canvas) {
     }
 
     Star.prototype.draw = function () {
-        var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
-            y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+        var x       = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+            y       = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
             twinkle = random(10);
 
         if (twinkle === 1 && this.alpha > 0) {

@@ -2,7 +2,7 @@ import WSAbstract from './WSAbstract'
 
 class WSAdapter extends WSAbstract {
     constructor() {
-        super();
+        super()
     }
 
     send(content) {

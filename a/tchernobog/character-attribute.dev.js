@@ -46,7 +46,7 @@ function decode(hex) {
 $('#BTN_DECODE').on('click', function () {
     var value = $('#HEX').val().trim();
     if (value !== '') {
-        var res = decode(value)
+        var res = decode(value);
         if (res != null) {
             $('#INT').val(res);
             updateEqual(res);
@@ -58,7 +58,7 @@ $('#BTN_DECODE').on('click', function () {
     return false;
 });
 
-var equal = $('<div class="input-group-append equal"><span class="input-group-text"></span></div>')
+var equal = $('<div class="input-group-append equal"><span class="input-group-text"></span></div>');
 
 function updateEqual(value) {
     if (value == null) {

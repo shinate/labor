@@ -68,7 +68,7 @@ NCP.reload = function reload() {
         }.bind(this))
         .always(function () {
             this.requestLock = false;
-        }.bind(this))
+        }.bind(this));
 };
 
 NCP.render = function renderSET(data) {
@@ -109,7 +109,7 @@ var renderer = {
         el.prop('cached-value', value);
         el.text(value);
     },
-    flask: function (el, value) {
+    flask  : function (el, value) {
         value = parseNum(value);
 
         if (value === el.prop('cached-value')) {
@@ -144,7 +144,7 @@ var renderer = {
             })(el, value), 50);
         }
     },
-    table: function (el, data) {
+    table  : function (el, data) {
 
         var rows = parseInt(this.node.attr('rows')) || 5;
 
@@ -156,8 +156,8 @@ var renderer = {
         data.map(function (item, index) {
             var loopd = loopTpl.clone();
             loopd.css({
-                height: rowHeight + 'px',
-                'line-height': rowHeight + 'px',
+                height            : rowHeight + 'px',
+                'line-height'     : rowHeight + 'px',
                 'background-color': index % 2 === 0 ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0)'
             });
             loopd.find('[column]').each(function (_, el) {
@@ -169,10 +169,10 @@ var renderer = {
         });
 
         this.slicker = wrapper.slick({
-            arrows: false,
-            autoplay: true,
+            arrows       : false,
+            autoplay     : true,
             autoplaySpeed: 10000,
-            vertical: true
+            vertical     : true
         });
     }
 };

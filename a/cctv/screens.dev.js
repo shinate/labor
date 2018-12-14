@@ -73,7 +73,7 @@ console.log('window.CCTV.add(sources) // hls source address');
     function getDeviceRtpInfo(params, cb) {
         $.get(navList.attr('source-rtp'), params).done(function (ret) {
             if (ret.code === 0 && ret.response.hasOwnProperty('hls')) {
-                cb(ret.response.hls)
+                cb(ret.response.hls);
                 return;
             }
 
@@ -149,6 +149,6 @@ console.log('window.CCTV.add(sources) // hls source address');
     });
 
     document.oncontextmenu = function () {
-        return false
-    }
+        return false;
+    };
 })(jQuery);

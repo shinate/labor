@@ -31,7 +31,7 @@ class ETMSClient {
     _msg_pool = []
 
     constructor(config) {
-        this.getUUID();
+        this.getUUID()
         if (window.hasOwnProperty('ETMS_INJECTOR')) {
             this.$connection = new WSAdapter()
         } else {

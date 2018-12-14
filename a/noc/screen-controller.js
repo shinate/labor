@@ -8,15 +8,15 @@ var TYPE_COVER = 2;
 var TYPE_CONTAIN = 3;
 var ALLOWED_TYPES = [TYPE_ORIGINAL, TYPE_STRETCH, TYPE_COVER, TYPE_CONTAIN];
 
-var STYLE_TRANSLATE = 'translate3d(-50%, -50%, 0)'
+var STYLE_TRANSLATE = 'translate3d(-50%, -50%, 0)';
 
 var DEFAULT_OPTIONS = {
-    height: -1,
-    width: -1,
+    height       : -1,
+    width        : -1,
     contentHeight: '100%',
-    contentWidth: '100%',
-    position: [0, 0],
-    type: TYPE_ORIGINAL
+    contentWidth : '100%',
+    position     : [0, 0],
+    type         : TYPE_ORIGINAL
 };
 
 function screenController(node, options) {
@@ -53,17 +53,17 @@ SCP.init = function init(node, options) {
     }
 
     this.contentNode.css({
-        position: 'absolute',
+        position : 'absolute',
         transform: 'translate3d(' + (-this.options.position[0] * 50) + '%' + ', ' + (-this.options.position[1] * 50) + '%' + ', 0)',
-        height: this.options.contentHeight,
-        width: this.options.contentWidth
+        height   : this.options.contentHeight,
+        width    : this.options.contentWidth
     });
 
     this.node.css({
         position: 'absolute',
         overflow: 'hidden',
-        left: '50%',
-        top: '50%'
+        left    : '50%',
+        top     : '50%'
     });
 
     if (0 > ALLOWED_TYPES.indexOf(this.options.type)) {

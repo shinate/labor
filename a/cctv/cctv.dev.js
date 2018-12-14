@@ -229,7 +229,7 @@ module.exports = window.CCTV = (function ($) {
         if (CALLBACKS.hasOwnProperty(e) && CALLBACKS[e].length > 0) {
             CALLBACKS[e].forEach((function (cb) {
                 cb.apply(context || this, params);
-            }).bind(this))
+            }).bind(this));
         }
     };
 
@@ -267,15 +267,15 @@ module.exports = window.CCTV = (function ($) {
                 var wScale = width / screen.originalWidth; // 宽度比
                 var hScale = height / screen.originalHeight; // 高度比
                 el.css({
-                    width: screen.originalWidth,
-                    height: screen.originalHeight,
-                    transform: 'scale3d(' + wScale + ',' + hScale + ',1)',
-                    'transform-origin': '0 0',
+                    width             : screen.originalWidth,
+                    height            : screen.originalHeight,
+                    transform         : 'scale3d(' + wScale + ',' + hScale + ',1)',
+                    'transform-origin': '0 0'
                 });
                 break;
             case 'contain':
             default:
-                el.css({width: width, height: height, transform: '', 'transform-origin': ''})
+                el.css({width: width, height: height, transform: '', 'transform-origin': ''});
                 break;
         }
     }
@@ -329,7 +329,7 @@ module.exports = window.CCTV = (function ($) {
     function getPlayerNUM() {
         return MATRIX_SOURCES.filter(function (item) {
             return item.player !== null;
-        }).count()
+        }).count();
     }
 
     function getLastPlayerPosition() {
@@ -358,11 +358,11 @@ module.exports = window.CCTV = (function ($) {
             var article = $('<article class="screen"><button type="button" class="reload fa fa-refresh"></button><button type="button" class="remove fa fa-times"></button></article>');
             matrixNode.append(article);
             MATRIX_SOURCES.push({
-                ID: null,
-                container: article,
-                sources: null,
-                player: null,
-                originalWidth: null,
+                ID            : null,
+                container     : article,
+                sources       : null,
+                player        : null,
+                originalWidth : null,
                 originalHeight: null
             });
         }
