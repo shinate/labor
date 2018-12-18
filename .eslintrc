@@ -10,6 +10,11 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "no-caller": "error",
+    "no-iterator": "error",
+    "no-labels": "error",
+    "no-proto": "error",
+    "no-return-await": "error"
   }
 }

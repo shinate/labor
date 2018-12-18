@@ -1,24 +1,18 @@
-'use stick';
+"use strict"
 
 import EventEmitter from 'events'
-import WSservice from './lib/WSService'
-import WSAdapter from './lib/WSAdapter'
+import WSservice from './ws/service'
+import WSAdapter from './ws/adapter'
 import uuid from 'uuid'
-import randomatic from 'randomatic'
 import CMD from './model/cmd'
 import * as PROTO from './model/protocol'
-
-function uniqueid() {
-    return randomatic('Aa0', 7) + (+new Date).toString(36).substr(-3)
-}
-
-function now() {
-    return +new Date
-}
+import * as EXCEPTION from './model/exception'
+import now from './lib/now'
+import noop from './lib/noop'
 
 const LOCALHEARTBEAT_INTERVAL = 10000
 const LOCALHEARTBEAT_TIMEOUT = 60000
-const REQ_TIMEOUT = 30000
+const REQ_TIMEOUT = 5000
 
 class ETMSClient {
 
@@ -26,34 +20,39 @@ class ETMSClient {
     $uuid = null
     $connection = null
     $ls = window.localStorage
+    $PROTO = PROTO
     _logged = false
     _req_pool = {}
     _msg_pool = []
+    config = {}
 
     constructor(config) {
+        Object.assign(this.config, config || {})
         this.getUUID()
-        if (window.hasOwnProperty('ETMS_INJECTOR')) {
-            this.$connection = new WSAdapter()
-        } else {
-            this.$connection = new WSservice(config)
-        }
+        this.getConnection()
+        this.on('logged', () => this.releaseMessagePool())
 
-        this.$event.on('logged', () => this.releaseMessagePool())
-
-        this.$connection.onMessage(message => this.receiveMessageHandle(message));
+        this.$connection.onMessage(message => this._rev(message));
         this.$connection.onConnect(() => this.login())
+        this.$connection.onDisconnect(() => this.$event.emit('disconnected'))
 
         this.localHeartBeatProcess()
+
+        console.log(this)
     }
 
     getConnection() {
-
+        if (window.hasOwnProperty('ETMS_INJECTOR')) {
+            this.$connection = new WSAdapter()
+        } else {
+            this.$connection = new WSservice(this.config)
+        }
     }
 
     getUUID() {
         let _uuid = this.$ls.getItem('ETMSClient_UUID')
         let _sign = this.$ls.getItem('ETMSClient_SIGN')
-        if (_uuid && _sign && _sign > (+new Date) - LOCALHEARTBEAT_TIMEOUT) {
+        if (_uuid && _sign && _sign > now() - LOCALHEARTBEAT_TIMEOUT) {
             this.$uuid = _uuid
         } else {
             this.$uuid = uuid.v1()
@@ -68,89 +67,145 @@ class ETMSClient {
     }
 
     login() {
-        this.send(CMD.LOGIN, null, `2940\t1374\t${now()}`, (ret) => {
+        let _r = this.send(CMD.LOGIN, null, this.config.token, (e) => {
             this._logged = true;
-            this.$event.emit('logged')
-        }, () => {
+            this.emit('logged', e)
+        }, (e) => {
             this._logged = false;
             this.$connection.close()
+            this.emit('loginFailed', e)
         })
+        this.emit('login', _r)
+        return _r;
     }
 
-    request(content) {
-        this.send(CMD.REQUEST, null, JSON.stringify(content));
+    logout() {
+        this._logged = false;
     }
 
-    control(content) {
+    request(content, done, fail) {
+        return this.send(CMD.REQUEST, null, content, done, fail)
+    }
+
+    control(target, content) {
     }
 
     rev(cb) {
-        this.$event.on('message', cb.bind(this))
+        this.on('message', cb)
     }
 
-    send(protocol, target, content, done, fail) {
-        let sender = () => {
-            let _unqid = uniqueid()
-            let message = PROTO.encrypt(protocol, this.$uuid, target || null, _unqid, content)
+    on(...args) {
+        this.$event.on.apply(this, args)
+    }
 
-            if (done && typeof done === 'function' || fail && typeof fail === 'function') {
-                return new Promise((resolve, reject) => {
-                    this._req_pool[_unqid] = {
-                        done: resolve,
-                        fail: reject,
-                        time: now(),
-                        _   : setTimeout(() => reject('TIMEOUT'), REQ_TIMEOUT)
-                    }
+    emit(...args) {
+        this.$event.emit.apply(this, args)
+    }
 
-                    this.$connection.send(message)
-                })
-                    .then(done, fail)
-                    .finally(() => {
-                        this._req_pool[_unqid] = null
-                        delete this._req_pool[_unqid]
-                    })
-            } else {
-                return this.$connection.send(message)
-            }
+    _rev(message) {
+        let {cmd, source, target, status, unqid, reqid, content} = this.$PROTO.unpack(this.$PROTO.decrypt(message))
+
+        if (target !== this.$uuid) {
+            return false
         }
 
-        if (this.$connection.isOnline()) {
-            sender()
-        } else {
-            this.$connection.reconnect()
-            this._msg_pool.push(sender)
-        }
-    }
-
-    releaseMessagePool() {
-        this._msg_pool.forEach(fn => {
-            fn()
-        })
-
-        this._msg_pool = [];
-    }
-
-    receiveMessageHandle(message) {
-        var message = PROTO.decrypt(message);
-
-        switch (message.cmd) {
+        switch (cmd) {
             case CMD.LOGIN:
-                if (this._req_pool.hasOwnProperty(message.reqid)) {
-                    var rep = JSON.parse(message.content);
-                    if (rep.code === 0) {
-                        clearTimeout(this._req_pool[message.reqid]._)
-                        this._req_pool[message.reqid].done(rep.message)
+                status = 0
+                content = '登录成功'
+            case CMD.REQUEST:
+                // any more
+                if (this._req_pool.hasOwnProperty(reqid)) {
+                    if (status === 0) {
+                        this._req_pool[reqid].resolve(content)
                     } else {
-                        this._req_pool[message.reqid].fail(rep.message)
+                        this._req_pool[reqid].reject(content || EXCEPTION.CODE(status))
                     }
                 }
                 break
             default:
-                this.$event.emit('message', JSON.parse(message.content))
+                this.emit('message', content)
                 break
         }
 
-        this.$event.emit('message', message.content)
+        console.log({cmd, source, target, status, unqid, reqid, content})
+    }
+
+    _send(structure) {
+        console.log(structure)
+
+        if (this.$connection.isOnline() && (structure.cmd === CMD.LOGIN || this._logged)) {
+            this.$connection.send(this.$PROTO.encrypt(structure))
+            return structure
+        }
+
+        return false
+
+        // let message = this.$PROTO.encrypt(structure)
+        //
+        // if (this.$connection.isOnline() && (structure.cmd === CMD.LOGIN || this._logged)) {
+        //     this.$connection.send(message)
+        // } else {
+        //     this.pushMessagePool(message)
+        //     this.$connection.reconnect()
+        // }
+        //
+        // return structure
+    }
+
+    send(cmd, target, content, done, fail) {
+
+        let structure = this.$PROTO.pack(cmd, this.$uuid, target || null, content)
+        let _unqid = structure.unqid
+
+        if (done && typeof done === 'function') {
+            if (typeof fail !== 'function') {
+                fail = noop;
+            }
+
+            let stopTimeoutLsn = () => {
+                clearTimeout(this._req_pool[_unqid]._)
+                this._req_pool[_unqid]._ = null
+            }
+
+            let clear = () => {
+                this._req_pool[_unqid] = null
+                delete this._req_pool[_unqid]
+            }
+
+            let resolve = (m) => {
+                stopTimeoutLsn()
+                done(m)
+                clear();
+            }
+
+            let reject = (m) => {
+                stopTimeoutLsn()
+                fail(m)
+                clear();
+            }
+
+            this._req_pool[_unqid] = {
+                resolve,
+                reject,
+                time: now(),
+                _   : setTimeout(() => reject(EXCEPTION.TIMEOUT), REQ_TIMEOUT)
+            }
+        }
+
+        return this._send(structure)
+    }
+
+    pushMessagePool(message) {
+        this._msg_pool.push(message)
+    }
+
+    releaseMessagePool() {
+        this._msg_pool.forEach(message => {
+            this.$connection.send(message)
+        })
+
+        this._msg_pool = []
     }
 }
 

@@ -1,4 +1,6 @@
-import WSAbstract from './WSAbstract'
+"use strict"
+
+import WSAbstract from './abstract'
 
 class WSAdapter extends WSAbstract {
     constructor() {

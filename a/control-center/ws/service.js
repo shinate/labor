@@ -1,4 +1,6 @@
-import WSAbstract from './WSAbstract'
+"use strict"
+
+import WSAbstract from './abstract'
 
 const DEFAULT_CONFIG = {
     url     : '',
@@ -42,15 +44,17 @@ class WSService extends WSAbstract {
         this.$ws = new WebSocket(this.config.url)
 
         this.$ws.onopen = () => {
+            // console.log(e)
             this.emit('open')
         }
 
         this.$ws.onmessage = (e) => {
-            console.log(e)
+            // console.log(e)
             this.emit('message', e.data || null)
         }
 
         this.$ws.onclose = () => {
+            // console.log(e)
             this.emit('close')
         }
     }
@@ -75,6 +79,10 @@ class WSService extends WSAbstract {
 
     onMessage(cb) {
         this.on('message', cb)
+    }
+
+    onDisconnect(cb) {
+        this.on('close', cb)
     }
 
     close() {
