@@ -17,13 +17,21 @@ const REQ_TIMEOUT = 5000
 class ETMSClient {
 
     $event = new EventEmitter()
+
     $uuid = null
+
     $connection = null
+
     $ls = window.localStorage
+
     $PROTO = PROTO
+
     _logged = false
+
     _req_pool = {}
+
     _msg_pool = []
+
     config = {}
 
     constructor(config) {
