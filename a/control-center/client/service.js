@@ -1,6 +1,7 @@
 "use strict"
 
 import WSAbstract from './abstract'
+import * as EXCEPTION from './model/exception'
 
 const DEFAULT_CONFIG = {
     url     : '',
@@ -14,7 +15,10 @@ class WSService extends WSAbstract {
 
     constructor(config) {
         super()
-        Object.assign(this.config, DEFAULT_CONFIG, config)
+        this.config = {...DEFAULT_CONFIG, ...config}
+        if (this.config.url === '') {
+            throw new Error(EXCEPTION.NO_SERVICE)
+        }
         this.connect()
     }
 

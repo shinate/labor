@@ -1,28 +1,33 @@
-var path = require('path');
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = function (config) {
     return function (p) {
         var c = {
-            output: {
+            output : {
                 filename: '[name].js'
             },
             resolve: {
                 alias: {
                     'jquery': path.resolve(config.src + '/scripts/model/jquery-bridge.js'),
-                    'vue$': 'vue/dist/vue.esm.js'
+                    'vue$'  : 'vue/dist/vue.esm.js'
                 }
             },
-            module: {
+            module : {
                 rules: [
                     {
                         test: /\.html$/,
-                        use: 'vue-template-loader'
+                        use : 'vue-template-loader'
                     },
                     {
-                        test: /\.m?js$/,
+                        test  : /\.vue$/,
+                        loader: 'vue-loader'
+                    },
+                    {
+                        test   : /\.m?js$/,
                         exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
+                        use    : {
+                            loader : 'babel-loader',
                             options: {
                                 presets: ['@babel/preset-env', '@vue/app'],
                                 plugins: ['@babel/plugin-proposal-object-rest-spread']
@@ -30,7 +35,11 @@ module.exports = function (config) {
                         }
                     }
                 ]
-            }
+            },
+            plugins: [
+                // make sure to include the plugin for the magic
+                new VueLoaderPlugin()
+            ]
         };
 
         c.mode = config.env;

@@ -81,15 +81,234 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./a/vue/learning/node_modules/vue-class-component/dist/vue-class-component.common.js":
-/*!********************************************************************************************!*\
-  !*** ./a/vue/learning/node_modules/vue-class-component/dist/vue-class-component.common.js ***!
-  \********************************************************************************************/
+/***/ "./a/vue/learning/template/components/buttonCounter.html":
+/*!***************************************************************!*\
+  !*** ./a/vue/learning/template/components/buttonCounter.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("button", { on: { click: _vm.append } }, [
+    _vm._v(_vm._s(_vm.c) + " You clicked me " + _vm._s(_vm.count) + " times.")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+module.exports = function (_exports) {
+  var options = typeof _exports === 'function'
+    ? _exports.options
+    : _exports
+  options.render = render
+  options.staticRenderFns = staticRenderFns
+  if (false) {}
+  return _exports
+}
+var api = null
+if (false) {}
+
+
+/***/ }),
+
+/***/ "./a/vue/learning/template/components/buttonCounter.js":
+/*!*************************************************************!*\
+  !*** ./a/vue/learning/template/components/buttonCounter.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./a/vue/node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-class-component */ "./a/vue/node_modules/vue-class-component/dist/vue-class-component.common.js");
+/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_class_component__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./buttonCounter.html */ "./a/vue/learning/template/components/buttonCounter.html");
+/* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__);
+
+
+
+
+
+
+
+
+var _dec, _class;
+
+
+
+
+var buttonCounter = (_dec = vue_class_component__WEBPACK_IMPORTED_MODULE_8___default()({
+  props: ['c']
+}), _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default()(_class = _dec(_class =
+/*#__PURE__*/
+function (_Vue) {
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(buttonCounter, _Vue);
+
+  function buttonCounter() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, buttonCounter);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(buttonCounter)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this)), "count", 0);
+
+    return _this;
+  }
+
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(buttonCounter, [{
+    key: "append",
+    value: function append() {
+      this.count++;
+    }
+  }]);
+
+  return buttonCounter;
+}(vue__WEBPACK_IMPORTED_MODULE_7__["default"])) || _class) || _class);
+/* harmony default export */ __webpack_exports__["default"] = (buttonCounter);
+
+/***/ }),
+
+/***/ "./a/vue/learning/template/components/clist.html":
+/*!*******************************************************!*\
+  !*** ./a/vue/learning/template/components/clist.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.list, function(item) {
+      return _c("buttonCounter", { attrs: { c: item } })
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+module.exports = function (_exports) {
+  var options = typeof _exports === 'function'
+    ? _exports.options
+    : _exports
+  options.render = render
+  options.staticRenderFns = staticRenderFns
+  if (false) {}
+  return _exports
+}
+var api = null
+if (false) {}
+
+
+/***/ }),
+
+/***/ "./a/vue/learning/template/components/clist.js":
+/*!*****************************************************!*\
+  !*** ./a/vue/learning/template/components/clist.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./a/vue/node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-class-component */ "./a/vue/node_modules/vue-class-component/dist/vue-class-component.common.js");
+/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_class_component__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _clist_html__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./clist.html */ "./a/vue/learning/template/components/clist.html");
+/* harmony import */ var _clist_html__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_clist_html__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _buttonCounter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./buttonCounter */ "./a/vue/learning/template/components/buttonCounter.js");
+
+
+
+
+
+var _dec, _class;
+
+
+
+
+
+var clist = (_dec = vue_class_component__WEBPACK_IMPORTED_MODULE_5___default()({
+  props: ['list'],
+  components: {
+    buttonCounter: _buttonCounter__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }
+}), _clist_html__WEBPACK_IMPORTED_MODULE_6___default()(_class = _dec(_class =
+/*#__PURE__*/
+function (_Vue) {
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(clist, _Vue);
+
+  function clist() {
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, clist);
+
+    return Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2__["default"])(clist).apply(this, arguments));
+  }
+
+  return clist;
+}(vue__WEBPACK_IMPORTED_MODULE_4__["default"])) || _class) || _class);
+/* harmony default export */ __webpack_exports__["default"] = (clist);
+
+/***/ }),
+
+/***/ "./a/vue/learning/template/main.dev.js":
+/*!*********************************************!*\
+  !*** ./a/vue/learning/template/main.dev.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./a/vue/node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _components_clist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/clist */ "./a/vue/learning/template/components/clist.js");
+ // import buttonCounter from "./components/buttonCounter"
+
+
+new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  el: '#components-demo',
+  data: {
+    cl: ['1', '2', '3']
+  },
+  components: {
+    clist: _components_clist__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./a/vue/node_modules/vue-class-component/dist/vue-class-component.common.js":
+/*!***********************************************************************************!*\
+  !*** ./a/vue/node_modules/vue-class-component/dist/vue-class-component.common.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -105,7 +324,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Vue = _interopDefault(__webpack_require__(/*! vue */ "./a/vue/learning/node_modules/vue/dist/vue.esm.js"));
+var Vue = _interopDefault(__webpack_require__(/*! vue */ "./a/vue/node_modules/vue/dist/vue.esm.js"));
 
 var reflectionIsSupported = typeof Reflect !== 'undefined' && Reflect.defineMetadata;
 function copyReflectionMetadata(to, from) {
@@ -367,10 +586,10 @@ exports.mixins = mixins;
 
 /***/ }),
 
-/***/ "./a/vue/learning/node_modules/vue/dist/vue.esm.js":
-/*!*********************************************************!*\
-  !*** ./a/vue/learning/node_modules/vue/dist/vue.esm.js ***!
-  \*********************************************************/
+/***/ "./a/vue/node_modules/vue/dist/vue.esm.js":
+/*!************************************************!*\
+  !*** ./a/vue/node_modules/vue/dist/vue.esm.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11320,134 +11539,7 @@ Vue.compile = compileToFunctions;
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../../../../../node_modules/timers-browserify/main.js */ "./node_modules/timers-browserify/main.js").setImmediate))
-
-/***/ }),
-
-/***/ "./a/vue/learning/template/components/buttonCounter.html":
-/*!***************************************************************!*\
-  !*** ./a/vue/learning/template/components/buttonCounter.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("button", { on: { click: _vm.append } }, [
-    _vm._v("You clicked me " + _vm._s(_vm.count) + " times.")
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-module.exports = function (_exports) {
-  var options = typeof _exports === 'function'
-    ? _exports.options
-    : _exports
-  options.render = render
-  options.staticRenderFns = staticRenderFns
-  if (false) {}
-  return _exports
-}
-var api = null
-if (false) {}
-
-
-/***/ }),
-
-/***/ "./a/vue/learning/template/components/buttonCounter.js":
-/*!*************************************************************!*\
-  !*** ./a/vue/learning/template/components/buttonCounter.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./a/vue/learning/node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-class-component */ "./a/vue/learning/node_modules/vue-class-component/dist/vue-class-component.common.js");
-/* harmony import */ var vue_class_component__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_class_component__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./buttonCounter.html */ "./a/vue/learning/template/components/buttonCounter.html");
-/* harmony import */ var _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_buttonCounter_html__WEBPACK_IMPORTED_MODULE_9__);
-
-
-
-
-
-
-
-
-var _class;
-
-
-
-
-
-var buttonCounter = _buttonCounter_html__WEBPACK_IMPORTED_MODULE_9___default()(_class = vue_class_component__WEBPACK_IMPORTED_MODULE_8___default()(_class =
-/*#__PURE__*/
-function (_Vue) {
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(buttonCounter, _Vue);
-
-  function buttonCounter() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, buttonCounter);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(buttonCounter)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this)), "count", 0);
-
-    return _this;
-  }
-
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(buttonCounter, [{
-    key: "append",
-    value: function append() {
-      this.count++;
-    }
-  }]);
-
-  return buttonCounter;
-}(vue__WEBPACK_IMPORTED_MODULE_7__["default"])) || _class) || _class;
-
-/* harmony default export */ __webpack_exports__["default"] = (buttonCounter);
-
-/***/ }),
-
-/***/ "./a/vue/learning/template/main.dev.js":
-/*!*********************************************!*\
-  !*** ./a/vue/learning/template/main.dev.js ***!
-  \*********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./a/vue/learning/node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _components_buttonCounter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/buttonCounter */ "./a/vue/learning/template/components/buttonCounter.js");
-
-
-new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  el: '#components-demo',
-  components: {
-    buttonCounter: _components_buttonCounter__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
-});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../../../../node_modules/timers-browserify/main.js */ "./node_modules/timers-browserify/main.js").setImmediate))
 
 /***/ }),
 
@@ -12164,7 +12256,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!***************************************************!*\
   !*** multi ./a/vue/learning/template/main.dev.js ***!
   \***************************************************/

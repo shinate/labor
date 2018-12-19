@@ -3,7 +3,9 @@ import Component from 'vue-class-component'
 import WithRender from "./buttonCounter.html"
 
 @WithRender
-@Component
+@Component({
+    props: ['c']
+})
 
 class buttonCounter extends Vue {
     count = 0

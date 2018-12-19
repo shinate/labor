@@ -37,7 +37,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
     }
 
     gulp.task('script', ['script:asset', 'script:packed'], function () {
-        return scriptBundle()
+        return scriptBundle();
     });
 
     gulp.task('script:watch', [

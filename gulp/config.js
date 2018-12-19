@@ -21,90 +21,90 @@ config.dev = path.join(config.root, 'build');
 config.release = path.join(config.root, 'build');
 
 config.source = {
-    script: {
+    script  : {
         assets: {
-            base: path.join(config.src, 'scripts/assets'),
-            src: [
+            base   : path.join(config.src, 'scripts/assets'),
+            src    : [
                 path.join(config.src, 'scripts/assets/**/*')
             ],
-            dev: path.join(config.dev, 'scripts/assets'),
+            dev    : path.join(config.dev, 'scripts/assets'),
             release: path.join(config.release, 'scripts/assets')
         },
         packed: {
-            base: path.join(config.src, 'scripts'),
-            src: [
+            base   : path.join(config.src, 'scripts'),
+            src    : [
                 path.join(config.src, 'scripts/*.min.js')
             ],
-            dev: path.join(config.dev, 'scripts'),
+            dev    : path.join(config.dev, 'scripts'),
             release: path.join(config.release, 'scripts')
         },
         bundle: {
-            base: path.join(config.root, 'a'),
-            src: [
+            base   : path.join(config.root, 'a'),
+            src    : [
                 path.join(config.root, 'a/**/*.dev.js')
             ],
-            dev: path.join(config.root, 'a'),
+            dev    : path.join(config.root, 'a'),
             release: path.join(config.root, 'a')
         }
     },
-    style: {
+    style   : {
         assets: {
-            base: path.join(config.src, 'styles'),
-            src: [
+            base   : path.join(config.src, 'styles'),
+            src    : [
                 path.join(config.src, 'styles/*.less')
             ],
-            dev: path.join(config.dev, 'styles'),
+            dev    : path.join(config.dev, 'styles'),
             release: path.join(config.release, 'styles')
         },
         packed: {
-            base: path.join(config.src, 'styles'),
-            src: [
+            base   : path.join(config.src, 'styles'),
+            src    : [
                 path.join(config.src, 'styles/*.min.css')
             ],
-            dev: path.join(config.dev, 'styles'),
+            dev    : path.join(config.dev, 'styles'),
             release: path.join(config.release, 'styles')
         },
         bundle: {
-            base: path.join(config.root, 'a'),
-            src: [
+            base   : path.join(config.root, 'a'),
+            src    : [
                 path.join(config.root, 'a/**/*.dev.less')
             ],
-            dev: path.join(config.root, 'a'),
+            dev    : path.join(config.root, 'a'),
             release: path.join(config.root, 'a')
         }
     },
-    html: {
+    html    : {
         bundle: {
-            base: path.join(config.root, 'a'),
-            src: [
+            base   : path.join(config.root, 'a'),
+            src    : [
                 path.join(config.root, 'a/**/*.dev.html')
             ],
-            dev: path.join(config.root, 'a'),
+            dev    : path.join(config.root, 'a'),
             release: path.join(config.root, 'a')
         }
     },
     manifest: {
-        base: config.src,
-        src: [
+        base   : config.src,
+        src    : [
             path.join(config.src, 'manifest.json')
         ],
-        dev: path.join(config.dev),
+        dev    : path.join(config.dev),
         release: path.join(config.release)
     },
-    page: {
-        base: config.src,
-        src: [
+    page    : {
+        base   : config.src,
+        src    : [
             path.join(config.src, '**/*.html')
         ],
-        dev: path.join(config.dev),
+        dev    : path.join(config.dev),
         release: path.join(config.release)
     },
-    image: {
-        base: path.join(config.src, 'image'),
-        src: [
+    image   : {
+        base   : path.join(config.src, 'image'),
+        src    : [
             path.join(config.src, 'image/**/*.{jpg,png,gif}')
         ],
-        dev: path.join(config.dev, 'image'),
+        dev    : path.join(config.dev, 'image'),
         release: path.join(config.release, 'image')
     }
 };

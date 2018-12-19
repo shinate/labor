@@ -1,9 +1,4 @@
 import randomatic from 'randomatic'
-import _now from '../lib/now'
-
-function _uniqueid() {
-    return randomatic('Aa0', 7) + (+new Date).toString(36).substr(-3)
-}
 
 export const
     pack     = (cmd, source, target, content) => {
@@ -12,8 +7,8 @@ export const
             type  : 'ETMS',
             source,
             target: target || 'CMC',
-            unqid : _uniqueid(),
-            time  : _now(),
+            unqid : unqid(),
+            time  : now(),
             content
         }
     },
@@ -29,10 +24,12 @@ export const
             cmd,
             source,
             target,
-            unqid: _uniqueid(),
+            unqid: unqid(),
             reqid,
             status,
-            time : _now(),
+            time : now(),
             content
         })
-    }
+    },
+    unqid    = () => randomatic('Aa0', 7) + (+new Date).toString(36).substr(-3),
+    now      = () => require('../lib/now')['default']

@@ -1,7 +1,9 @@
-import ETMSClient from './ETMSClient'
+import Vue from 'vue'
+import client from './client'
 import * as cinema_list from './__resources/model/cinema_list'
+import Switcher from './view/component/global/Switcher/Switcher'
 
-let ADP = new ETMSClient({
+let ADP = new client({
     url  : "ws://123.57.43.13:20002/cmc_socket",
     token: `2940\t1374\t${+new Date}`
 })
@@ -41,6 +43,13 @@ function pool(message) {
 
     messagePool.scrollTop = p.offsetTop
 }
+
+new Vue({
+    el        : '#bar',
+    components: {
+        Switcher
+    }
+})
 
 document.querySelector('#send').addEventListener('click', function (e) {
     e.preventDefault()

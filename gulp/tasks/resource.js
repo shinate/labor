@@ -2,7 +2,7 @@
 
 module.exports = function (gulp, PLUGIN, CONF) {
 
-    gulp.task('resources', ['resources-assets-direct'])
+    gulp.task('resources', ['resources-assets-direct']);
 
     gulp.task('resources-assets-direct', function () {
         return gulp.src([

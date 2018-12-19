@@ -1,8 +1,8 @@
 "use strict"
 
 import EventEmitter from 'events'
-import WSservice from './ws/service'
-import WSAdapter from './ws/adapter'
+import WSservice from './service'
+import WSAdapter from './adapter'
 import uuid from 'uuid'
 import CMD from './model/cmd'
 import * as PROTO from './model/protocol'
@@ -27,7 +27,8 @@ class ETMSClient {
     config = {}
 
     constructor(config) {
-        Object.assign(this.config, config || {})
+        this.config = {...this.config, ...config}
+        console.log(this.config)
         this.getUUID()
         this.getConnection()
         this.on('logged', () => this.releaseMessagePool())

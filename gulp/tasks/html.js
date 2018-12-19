@@ -22,7 +22,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             }))
             .pipe(map(function (file, cb) {
                 var contents = file.contents.toString();
-                var regex = new RegExp('<script[^>]+bundle="on"[^>]*><\/script>|<link[^>]+bundle="on"[^>]*>', 'g');
+                var regex = /<script[^>]+bundle="on"[^>]*><\/script>|<link[^>]+bundle="on"[^>]*>/g;
                 var r, res = [];
                 while (r = regex.exec(contents)) {
                     var f = r[0].match('(src|href)="([^"]+)"');
@@ -49,5 +49,5 @@ module.exports = function (gulp, PLUGIN, CONF) {
         return htmlBundle();
     });
 
-    gulp.task('html:watch', PLUGIN.intelliWatch(CONF.source.style.bundle.src, htmlBundle));
+    gulp.task('html:watch', PLUGIN.intelliWatch(CONF.source.html.bundle.src, htmlBundle));
 };
