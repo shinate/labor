@@ -1,26 +1,40 @@
-"use strict"
-
 import EventEmitter from 'events'
 
-export default class WSAbstract {
+/**
+ * Interface
+ */
+export default class abstract extends EventEmitter {
 
-    constructor() {
-        this.$event = new EventEmitter()
+    // constructor() {
+    // super()
+    // this.$event = new EventEmitter()
+    // }
+
+    // on(...args) {
+    //     this.$event.on.apply(this, args)
+    // }
+    //
+    // once(...args) {
+    //     this.$event.once.apply(this, args)
+    // }
+    //
+    // off(...args) {
+    //     this.$event.off.apply(this, args)
+    // }
+    //
+    // emit(...args) {
+    //     this.$event.emit.apply(this, args)
+    // }
+
+    onOpen() {
     }
 
-    on(...args) {
-        this.$event.on.apply(this, args)
+    onMessage() {
     }
 
-    once(...args) {
-        this.$event.once.apply(this, args)
+    onClose() {
     }
 
-    off(...args) {
-        this.$event.off.apply(this, args)
-    }
-
-    emit(...args) {
-        this.$event.emit.apply(this, args)
+    onError() {
     }
 }

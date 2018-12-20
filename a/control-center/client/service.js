@@ -1,22 +1,15 @@
-"use strict"
-
-import WSAbstract from './abstract'
+import abstract from './abstract'
 import * as EXCEPTION from './model/exception'
 
-const DEFAULT_CONFIG = {
-    url     : '',
-    protocol: ''
-}
-
-class WSService extends WSAbstract {
+class service extends abstract {
 
     $ws = null
-    config = {}
 
-    constructor(config) {
+    constructor(url = null, protocol = null) {
         super()
-        this.config = {...DEFAULT_CONFIG, ...config}
-        if (this.config.url === '') {
+        this.url = url
+        this.protocol = protocol
+        if (!this.url) {
             throw new Error(EXCEPTION.NO_SERVICE)
         }
         this.connect()
@@ -45,22 +38,11 @@ class WSService extends WSAbstract {
      * @private
      */
     connect() {
-        this.$ws = new WebSocket(this.config.url)
-
-        this.$ws.onopen = () => {
-            // console.log(e)
-            this.emit('open')
-        }
-
-        this.$ws.onmessage = (e) => {
-            // console.log(e)
-            this.emit('message', e.data || null)
-        }
-
-        this.$ws.onclose = () => {
-            // console.log(e)
-            this.emit('close')
-        }
+        this.$ws = this.protocol ? new WebSocket(this.url, this.protocol) : new WebSocket(this.url)
+        this.$ws.onopen = () => this.emit('open')
+        this.$ws.onmessage = (e) => this.emit('message', e.data || null)
+        this.$ws.onclose = () => this.emit('close')
+        this.$ws.onerror = (e) => this.emit('error', e)
     }
 
     /**
@@ -77,7 +59,7 @@ class WSService extends WSAbstract {
         this.$ws.send(content)
     }
 
-    onConnect(cb) {
+    onOpen(cb) {
         this.on('open', cb)
     }
 
@@ -85,8 +67,12 @@ class WSService extends WSAbstract {
         this.on('message', cb)
     }
 
-    onDisconnect(cb) {
+    onClose(cb) {
         this.on('close', cb)
+    }
+
+    onError(cb) {
+        this.on('error', cb)
     }
 
     close() {
@@ -94,4 +80,4 @@ class WSService extends WSAbstract {
     }
 }
 
-export default WSService
+export default service

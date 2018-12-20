@@ -1,8 +1,8 @@
 "use strict"
 
 import EventEmitter from 'events'
-import WSservice from './service'
-import WSAdapter from './adapter'
+import service from './service'
+import adapter from './adapter'
 import uuid from 'uuid'
 import CMD from './model/cmd'
 import * as PROTO from './model/protocol'
@@ -10,21 +10,19 @@ import * as EXCEPTION from './model/exception'
 import now from './lib/now'
 import noop from './lib/noop'
 
-const LOCALHEARTBEAT_INTERVAL = 10000
-const LOCALHEARTBEAT_TIMEOUT = 60000
-const REQ_TIMEOUT = 5000
+const LOCAL_KEEPALIVE_INTERVAL = 10000
+const LOCAL_KEEPALIVE_TIMEOUT = 60000
+const REQUEST_TIMEOUT = 5000
 
-class ETMSClient {
+class ETMSClient extends EventEmitter {
 
-    $event = new EventEmitter()
-
-    $uuid = null
+    _uuid = null
 
     $connection = null
 
-    $ls = window.localStorage
+    $store = window.localStorage
 
-    $PROTO = PROTO
+    $proto = PROTO
 
     _logged = false
 
@@ -32,60 +30,69 @@ class ETMSClient {
 
     _msg_pool = []
 
-    config = {}
+    _config = {
+        LOCAL_KEEPALIVE_INTERVAL,
+        LOCAL_KEEPALIVE_TIMEOUT,
+        REQUEST_TIMEOUT
+    }
 
     constructor(config) {
-        this.config = {...this.config, ...config}
-        console.log(this.config)
-        this.getUUID()
-        this.getConnection()
-        this.on('logged', () => this.releaseMessagePool())
+        super()
+        this._config = {...this._config, ...config}
+        this.init()
 
-        this.$connection.onMessage(message => this._rev(message));
-        this.$connection.onConnect(() => this.login())
-        this.$connection.onDisconnect(() => this.$event.emit('disconnected'))
+        this.$connection.onMessage((message) => this.receive(message));
+        this.$connection.onOpen(() => {
+            this.login()
+            this.emit('connect')
+        })
+        this.$connection.onClose(() => {
+            this.emit('disconnect')
+            this._logged = false
+        })
+
+        this.on('logged', () => this.releaseMessagePool())
 
         this.localHeartBeatProcess()
 
         console.log(this)
     }
 
-    getConnection() {
+    init() {
         if (window.hasOwnProperty('ETMS_INJECTOR')) {
-            this.$connection = new WSAdapter()
+            this.$connection = new adapter()
         } else {
-            this.$connection = new WSservice(this.config)
+            let {url, protocol} = this._config
+            this.$connection = new service(url, protocol)
         }
-    }
 
-    getUUID() {
-        let _uuid = this.$ls.getItem('ETMSClient_UUID')
-        let _sign = this.$ls.getItem('ETMSClient_SIGN')
-        if (_uuid && _sign && _sign > now() - LOCALHEARTBEAT_TIMEOUT) {
-            this.$uuid = _uuid
+        let _uuid = this.$store.getItem('ETMSClient_UUID')
+        let _sign = this.$store.getItem('ETMSClient_SIGN')
+        if (_uuid && _sign && _sign > now() - this._config.LOCAL_KEEPALIVE_TIMEOUT) {
+            this._uuid = _uuid
         } else {
-            this.$uuid = uuid.v1()
+            this._uuid = uuid.v1()
         }
     }
 
     localHeartBeatProcess() {
         setInterval(() => {
-            this.$ls.setItem('ETMSClient_UUID', this.$uuid)
-            this.$ls.setItem('ETMSClient_SIGN', now())
-        }, LOCALHEARTBEAT_INTERVAL)
+            this.$store.setItem('ETMSClient_UUID', this._uuid)
+            this.$store.setItem('ETMSClient_SIGN', now())
+        }, this._config.LOCAL_KEEPALIVE_INTERVAL)
     }
 
     login() {
-        let _r = this.send(CMD.LOGIN, null, this.config.token, (e) => {
+        let req = this.send(CMD.LOGIN, null, this._config.token, (e) => {
             this._logged = true;
-            this.emit('logged', e)
+            this.emit('login:done', e)
         }, (e) => {
             this._logged = false;
             this.$connection.close()
-            this.emit('loginFailed', e)
+            this.emit('login:fail', e)
         })
-        this.emit('login', _r)
-        return _r;
+        this.emit('login', req)
+        return req;
     }
 
     logout() {
@@ -97,31 +104,19 @@ class ETMSClient {
     }
 
     control(target, content) {
+        return this.send(CMD.REQUEST, target, content)
     }
 
-    rev(cb) {
-        this.on('message', cb)
-    }
+    receive(message) {
+        let {cmd, source, target, status, unqid, reqid, content} = this.$proto.unpack(this.$proto.decrypt(message))
 
-    on(...args) {
-        this.$event.on.apply(this, args)
-    }
-
-    emit(...args) {
-        this.$event.emit.apply(this, args)
-    }
-
-    _rev(message) {
-        let {cmd, source, target, status, unqid, reqid, content} = this.$PROTO.unpack(this.$PROTO.decrypt(message))
-
-        if (target !== this.$uuid) {
-            return false
-        }
+        // 回源身份识别
+        // if (target !== this.$uuid) {
+        //     return false
+        // }
 
         switch (cmd) {
             case CMD.LOGIN:
-                status = 0
-                content = '登录成功'
             case CMD.REQUEST:
                 // any more
                 if (this._req_pool.hasOwnProperty(reqid)) {
@@ -140,31 +135,9 @@ class ETMSClient {
         console.log({cmd, source, target, status, unqid, reqid, content})
     }
 
-    _send(structure) {
-        console.log(structure)
+    send(cmd, target, content, done = null, fail = null) {
 
-        if (this.$connection.isOnline() && (structure.cmd === CMD.LOGIN || this._logged)) {
-            this.$connection.send(this.$PROTO.encrypt(structure))
-            return structure
-        }
-
-        return false
-
-        // let message = this.$PROTO.encrypt(structure)
-        //
-        // if (this.$connection.isOnline() && (structure.cmd === CMD.LOGIN || this._logged)) {
-        //     this.$connection.send(message)
-        // } else {
-        //     this.pushMessagePool(message)
-        //     this.$connection.reconnect()
-        // }
-        //
-        // return structure
-    }
-
-    send(cmd, target, content, done, fail) {
-
-        let structure = this.$PROTO.pack(cmd, this.$uuid, target || null, content)
+        let structure = this.$proto.pack(cmd, this._uuid, target || null, content)
         let _unqid = structure.unqid
 
         if (done && typeof done === 'function') {
@@ -198,11 +171,16 @@ class ETMSClient {
                 resolve,
                 reject,
                 time: now(),
-                _   : setTimeout(() => reject(EXCEPTION.TIMEOUT), REQ_TIMEOUT)
+                _   : setTimeout(() => reject(EXCEPTION.TIMEOUT), this._config.REQUEST_TIMEOUT)
             }
         }
 
-        return this._send(structure)
+        if (this.$connection.isOnline() && (structure.cmd === CMD.LOGIN || this._logged)) {
+            this.$connection.send(this.$proto.encrypt(structure))
+            return structure
+        }
+
+        return false
     }
 
     pushMessagePool(message) {

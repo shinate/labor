@@ -12,11 +12,11 @@ ADP.on('login', function (d) {
     pool(`${time()} LOI 登录`)
 })
 
-ADP.on('logged', function (data) {
+ADP.on('login:done', function (data) {
     pool(`${time()} LOI ${data}`)
 })
 
-ADP.on('loginFailed', function (data) {
+ADP.on('login:fail', function (data) {
     pool(`${time()} LOI ${data}`)
 })
 
@@ -24,7 +24,7 @@ ADP.on('disconnected', function (e) {
     pool('断开连接')
 })
 
-ADP.rev(commandRoute)
+ADP.on('message', commandRoute)
 
 function time() {
     return `[${(new Date()).toTimeString().slice(0, 8)}]`
@@ -63,8 +63,8 @@ document.querySelector('#send').addEventListener('click', function (e) {
 
     if (req) {
         let ret = Math.round(Math.random()) ? {status: 0, content: req.content} : {status: -1}
-        let repEmu = ADP.$PROTO.emulator(req.cmd, 'cmc', req.source, req.unqid, ret.status, ret.content)
-        ADP._rev(repEmu)
+        let repEmu = ADP.$proto.emulator(req.cmd, 'cmc', req.source, req.unqid, ret.status, ret.content)
+        ADP.receive(repEmu)
     }
 }, false)
 
@@ -75,7 +75,7 @@ document.querySelector('#cinema_list').addEventListener('click', function (e) {
     })
     pool(`${time()} REQ ${JSON.stringify(cinema_list.request)}`)
     if (req) {
-        let repEmu = ADP.$PROTO.emulator(req.cmd, 'cmc', req.source, req.unqid, 0, cinema_list.response)
-        ADP._rev(repEmu)
+        let repEmu = ADP.$proto.emulator(req.cmd, 'cmc', req.source, req.unqid, 0, cinema_list.response)
+        ADP.receive(repEmu)
     }
 }, false)
