@@ -1,8 +1,8 @@
 "use strict"
 
-import WSAbstract from './abstract'
+import abstract from './abstract'
 
-class WSAdapter extends WSAbstract {
+class adapter extends abstract {
     constructor() {
         super()
     }
@@ -12,4 +12,4 @@ class WSAdapter extends WSAbstract {
     }
 }
 
-export default WSAdapter
+export default adapter

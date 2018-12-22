@@ -264,25 +264,6 @@ function (_EventEmitter) {
 
   Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(abstract, [{
     key: "onOpen",
-    // constructor() {
-    // super()
-    // this.$event = new EventEmitter()
-    // }
-    // on(...args) {
-    //     this.$event.on.apply(this, args)
-    // }
-    //
-    // once(...args) {
-    //     this.$event.once.apply(this, args)
-    // }
-    //
-    // off(...args) {
-    //     this.$event.off.apply(this, args)
-    // }
-    //
-    // emit(...args) {
-    //     this.$event.emit.apply(this, args)
-    // }
     value: function onOpen() {}
   }, {
     key: "onMessage",
@@ -326,26 +307,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var WSAdapter =
+var adapter =
 /*#__PURE__*/
-function (_WSAbstract) {
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(WSAdapter, _WSAbstract);
+function (_abstract) {
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(adapter, _abstract);
 
-  function WSAdapter() {
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WSAdapter);
+  function adapter() {
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, adapter);
 
-    return Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(WSAdapter).call(this));
+    return Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(adapter).call(this));
   }
 
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(WSAdapter, [{
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(adapter, [{
     key: "send",
     value: function send(content) {}
   }]);
 
-  return WSAdapter;
+  return adapter;
 }(_abstract__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (WSAdapter);
+/* harmony default export */ __webpack_exports__["default"] = (adapter);
 
 /***/ }),
 

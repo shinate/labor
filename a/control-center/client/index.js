@@ -41,7 +41,7 @@ class ETMSClient extends EventEmitter {
         this._config = {...this._config, ...config}
         this.init()
 
-        this.$connection.onMessage((message) => this.receive(message));
+        this.$connection.onMessage(message => this.receive(message));
         this.$connection.onOpen(() => {
             this.login()
             this.emit('connect')
