@@ -139,8 +139,6 @@ export default (function () {
 
                 Bytes = it.get.bytes(Result);
 
-                console.log(Bytes)
-
                 if (!Bytes) {
                     console.log('ERROR: Invalid source!');
                     return;
@@ -158,7 +156,6 @@ export default (function () {
                 options.height = Bytes[i + 2] | (Bytes[i + 3] << 8);
 
                 var tp = Bytes[i + 4];
-                console.log(tp)
 
                 options.colorResolution = (tp >> 4 & 0x7) + 1;
                 options.sorted = (tp & 0x8) ? true : false;
@@ -176,13 +173,10 @@ export default (function () {
                  * 获取帧起始位置
                  */
                 for (x = i; x < Bytes.length; x++) {
-                    console.log(Bytes[x + 1], Bytes[x])
                     if (Bytes[x] == 0x21 && Bytes[x + 1] == 0xF9) {
                         break;
                     }
                 }
-
-                console.log(x)
 
                 /**
                  * 单帧
@@ -222,7 +216,6 @@ export default (function () {
                         }
                     } while (i < Bytes.length);
                 }
-                console.log(options)
             }
             , 'is'         : {
                 'fileResult' : function (c) {
@@ -321,7 +314,6 @@ export default (function () {
                         }
 
                         opts.delay = Bytes[i + 1] | (Bytes[i + 2] << 8);
-
                         for (i += 5; i < Bytes.length && Bytes[i] != 0x2C; i++);
                         if (i == Bytes.length) {
                             console.log('ERROR: Can not find the image identifier!');

@@ -95,14 +95,29 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.array.iterator */ "./node_modules/core-js/modules/es6.array.iterator.js");
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.promise */ "./node_modules/core-js/modules/es6.promise.js");
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es7.promise.finally */ "./node_modules/core-js/modules/es7.promise.finally.js");
-/* harmony import */ var core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _lib_gif__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/gif */ "./a/animation-packing/lib/gif.js");
-/* harmony import */ var _lib_GIFParser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/GIFParser */ "./a/animation-packing/lib/GIFParser.js");
+/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
+/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/web.dom.iterable */ "./node_modules/core-js/modules/web.dom.iterable.js");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es6.array.for-each */ "./node_modules/core-js/modules/es6.array.for-each.js");
+/* harmony import */ var core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es6.array.iterator */ "./node_modules/core-js/modules/es6.array.iterator.js");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es6.promise */ "./node_modules/core-js/modules/es6.promise.js");
+/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es7.promise.finally */ "./node_modules/core-js/modules/es7.promise.finally.js");
+/* harmony import */ var core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_promise_finally__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _lib_gif__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/gif */ "./a/animation-packing/lib/gif.js");
+/* harmony import */ var _lib_GIFParser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/GIFParser */ "./a/animation-packing/lib/GIFParser.js");
+
+
+
+
+
+
 
 
 
@@ -113,12 +128,67 @@ document.querySelector('#file-input').addEventListener('change', function (e) {
 
   reader.onload = function (event) {
     var res = event.target.result;
-    console.log(new _lib_gif__WEBPACK_IMPORTED_MODULE_3__["default"](res));
-    console.log(Object(_lib_GIFParser__WEBPACK_IMPORTED_MODULE_4__["default"])(res));
+    var gifData = new _lib_gif__WEBPACK_IMPORTED_MODULE_9__["default"](res);
+    new GifSetRender(gifData);
+    gifData.frames.forEach(function (frameData) {
+      var image = new Image();
+      document.body.append(image);
+      image.src = frameData.dataUrl;
+    });
   };
 
   reader.readAsDataURL(e.target.files[0]);
 }, false);
+
+var GifSetRender =
+/*#__PURE__*/
+function () {
+  function GifSetRender(imageParsedData) {
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, GifSetRender);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "canvas", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "context", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "data", void 0);
+
+    this.data = imageParsedData;
+    this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('width', this.data.width);
+    this.canvas.setAttribute('height', this.data.height);
+    this.ctx = this.canvas.getContext('2d'); // document.body.appendChild(this.canvas)
+
+    this.draw();
+  }
+
+  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(GifSetRender, [{
+    key: "draw",
+    value: function draw() {
+      var _this = this;
+
+      this.data.frames = this.data.frames.map(function (frameData) {
+        for (var y = 0; y < frameData.height; y++) {
+          for (var x = 0; x < frameData.width; x++) {
+            var offset = y * frameData.width + x;
+            var color = frameData.localPalette[frameData.data[offset]];
+            var r = color[0],
+                g = color[1],
+                b = color[2];
+            _this.ctx.fillStyle = "rgb(".concat(r, ",").concat(g, ",").concat(b, ")");
+
+            _this.ctx.fillRect(x + frameData.offsetX, y + frameData.offsetY, 1, 1);
+          }
+        }
+
+        frameData.imageData = _this.ctx.getImageData(0, 0, _this.data.width, _this.data.height);
+        frameData.dataUrl = _this.canvas.toDataURL('image/png');
+        return frameData;
+      });
+    }
+  }]);
+
+  return GifSetRender;
+}();
 
 /***/ }),
 
@@ -289,7 +359,6 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         Bytes = it.get.bytes(Result);
-        console.log(Bytes);
 
         if (!Bytes) {
           console.log('ERROR: Invalid source!');
@@ -310,7 +379,6 @@ __webpack_require__.r(__webpack_exports__);
         options.width = Bytes[i] | Bytes[i + 1] << 8;
         options.height = Bytes[i + 2] | Bytes[i + 3] << 8;
         var tp = Bytes[i + 4];
-        console.log(tp);
         options.colorResolution = (tp >> 4 & 0x7) + 1;
         options.sorted = tp & 0x8 ? true : false;
         options.backgroundIndex = Bytes[i + 5];
@@ -328,17 +396,14 @@ __webpack_require__.r(__webpack_exports__);
          */
 
         for (x = i; x < Bytes.length; x++) {
-          console.log(Bytes[x + 1], Bytes[x]);
-
           if (Bytes[x] == 0x21 && Bytes[x + 1] == 0xF9) {
             break;
           }
         }
-
-        console.log(x);
         /**
          * 单帧
          */
+
 
         if (x == Bytes.length) {
           for (; i < Bytes.length; i++) {
@@ -383,8 +448,6 @@ __webpack_require__.r(__webpack_exports__);
             }
           } while (i < Bytes.length);
         }
-
-        console.log(options);
       },
       'is': {
         'fileResult': function fileResult(c) {
@@ -765,17 +828,17 @@ var btoa = window == null ? abab__WEBPACK_IMPORTED_MODULE_0___default.a.btoa : w
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.array.index-of */ "./node_modules/core-js/modules/es6.array.index-of.js");
 /* harmony import */ var core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es6_typed_uint16_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.typed.uint16-array */ "./node_modules/core-js/modules/es6.typed.uint16-array.js");
-/* harmony import */ var core_js_modules_es6_typed_uint16_array__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_uint16_array__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es6.typed.uint8-array */ "./node_modules/core-js/modules/es6.typed.uint8-array.js");
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
-/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es6.string.iterator */ "./node_modules/core-js/modules/es6.string.iterator.js");
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es6.array.from */ "./node_modules/core-js/modules/es6.array.from.js");
-/* harmony import */ var core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
+/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es6.string.iterator */ "./node_modules/core-js/modules/es6.string.iterator.js");
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es6.array.from */ "./node_modules/core-js/modules/es6.array.from.js");
+/* harmony import */ var core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_from__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es6_typed_int16_array__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es6.typed.int16-array */ "./node_modules/core-js/modules/es6.typed.int16-array.js");
+/* harmony import */ var core_js_modules_es6_typed_int16_array__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_int16_array__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es6.typed.data-view */ "./node_modules/core-js/modules/es6.typed.data-view.js");
+/* harmony import */ var core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
@@ -784,6 +847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es6.symbol */ "./node_modules/core-js/modules/es6.symbol.js");
 /* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _ab64__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ab64 */ "./a/animation-packing/lib/ab64.js");
+/* harmony import */ var _Lzw__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Lzw */ "./a/animation-packing/lib/Lzw.js");
 
 
 
@@ -796,6 +860,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // import BufferParser from './BufferParser'
+// import TYPE from './BufferParser/TYPE/TYPE'
 
 var UINT8 = Symbol(),
     UINT16 = Symbol(),
@@ -813,13 +880,40 @@ function () {
   function gif(imageData) {
     Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__["default"])(this, gif);
 
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "_littleEndian", function () {
+      var buffer = new ArrayBuffer(2);
+      new DataView(buffer).setInt16(0, 0x100, true
+      /* 设置值时使用小端字节序 */
+      ); // Int16Array 使用系统字节序，由此可以判断系统是否是小端字节序
+
+      return new Int16Array(buffer)[0] === 0x100;
+    }());
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "$reader", new FileReader());
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "$BP", null);
+
     Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "_bytes", void 0);
 
     Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "_data", {});
 
     Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "_p", 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "$reader", new FileReader());
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "version", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "frames", []);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "width", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "height", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "colorResolution", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "sorted", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "backgroundIndex", void 0);
+
+    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(this, "pixelAspectRadio", void 0);
 
     this.parse(imageData);
   }
@@ -830,6 +924,42 @@ function () {
       var _this = this;
 
       this._bytes = this.bytes(imageData);
+      this._DV = new DataView(this._bytes); // this.$BP = new BufferParser(this._bytes, [
+      //     [
+      //         'version',
+      //         TYPE.STRING(6),
+      //         (r) => {
+      //             if (!this.isGif(r)) {
+      //                 throw new TypeError('Not GIF given')
+      //             }
+      //             return r
+      //         }
+      //     ],
+      //     ['width', TYPE.UINT16()],
+      //     ['height', TYPE.UINT16()],
+      //     [
+      //         {
+      //             colorResolution  : r => {
+      //                 return (r >> 4 & 0x7) + 1
+      //             },
+      //             sorted           : r => {
+      //                 return !!(r & 0x8)
+      //             },
+      //             globalPaletteFlag: r => {
+      //                 return !!(r & 0x80)
+      //             }
+      //         },
+      //         TYPE.ENUM(),
+      //         (res, bp) => {
+      //             bp.store('globalPaletteSign', res)
+      //             return res
+      //         }
+      //     ],
+      //     ['backgroundIndex', TYPE.UINT8()],
+      //     ['pixelAspectRadio', TYPE.UINT8()]
+      //     ['globalPalette', []] // 下不去了
+      // ])
+
       this.version = this.creeping(UINT8, 6, function (r) {
         return Array.from(r, function (u) {
           return String.fromCharCode(u);
@@ -840,46 +970,119 @@ function () {
         throw new TypeError('Not GIF given');
       }
 
-      this.width = this.creeping(UINT16, 1, function (r) {
-        return r[0];
-      });
-      this.height = this.creeping(UINT16, 1, function (r) {
-        return r[0];
-      });
-      var tp = this.creeping(UINT8, 1, function (r) {
-        return r[0];
-      });
+      this.width = this.creeping(UINT16, 1);
+      this.height = this.creeping(UINT16, 1);
+      var tp = this.creeping(UINT8, 1);
       this.colorResolution = (tp >> 4 & 0x7) + 1;
       this.sorted = tp & 0x8 ? true : false;
-      this.backgroundIndex = this.creeping(UINT8, 1, function (r) {
-        return r[0];
-      });
-      this.pixelAspectRadio = this.creeping(UINT8, 1, function (r) {
-        return r[0];
-      });
+      this.backgroundIndex = this.creeping(UINT8, 1);
+      this.pixelAspectRadio = this.creeping(UINT8, 1);
 
       if (tp & 0x80) {
-        this.globalPalette = Array.apply(void 0, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_3__["default"])(Array(2 << (tp & 0x7)))).map(function () {
+        this.globalPalette = Array.apply(void 0, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << this.colorResolution))).map(function () {
           return _this.creeping(UINT8, 3, function (r) {
             return Array.prototype.slice.call(r);
           });
         });
       }
 
-      this.p(7);
-
-      while (this.p() < this._bytes.length) {
-        var p = this.creeping(UINT16, 1, function (r) {
-          return r[0];
+      this.detecting(function (p) {
+        return _this.getting(UINT8, 2, function (part) {
+          return part[0] === 0x21 && part[1] === 0xF9;
         });
-        console.log(p);
+      });
 
-        if (p === 0xF921) {
-          break;
-        }
+      if (this.p() === this._bytes.byteLength) {
+        // Only one frame
+        // this.detecting(UINT8, 0x2C)
+        if (this.p() === this._bytes.length) {
+          throw new Error('Can not find the image data!');
+        } // var f = framPrototype();
+        // if (!it.get.frame(i, f)) {
+        //     return null;
+        // } else {
+        //     this.frames.push(f);
+        // }
+
+      } else {
+        // Have multiple frames
+        do {
+          var frame = {};
+
+          if (this.getting(UINT8, 1) === 0x21) {
+            this.p(3);
+
+            var _c = this.creeping(UINT8, 1) & 0x1;
+
+            frame.delay = this.creeping(UINT16, 1);
+
+            if (_c & 1) {
+              frame.transparentIndex = this.creeping(UINT8, 1);
+              this.p(1);
+            } else {
+              this.p(2);
+            }
+
+            this.detecting(function () {
+              return _this.getting(UINT8, 1, function (part) {
+                return part[0] === 0x2C;
+              });
+            }, 1);
+
+            if (this.p() === this._bytes.byteLength) {
+              throw new Error('Can not find the image identifier!');
+            }
+          }
+
+          this.p(1);
+          frame.offsetX = this.creeping(UINT16, 1);
+          frame.offsetY = this.creeping(UINT16, 1);
+          frame.width = this.creeping(UINT16, 1);
+          frame.height = this.creeping(UINT16, 1);
+          var f = this.creeping(UINT8, 1);
+
+          if (f & 0x40) {
+            frame.interlace = true;
+          }
+
+          if (f & 0x20) {
+            frame.sorted = true;
+          }
+
+          if (f & 0x80) {
+            frame.colorResolution = (f & 0x7) + 1;
+            frame.localPalette = Array.apply(void 0, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << frame.colorResolution))).map(function () {
+              return _this.creeping(UINT8, 3, function (r) {
+                return Array.prototype.slice.call(r);
+              });
+            });
+          } else {
+            frame.colorResolution = this.colorResolution;
+            frame.localPalette = this.globalPalette;
+          }
+
+          var lzwLen = this.creeping(UINT8, 1, function (r) {
+            return r[0] + 1;
+          });
+          var len = void 0,
+              block = [];
+
+          while (len = this.creeping(UINT8, 1)) {
+            block = block.concat(Array.prototype.slice.call(this.creeping(UINT8, len)));
+          }
+
+          frame.data = _Lzw__WEBPACK_IMPORTED_MODULE_13__["default"].decode(block, lzwLen); // frame.exactData = it.create.exactData(opts);
+          //
+          // return opts.data ? i - pos : 0;
+
+          this.frames.push(frame);
+          this.detecting(function (p) {
+            return _this.getting(UINT8, 2, function (part) {
+              return part[0] === 0x21 && part[1] === 0xF9;
+            });
+          });
+        } while (this.p() < this._bytes.byteLength);
       }
-
-      console.log('p', this.p());
     }
   }, {
     key: "p",
@@ -894,25 +1097,62 @@ function () {
       }
     }
   }, {
+    key: "detecting",
+    value: function detecting(condition) {
+      var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+      for (; this.p() < this._bytes.byteLength; this.p(step)) {
+        try {
+          if (condition(this.p())) {
+            break;
+          }
+        } catch (e) {
+          this._p = this._bytes.byteLength;
+        }
+      }
+    }
+  }, {
+    key: "getting",
+    value: function getting(type, length) {
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      return this.creeping(type, length, cb, true);
+    }
+  }, {
     key: "creeping",
     value: function creeping(type, length, cb) {
-      var part;
+      var stay = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+      var _p = this.p(),
+          _part = [],
+          offset;
 
       switch (type) {
         case UINT8:
-          part = new Uint8Array(this._bytes, this.p(), this.p(length));
+          for (offset = 0; offset < length; offset++) {
+            _part.push(this._DV['getUint8'](_p + offset, this._littleEndian));
+          }
+
+          !stay && this.p(offset);
           break;
 
         case UINT16:
-          part = new Uint16Array(this._bytes, this.p(), this.p(length * 2));
+          for (offset = 0; offset < length; offset += 2) {
+            _part.push(this._DV['getUint16'](_p + offset, this._littleEndian));
+          }
+
+          !stay && this.p(offset);
           break;
 
         case UINT32:
-          part = new Uint16Array(this._bytes, this.p(), this.p(length * 4));
+          for (offset = 0; offset < length; offset += 4) {
+            _part.push(this._DV['getUint32'](_p + offset, this._littleEndian));
+          }
+
+          !stay && this.p(offset);
           break;
       }
 
-      return typeof cb === 'function' ? cb(part) : part;
+      return typeof cb === 'function' ? cb(_part) : _part.length === 1 ? _part[0] : _part;
     }
   }, {
     key: "bytes",
@@ -4139,6 +4379,29 @@ module.exports = __webpack_require__(/*! ./_core */ "./node_modules/core-js/modu
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es6.array.for-each.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.array.for-each.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/modules/_export.js");
+var $forEach = __webpack_require__(/*! ./_array-methods */ "./node_modules/core-js/modules/_array-methods.js")(0);
+var STRICT = __webpack_require__(/*! ./_strict-method */ "./node_modules/core-js/modules/_strict-method.js")([].forEach, true);
+
+$export($export.P + $export.F * !STRICT, 'Array', {
+  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
+  forEach: function forEach(callbackfn /* , thisArg */) {
+    return $forEach(this, callbackfn, arguments[1]);
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es6.array.from.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/modules/es6.array.from.js ***!
@@ -4932,15 +5195,30 @@ setToStringTag(global.JSON, 'JSON', true);
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es6.typed.uint16-array.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/core-js/modules/es6.typed.uint16-array.js ***!
-  \****************************************************************/
+/***/ "./node_modules/core-js/modules/es6.typed.data-view.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.typed.data-view.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ "./node_modules/core-js/modules/_typed-array.js")('Uint16', 2, function (init) {
-  return function Uint16Array(data, byteOffset, length) {
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/modules/_export.js");
+$export($export.G + $export.W + $export.F * !__webpack_require__(/*! ./_typed */ "./node_modules/core-js/modules/_typed.js").ABV, {
+  DataView: __webpack_require__(/*! ./_typed-buffer */ "./node_modules/core-js/modules/_typed-buffer.js").DataView
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es6.typed.int16-array.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.typed.int16-array.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./_typed-array */ "./node_modules/core-js/modules/_typed-array.js")('Int16', 2, function (init) {
+  return function Int16Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
 });
@@ -5004,6 +5282,75 @@ $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/modules/_wks-define.js")('asyncIterator');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/web.dom.iterable.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/web.dom.iterable.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $iterators = __webpack_require__(/*! ./es6.array.iterator */ "./node_modules/core-js/modules/es6.array.iterator.js");
+var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/core-js/modules/_object-keys.js");
+var redefine = __webpack_require__(/*! ./_redefine */ "./node_modules/core-js/modules/_redefine.js");
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/modules/_global.js");
+var hide = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/modules/_hide.js");
+var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/core-js/modules/_iterators.js");
+var wks = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/modules/_wks.js");
+var ITERATOR = wks('iterator');
+var TO_STRING_TAG = wks('toStringTag');
+var ArrayValues = Iterators.Array;
+
+var DOMIterables = {
+  CSSRuleList: true, // TODO: Not spec compliant, should be false.
+  CSSStyleDeclaration: false,
+  CSSValueList: false,
+  ClientRectList: false,
+  DOMRectList: false,
+  DOMStringList: false,
+  DOMTokenList: true,
+  DataTransferItemList: false,
+  FileList: false,
+  HTMLAllCollection: false,
+  HTMLCollection: false,
+  HTMLFormElement: false,
+  HTMLSelectElement: false,
+  MediaList: true, // TODO: Not spec compliant, should be false.
+  MimeTypeArray: false,
+  NamedNodeMap: false,
+  NodeList: true,
+  PaintRequestList: false,
+  Plugin: false,
+  PluginArray: false,
+  SVGLengthList: false,
+  SVGNumberList: false,
+  SVGPathSegList: false,
+  SVGPointList: false,
+  SVGStringList: false,
+  SVGTransformList: false,
+  SourceBufferList: false,
+  StyleSheetList: true, // TODO: Not spec compliant, should be false.
+  TextTrackCueList: false,
+  TextTrackList: false,
+  TouchList: false
+};
+
+for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++) {
+  var NAME = collections[i];
+  var explicit = DOMIterables[NAME];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  var key;
+  if (proto) {
+    if (!proto[ITERATOR]) hide(proto, ITERATOR, ArrayValues);
+    if (!proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+    Iterators[NAME] = ArrayValues;
+    if (explicit) for (key in $iterators) if (!proto[key]) redefine(proto, key, $iterators[key], true);
+  }
+}
 
 
 /***/ }),
