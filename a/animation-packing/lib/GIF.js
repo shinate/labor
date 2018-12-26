@@ -1,18 +1,12 @@
 import { arrayBufferToBase64, base64ToArrayBuffer } from './ab64'
 import Lzw from './Lzw'
 import GIFFrameDecorator from './GIFFrameDecorator'
-import BufferParser from './BufferParser'
-import TYPE from './BufferParser/TYPE/TYPE'
+// import BufferParser from './BufferParser'
+// import TYPE from './BufferParser/TYPE/TYPE'
 
 const UINT8  = Symbol(),
       UINT16 = Symbol(),
       UINT32 = Symbol()
-
-class palette {
-    constructor(r, g, b) {
-        return [r, g, b]
-    }
-}
 
 class gif {
 
@@ -44,29 +38,62 @@ class gif {
     parse(imageData) {
         this._bytes = this.bytes(imageData)
         this._DV = new DataView(this._bytes)
-        this.$BP = new BufferParser(this._bytes, [
-            [
-                'version',
-                TYPE.STRING(6),
-                (r) => {
-                    if (!this.isGif(r)) {
-                        throw new TypeError('Not GIF given')
-                    }
-                    return r
-                }
-            ],
-            ['width', TYPE.UINT16()],
-            ['height', TYPE.UINT16()],
-            ['colorResolution', TYPE.ENUM(1, 0x70), r => (r >> 4) + 1],
-            ['sorted', TYPE.ENUM(1, 0x8), r => !!r],
-            ['~globalPaletteFlag', TYPE.ENUM(1, 0x80), r => !!r],
-            ['backgroundIndex', TYPE.UINT8()],
-            ['pixelAspectRadio', TYPE.UINT8()],
-            [
-                'palette',
-                TYPE.LIST([TYPE.UINT8(3)], 256)
-            ] // 下不去了
-        ])
+        // this.$BP = new BufferParser(this._bytes, [
+        //     [
+        //         'version',
+        //         TYPE.STRING(6),
+        //         (r) => {
+        //             if (!this.isGif(r)) {
+        //                 throw new TypeError('Not GIF given')
+        //             }
+        //             return r
+        //         }
+        //     ],
+        //     ['width', TYPE.UINT16()],
+        //     ['height', TYPE.UINT16()],
+        //     [
+        //         'colorResolution', TYPE.ENUM(1, 0x70),
+        //         (r, bp) => {
+        //             return bp.store('GCR', (r >> 4) + 1)
+        //         }
+        //     ],
+        //     ['sorted', TYPE.ENUM(1, 0x8), r => !!r],
+        //     [
+        //         'globalPaletteFlag', TYPE.ENUM(1, 0x80),
+        //         (r, bp) => {
+        //             return bp.store('GPF', !!r)
+        //         }
+        //     ],
+        //     ['backgroundIndex', TYPE.UINT8()],
+        //     ['pixelAspectRadio', TYPE.UINT8()],
+        //     [
+        //         bp => bp.store('GPF'),
+        //         'palette',
+        //         // TYPE.LIST([TYPE.UINT8(3)], bp => 1 << bp.store('GCR'))
+        //         TYPE.LIST([TYPE.UINT8(3)], bp => 1 << bp.store('GCR'))
+        //     ], // 下不去了
+        //     [
+        //         bp => {
+        //             let p = bp.detecting(() => {
+        //                 return TYPE.UINT8(2, (part) => part[0] === 0x21 && part[1] === 0xF9).bind(bp).parse().result()
+        //             })
+        //             return p < bp.byteLength
+        //         }
+        //     ],
+        //     [
+        //         'frames',
+        //         TYPE.LIST([
+        //             TYPE.SET([
+        //                 []
+        //             ])
+        //         ])
+        //     ],
+        //     [
+        //         bp => {
+        //             return TYPE.UINT8(1).bind(bp).get().result() === 0x21
+        //         }
+        //     ]
+        // ])
 
         this.version = this.creeping(UINT8, 6, r => Array.from(r, u => String.fromCharCode(u)).join(''))
 
@@ -78,7 +105,7 @@ class gif {
 
         let tp = this.creeping(UINT8, 1)
         this.colorResolution = (tp >> 4 & 0x7) + 1;
-        this.sorted = (tp & 0x8) ? true : false;
+        this.sorted = !!(tp & 0x8);
 
         this.backgroundIndex = this.creeping(UINT8, 1)
         this.pixelAspectRadio = this.creeping(UINT8, 1)

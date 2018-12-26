@@ -13,8 +13,9 @@ class LIST extends SET {
     }
 
     parse() {
+        this.realLength()
         for (let i = 0; i < this.length; i++) {
-            this.data.push(this.get.call(this, this.clone(this.proto[0]), this.proto[1]))
+            this.data.push(this.get.call(this.$BP, this.proto[0], this.proto[1]))
         }
         return this
     }

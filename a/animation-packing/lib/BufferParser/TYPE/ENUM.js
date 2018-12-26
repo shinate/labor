@@ -8,8 +8,7 @@ class ENUM extends proto {
     GETTER = 'getUint8'
 
     constructor(length = 1, mask) {
-        super()
-        this.length = length
+        super(length)
         switch (this.length) {
             case 1:
                 this.GETTER = 'getUint8'
@@ -24,7 +23,9 @@ class ENUM extends proto {
                 throw new TypeError('ENUM Length error!')
         }
 
-        this.after(item => item[0] & mask)
+        if (mask) {
+            this.after(item => item[0] & mask)
+        }
     }
 }
 

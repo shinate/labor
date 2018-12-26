@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import client from './client'
+import './view/commonComponents'
 import * as cinema_list from './__resources/model/cinema_list'
-import Switcher from './view/component/global/Switcher/Switcher'
 
 let ADP = new client({
     url  : "ws://123.57.43.13:20002/cmc_socket",
@@ -45,10 +45,7 @@ function pool(message) {
 }
 
 new Vue({
-    el        : '#bar',
-    components: {
-        Switcher
-    }
+    el: '#bar'
 })
 
 document.querySelector('#send').addEventListener('click', function (e) {

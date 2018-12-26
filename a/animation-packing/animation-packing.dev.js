@@ -1,5 +1,4 @@
 import GIF from './lib/GIF'
-import GIFParser from './lib/GIFParser'
 
 document.querySelector('#file-input').addEventListener('change', function (e) {
     let reader = new FileReader();

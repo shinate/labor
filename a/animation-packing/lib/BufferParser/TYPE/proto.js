@@ -6,17 +6,28 @@ export default class proto {
 
     callbacks = {}
 
+    constructor(lengthOrCallback = 1) {
+        this.length = lengthOrCallback
+    }
+
     bind(BP) {
-        this.$BufferParser = BP
-        this.offset = 0 + this.$BufferParser._p
+        this.$BP = BP
+        this.offset = 0 + this.$BP._p
         return this
     }
 
+    realLength() {
+        if (typeof this.length === 'function') {
+            this.length = this.length(this.$BP) || 1
+        }
+    }
+
     get() {
+        this.realLength()
         this.dispatch('before')
         let part = []
         for (let i = 0; i < this.length; i++) {
-            part.push(this.dispatch('afterPre', this.$BufferParser.get(this.GETTER, i * this.BLOCK_LENGTH + this.offset)))
+            part.push(this.dispatch('afterPre', this.$BP.get(this.GETTER, i * this.BLOCK_LENGTH + this.offset)))
         }
         console.log('TYPE.proto.get.part', part)
         this.data = this.dispatch('after', part)
@@ -26,12 +37,12 @@ export default class proto {
     }
 
     pointerBegin() {
-        this.$BufferParser._p = this.offset
+        this.$BP._p = this.offset
         return this
     }
 
     pointerEnd() {
-        this.$BufferParser._p = this.offset + this.byteLength
+        this.$BP._p = this.offset + this.byteLength
         return this
     }
 

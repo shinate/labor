@@ -8,8 +8,7 @@ class STRING extends proto {
     GETTER = 'getUint8'
 
     constructor(length) {
-        super()
-        this.length = length
+        super(length)
         this.afterPre(item => String.fromCharCode(item))
         this.after(item => item.join(''))
     }

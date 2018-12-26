@@ -8,8 +8,7 @@ class UINT16 extends proto {
     GETTER = 'getUint16'
 
     constructor(length = 1) {
-        super()
-        this.length = length
+        super(length)
     }
 }
 

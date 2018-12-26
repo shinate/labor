@@ -1,5 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const terserPlugin = require('terser-webpack-plugin')
 
 module.exports = function (config) {
     return function (p) {
@@ -46,6 +48,10 @@ module.exports = function (config) {
 
         if (!p) {
             c.devtool = 'source-map';
+        } else {
+            c.optimization = {
+                minimizer: [new terserPlugin()]
+            };
         }
 
         return c;

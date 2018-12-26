@@ -1,9 +1,4 @@
 class GifFramesRender {
-
-    canvas
-    context
-    data
-
     constructor(imageParsedData) {
         this.data = imageParsedData
         this.canvas = document.createElement('canvas')
@@ -14,6 +9,7 @@ class GifFramesRender {
         // document.body.appendChild(this.canvas)
 
         this.draw()
+        this.ctx = this.canvas = null
     }
 
     draw() {

@@ -29,7 +29,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 return path.relative(CONF.source.script.bundle.base, file.path).slice(0, -7);
             }))
             .pipe(ws(CONF.webpackConfig(CONF.isProduction())))
-            .pipe(CONF.EC(PLUGIN.uglify()))
+            // .pipe(CONF.EC(PLUGIN.uglify()))
             .pipe(CONF.EC(PLUGIN.rename({
                 suffix: '.min'
             })))

@@ -96,7 +96,7 @@ class BufferParser {
     }
 
     detecting(condition, step = 1) {
-        this._p = this._finding(condition, step)
+        return this._p = this._finding(condition, step)
     }
 }
 

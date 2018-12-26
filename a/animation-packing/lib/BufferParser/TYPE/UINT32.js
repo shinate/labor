@@ -8,8 +8,7 @@ class UINT32 extends proto {
     GETTER = 'getUint32'
 
     constructor(length = 1) {
-        super()
-        this.length = length
+        super(length)
     }
 }
 
