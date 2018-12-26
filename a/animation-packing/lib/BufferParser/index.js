@@ -1,8 +1,17 @@
+import UINT8 from './TYPE/UINT8'
+import UINT16 from './TYPE/UINT16'
+import UINT32 from './TYPE/UINT32'
+import STRING from './TYPE/STRING'
+import ENUM from './TYPE/ENUM'
+import SET from './TYPE/SET'
+
 class BufferParser {
 
     _p = 0
 
-    _store = {}
+    _store = {
+        __ENUM__: null
+    }
 
     _littleEndian = (function () {
         let buffer = new ArrayBuffer(2);
@@ -20,27 +29,18 @@ class BufferParser {
             this._littleEndian = _littleEndian
         }
 
-        this.parse()
+        this.DATA = this.parse.call(this, this._protocol)
 
         console.log(this)
     }
 
-    parse() {
-        this._protocol.forEach((RULE) => {
-            let key = RULE[0], Parser = RULE[1], callback = RULE[2]
-            let result = Parser.bind(this).parse().result()
-            if (typeof callback === 'function') {
-                result = callback(result, this)
-            }
-            if (typeof key === 'object') {
-                Object.entries(key).forEach((item) => {
-                    let key = item[0], mask = item[1]
-                    this.DATA[key] = mask(result)
-                })
-            } else {
-                this.DATA[key] = result
-            }
-        })
+    parse(proto) {
+        if (proto instanceof Array) {
+            proto = new SET(proto)
+        }
+        if (proto instanceof SET) {
+            return proto.bind(this).parse().result()
+        }
     }
 
     get(getter, offset) {

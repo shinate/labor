@@ -7,12 +7,10 @@ class UINT16 extends proto {
     BLOCK_LENGTH = 2
     GETTER = 'getUint16'
 
-    constructor(...args) {
-        super(...args)
-        this.init()
+    constructor(length = 1) {
+        super()
+        this.length = length
     }
 }
 
-export default function (...args) {
-    return new UINT16(...args)
-}
+export default UINT16

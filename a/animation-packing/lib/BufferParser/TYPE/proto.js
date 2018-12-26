@@ -6,17 +6,6 @@ export default class proto {
 
     callbacks = {}
 
-    BLOCK_LENGTH = 1
-
-    constructor(length = 1) {
-        this.length = length
-    }
-
-    init() {
-        console.log(this.BLOCK_LENGTH)
-        this.byteLength = this.length * this.BLOCK_LENGTH
-    }
-
     bind(BP) {
         this.$BufferParser = BP
         this.offset = 0 + this.$BufferParser._p
@@ -31,6 +20,7 @@ export default class proto {
         }
         console.log('TYPE.proto.get.part', part)
         this.data = this.dispatch('after', part)
+        this.byteLength = this.length * this.BLOCK_LENGTH
 
         return this
     }

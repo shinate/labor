@@ -1,7 +1,8 @@
 import { arrayBufferToBase64, base64ToArrayBuffer } from './ab64'
 import Lzw from './Lzw'
-// import BufferParser from './BufferParser'
-// import TYPE from './BufferParser/TYPE/TYPE'
+import GIFFrameDecorator from './GIFFrameDecorator'
+import BufferParser from './BufferParser'
+import TYPE from './BufferParser/TYPE/TYPE'
 
 const UINT8  = Symbol(),
       UINT16 = Symbol(),
@@ -22,14 +23,7 @@ class gif {
         return new Int16Array(buffer)[0] === 0x100;
     })()
 
-    $reader = new FileReader()
-
-    $BP = null
-
     _bytes
-
-    _data = {}
-
     _p = 0
 
     version
@@ -43,46 +37,36 @@ class gif {
 
     constructor(imageData) {
         this.parse(imageData)
+        GIFFrameDecorator(this)
+        console.log(this)
     }
 
     parse(imageData) {
         this._bytes = this.bytes(imageData)
         this._DV = new DataView(this._bytes)
-        // this.$BP = new BufferParser(this._bytes, [
-        //     [
-        //         'version',
-        //         TYPE.STRING(6),
-        //         (r) => {
-        //             if (!this.isGif(r)) {
-        //                 throw new TypeError('Not GIF given')
-        //             }
-        //             return r
-        //         }
-        //     ],
-        //     ['width', TYPE.UINT16()],
-        //     ['height', TYPE.UINT16()],
-        //     [
-        //         {
-        //             colorResolution  : r => {
-        //                 return (r >> 4 & 0x7) + 1
-        //             },
-        //             sorted           : r => {
-        //                 return !!(r & 0x8)
-        //             },
-        //             globalPaletteFlag: r => {
-        //                 return !!(r & 0x80)
-        //             }
-        //         },
-        //         TYPE.ENUM(),
-        //         (res, bp) => {
-        //             bp.store('globalPaletteSign', res)
-        //             return res
-        //         }
-        //     ],
-        //     ['backgroundIndex', TYPE.UINT8()],
-        //     ['pixelAspectRadio', TYPE.UINT8()]
-        //     ['globalPalette', []] // 下不去了
-        // ])
+        this.$BP = new BufferParser(this._bytes, [
+            [
+                'version',
+                TYPE.STRING(6),
+                (r) => {
+                    if (!this.isGif(r)) {
+                        throw new TypeError('Not GIF given')
+                    }
+                    return r
+                }
+            ],
+            ['width', TYPE.UINT16()],
+            ['height', TYPE.UINT16()],
+            ['colorResolution', TYPE.ENUM(1, 0x70), r => (r >> 4) + 1],
+            ['sorted', TYPE.ENUM(1, 0x8), r => !!r],
+            ['~globalPaletteFlag', TYPE.ENUM(1, 0x80), r => !!r],
+            ['backgroundIndex', TYPE.UINT8()],
+            ['pixelAspectRadio', TYPE.UINT8()],
+            [
+                'palette',
+                TYPE.LIST([TYPE.UINT8(3)], 256)
+            ] // 下不去了
+        ])
 
         this.version = this.creeping(UINT8, 6, r => Array.from(r, u => String.fromCharCode(u)).join(''))
 
@@ -99,7 +83,7 @@ class gif {
         this.backgroundIndex = this.creeping(UINT8, 1)
         this.pixelAspectRadio = this.creeping(UINT8, 1)
         if (tp & 0x80) {
-            this.globalPalette = Array(... Array(1 << this.colorResolution)).map(() => this.creeping(UINT8, 3, r => Array.prototype.slice.call(r)))
+            this.palette = Array(... Array(1 << this.colorResolution)).map(() => this.creeping(UINT8, 3, r => Array.prototype.slice.call(r)))
         }
 
         this.detecting((p) => {
@@ -152,11 +136,12 @@ class gif {
                 }
                 if (f & 0x80) {
                     frame.colorResolution = (f & 0x7) + 1
-                    frame.localPalette = Array(... Array(1 << frame.colorResolution)).map(() => this.creeping(UINT8, 3, r => Array.prototype.slice.call(r)))
-                } else {
-                    frame.colorResolution = this.colorResolution
-                    frame.localPalette = this.globalPalette
+                    frame.palette = Array(... Array(1 << frame.colorResolution)).map(() => this.creeping(UINT8, 3, r => Array.prototype.slice.call(r)))
                 }
+                // else {
+                //     frame.colorResolution = this.colorResolution
+                //     frame.localPalette = this.globalPalette
+                // }
                 let lzwLen = this.creeping(UINT8, 1, r => r[0] + 1)
                 let len, block = []
                 while (len = this.creeping(UINT8, 1)) {

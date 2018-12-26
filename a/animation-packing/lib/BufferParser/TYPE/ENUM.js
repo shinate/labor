@@ -7,8 +7,9 @@ class ENUM extends proto {
     BLOCK_LENGTH = 1
     GETTER = 'getUint8'
 
-    constructor(...args) {
-        super(...args)
+    constructor(length = 1, mask) {
+        super()
+        this.length = length
         switch (this.length) {
             case 1:
                 this.GETTER = 'getUint8'
@@ -22,10 +23,9 @@ class ENUM extends proto {
             default:
                 throw new TypeError('ENUM Length error!')
         }
-        this.init()
+
+        this.after(item => item[0] & mask)
     }
 }
 
-export default function (...args) {
-    return new ENUM(...args)
-}
+export default ENUM
