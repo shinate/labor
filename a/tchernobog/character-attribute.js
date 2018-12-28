@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2808,7 +2808,7 @@ __webpack_require__(/*! ./_typed-array */ "./node_modules/core-js/modules/_typed
 
 /***/ }),
 
-/***/ 0:
+/***/ 5:
 /*!*******************************************************!*\
   !*** multi ./a/tchernobog/character-attribute.dev.js ***!
   \*******************************************************/
