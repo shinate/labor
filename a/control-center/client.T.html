@@ -8,9 +8,16 @@
 <div id="bar">
     <button class="btn" type="button" id="send">发送个随机串</button>
     <button class="btn" type="button" id="cinema_list">影院列表</button>
-    <Switcher>vue点击</Switcher>
+    <switcher v-bind:value="false">vue点击</switcher>
 </div>
 <div id="message" style="height: 400px;width: 100%; overflow: auto"></div>
+<div id="MAIN">
+    <div>
+        <div></div>
+        <cinema-list v-bind:tms="TMS"></cinema-list>
+    </div>
+    <div></div>
+</div>
 <script src="client.T.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const terserPlugin = require('terser-webpack-plugin')
+const terserPlugin = require('terser-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = function (config) {
     return function (p) {
@@ -32,7 +32,10 @@ module.exports = function (config) {
                             loader : 'babel-loader',
                             options: {
                                 presets: ['@babel/preset-env', '@vue/app'],
-                                plugins: ['@babel/plugin-proposal-object-rest-spread']
+                                plugins: [
+                                    // '@babel/plugin-transform-object-assign',
+                                    '@babel/plugin-proposal-object-rest-spread'
+                                ]
                             }
                         }
                     }

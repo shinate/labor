@@ -1,0 +1,7 @@
+<div class="cc-cinema-list">
+    <div v-for="cinema in tms">
+        <div class="cc-cinema-list-item">
+            <a href="#">{{ cinema.cinemaDisplayName }} <em>{{ cinema.loginAt ? '在线' : '离线' }}</em></a>
+        </div>
+    </div>
+</div>

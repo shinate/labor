@@ -11,25 +11,15 @@ const requireComponent = require.context(
     /[A-Z]\w+\.(vue|js)$/
 )
 
-console.log(requireComponent.keys())
 requireComponent.keys().forEach(fileName => {
-    // 获取组件配置
-    const componentConfig = requireComponent(fileName)
+
+    const componentConfig = requireComponent(fileName) // 获取组件配置
 
     // 获取组件的 PascalCase 命名
     const componentName = upperFirst(
         camelCase(
-            // 剥去文件名开头的 `'./` 和结尾的扩展名
             fileName.replace(/^\.\/(.*)\.\w+$/, '$1').split('/').pop()
         )
     )
-    console.log(componentName)
-
-    // 全局注册组件
-    Vue.component(
-        componentName,
-        // 如果这个组件选项是通过 `export default` 导出的，
-        // 那么就会优先使用 `.default`，否则回退到使用模块的根。
-        componentConfig.default || componentConfig
-    )
+    Vue.component(componentName, componentConfig.default || componentConfig)
 })

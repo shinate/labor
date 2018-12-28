@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import client from './client'
-import './view/commonComponents'
+// import './view/commonComponents'
+import './view/commonComponentsImports'
+import frontendRoot from './__resources/source/frontendRoot'
 import * as cinema_list from './__resources/model/cinema_list'
+
+import CinemaList from './view/component/panel/CinemaList/CinemaList'
+
+window.frontendRoot = frontendRoot
 
 let ADP = new client({
     url  : "ws://123.57.43.13:20002/cmc_socket",
@@ -46,6 +52,14 @@ function pool(message) {
 
 new Vue({
     el: '#bar'
+})
+
+Object.assign(frontendRoot.TMS, cinema_list.response)
+
+new Vue({
+    el        : '#MAIN',
+    data      : frontendRoot,
+    components: {CinemaList}
 })
 
 document.querySelector('#send').addEventListener('click', function (e) {
