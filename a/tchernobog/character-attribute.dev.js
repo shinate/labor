@@ -6,7 +6,7 @@ var MASK = [4, 1, 3, 7, 0, 5, 2, 6];
 
 // Int => HEX
 function encode(value) {
-    if (value > -0x80000000 && value < 0xFFFFFFFF) {
+    if (value >= -0x80000000 && value <= 0xFFFFFFFF) {
         value = parseInt(value) & 0xFFFFFFFF;
         return ZERO_BASE.map(function (_B_, i) {
             var mask = MASK[i] * 4;
