@@ -192,28 +192,52 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "赏金猎人",
     "discipline"        : "Bounty Hunter",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Conn MacMorgan, Hillman Renegade",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/de/DiscDropperBountyHunter.jpg/175px-DiscDropperBountyHunter.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/48/DisciplineBountyHunter.png",
+    "pos"               : [
+      {
+        "location"   : "Aedroch Highlands",
+        "coordinates": [
+          77760,
+          55230
+        ]
+      }
+    ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "指挥官",
     "discipline"        : "Commander",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Aelginar the Elflord",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/2/27/DiscDropperCommander.jpg/175px-DiscDropperCommander.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/2/24/DisciplineCommander.png",
+    "pos"               : [
+      {
+        "location"   : "Aerath Hellendroth",
+        "coordinates": [
+          85171,
+          60199
+        ]
+      }
+    ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "地狱使者",
     "discipline"        : "Conjurer",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Th'verrinax the Banelord",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/76/DiscDropperConjurer.jpg/175px-DiscDropperConjurer.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/ff/DisciplineConjurer.png",
+    "pos"               : [
+      {
+        "location"   : "Pandemonium",
+        "coordinates": [
+          107110,
+          28430
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "黑暗骑士",
@@ -233,12 +257,20 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "黑暗火巫",
     "discipline"        : "Darksworn",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "T'chorrblex the Bloated Terror",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperDarksworn.jpg/175px-DiscDropperDarksworn.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/7d/DisciplineDarksworn.png",
+    "pos"               : [
+      {
+        "location"   : "Pandemonium",
+        "coordinates": [
+          107050,
+          29770
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "暗夜使",
@@ -257,12 +289,20 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "铸造大师",
     "discipline"        : "Forge Master",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Halfdan the Black",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/7c/DiscDropperForgeMaster.jpg/175px-DiscDropperForgeMaster.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/c5/DisciplineForgeMaster.png",
+    "pos"               : [
+      {
+        "location"   : "Hethland Holm",
+        "coordinates": [
+          47360,
+          68100
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "巨人杀手",
@@ -308,12 +348,20 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "黑暗使",
     "discipline"        : "Gorgoi",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Tormescu the Night Fiend",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/1/18/DiscDropperGorgoi.jpg/175px-DiscDropperGorgoi.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/9/9f/DisciplineGorgoi.png",
+    "pos"               : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          103940,
+          52600
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "猎人",
@@ -339,12 +387,20 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "骑士",
     "discipline"        : "Knight",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Sir Rangorn the Strong",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/2/23/DiscDropperKnight.jpg/175px-DiscDropperKnight.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3b/DisciplineKnight.png",
+    "pos"               : [
+      {
+        "location"   : "Aedroch Highlands",
+        "coordinates": [
+          77650,
+          55690
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "矿工",
@@ -402,7 +458,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "破坏神",
     "discipline"        : "Saboteur",
     "dropper"           : "",
     "discdropper"       : "",
@@ -449,7 +505,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "专家",
     "discipline"        : "Savant",
     "dropper"           : "",
     "discdropper"       : "",
@@ -457,7 +513,7 @@
     "pos"               : null
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "影妖",
     "discipline"        : "Shroudborne",
     "dropper"           : "",
     "discdropper"       : "",
@@ -465,7 +521,7 @@
     "pos"               : null
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "天舞者",
     "discipline"        : "Skydancer",
     "dropper"           : "",
     "discdropper"       : "",
@@ -473,20 +529,36 @@
     "pos"               : null
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "风暴之主",
     "discipline"        : "Storm Lord",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Grendohl",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/d4/DiscDropperStormlord.jpg/175px-DiscDropperStormlord.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/b/b1/DisciplineStormlord.png",
+    "pos"               : [
+      {
+        "location"   : "Hethland Holm",
+        "coordinates": [
+          46600,
+          68040
+        ]
+      }
+    ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "死亡使",
     "discipline"        : "Strigoi",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Arnakhul the Blood Beast",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/f/f7/DiscDropperStrigoi.jpg/175px-DiscDropperStrigoi.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/49/DisciplineStrigoi.png",
+    "pos"               : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          102240,
+          53600
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "召唤使",
@@ -537,7 +609,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "旅行家",
     "discipline"        : "Traveler",
     "dropper"           : "",
     "discdropper"       : "",
@@ -561,7 +633,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "女武神",
     "discipline"        : "Valkyr",
     "dropper"           : "",
     "discdropper"       : "",
@@ -585,7 +657,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "鼠人",
     "discipline"        : "Wererat",
     "dropper"           : "",
     "discdropper"       : "",
@@ -609,7 +681,7 @@
     ]
   },
   {
-    "disciplineName"    : "",
+    "disciplineName"    : "屠龙者",
     "discipline"        : "Wyrmslayer",
     "dropper"           : "",
     "discdropper"       : "",

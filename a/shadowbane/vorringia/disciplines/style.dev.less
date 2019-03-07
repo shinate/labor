@@ -10,19 +10,35 @@ td {
     white-space: nowrap;
   }
 
+  &[aria-colindex="4"],
+  &[aria-colindex="5"] {
+    .sign {
+      display: block;
+    }
+  }
+
+  &[aria-colindex="6"] {
+    text-align: center;
+    width: 300px;
+  }
+
   &[aria-colindex="7"] {
     text-align: center;
+    width: 225px;
+
     .sign {
       width: 200px;
-      //
-      //img {
-      //  height: 100%;
-      //  width: 100%;
-      //}
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 
   &[aria-colindex="8"] {
+    text-align: center;
+    width: 120px;
     img {
       max-width: 120px;
     }

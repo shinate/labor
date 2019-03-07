@@ -7,11 +7,28 @@ td[aria-colindex="3"] {
   word-break: keep-all;
   white-space: nowrap;
 }
+td[aria-colindex="4"] .sign,
+td[aria-colindex="5"] .sign {
+  display: block;
+}
+td[aria-colindex="6"] {
+  text-align: center;
+  width: 300px;
+}
 td[aria-colindex="7"] {
   text-align: center;
+  width: 225px;
 }
 td[aria-colindex="7"] .sign {
   width: 200px;
+}
+td[aria-colindex="7"] .sign img {
+  height: 100%;
+  width: 100%;
+}
+td[aria-colindex="8"] {
+  text-align: center;
+  width: 120px;
 }
 td[aria-colindex="8"] img {
   max-width: 120px;
