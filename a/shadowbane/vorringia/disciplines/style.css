@@ -1,0 +1,61 @@
+td img {
+  max-height: 200px;
+}
+td[aria-colindex="2"],
+td[aria-colindex="3"] {
+  word-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+td[aria-colindex="7"] {
+  text-align: center;
+}
+td[aria-colindex="7"] .sign {
+  width: 200px;
+}
+td[aria-colindex="8"] img {
+  max-width: 120px;
+}
+.sign {
+  word-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+  height: 200px;
+  margin: 5px 0;
+  display: inline-block;
+  position: relative;
+}
+.sign:first-child {
+  margin-top: 0;
+}
+.sign:last-child {
+  margin-bottom: 0;
+}
+.sign img {
+  position: relative;
+  z-index: 0;
+}
+.sign .cross-zone {
+  border: 3px solid red;
+  border-radius: 200px;
+  position: absolute;
+  z-index: 1;
+  width: 6.01%;
+  height: 8%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.sign .cross-location {
+  border: 3px solid red;
+  border-radius: 200px;
+  position: absolute;
+  z-index: 1;
+  width: 10%;
+  height: 10%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.sign.sign-jy .cross-zone,
+.sign.sign-jy .cross-location {
+  border-color: blue;
+}
+
+/*# sourceMappingURL=style.dev.css.map */

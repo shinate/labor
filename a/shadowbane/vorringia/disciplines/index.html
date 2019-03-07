@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shadowbane - ardan - disciplines</title>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css"
+          rel="stylesheet"
+          href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+    <link type="text/css" rel="stylesheet" href="style.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>-->
+    <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+</head>
+<body>
+<div id="main">
+    <div>
+        <b-table v-if="loaded" striped hover :items="items" :fields="fields">
+            <slot slot="disciplineAnimator" slot-scope="data">
+                <img :src="data.value">
+            </slot>
+            <slot slot="dropper" slot-scope="data">
+                <template v-if="data.item.pos">
+                    <span v-for="pos in data.item.pos" class="sign">
+                        {{ pos.dropper || data.value }}
+                    </span>
+                </template>
+            </slot>
+            <slot slot="zone" slot-scope="data">
+                <template v-if="data.item.pos">
+                    <span v-for="pos in data.item.pos" class="sign">
+                        {{ pos.location }}
+                    </span>
+                </template>
+            </slot>
+            <slot slot="zonesign" slot-scope="data">
+                <template v-if="data.item.pos">
+                    <span v-for="pos in data.item.pos" class="sign">
+                        <i class="cross-zone" :style="crossZone(pos)"></i>
+                        <img src="https://morloch.shadowbaneemulator.com/images/thumb/0/05/VorringiaSpawnIndex2.jpg/700px-VorringiaSpawnIndex2.jpg">
+                    </span>
+                </template>
+            </slot>
+            <slot slot="locationsign" slot-scope="data">
+                <template v-if="data.item.pos">
+                    <span v-for="pos in data.item.pos" class="sign">
+                        <i class="cross-location" :style="crossLocation(pos)"></i>
+                        <img :src="mapZone(pos)">
+                    </span>
+                </template>
+            </slot>
+            <slot slot="discdropper" slot-scope="data">
+                <template v-if="data.item.pos">
+                    <span v-for="pos in data.item.pos" class="sign">
+                        <img :src="pos.discdropper || data.value">
+                    </span>
+                </template>
+            </slot>
+        </b-table>
+    </div>
+</div>
+<script src="script.min.js"></script>
+</body>
+</html>
