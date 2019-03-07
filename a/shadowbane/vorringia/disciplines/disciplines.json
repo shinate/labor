@@ -289,6 +289,22 @@
     ]
   },
   {
+    "disciplineName"    : "巫士",
+    "discipline"        : "Enchanter",
+    "dropper"           : "Sss'shaass'naal",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperEnchanter.jpg/175px-DiscDropperEnchanter.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/5/50/DisciplineEnchanter.png",
+    "pos"               : [
+      {
+        "location"   : "Holloch Forest",
+        "coordinates": [
+          61950,
+          46080
+        ]
+      }
+    ]
+  },
+  {
     "disciplineName"    : "铸造大师",
     "discipline"        : "Forge Master",
     "dropper"           : "Halfdan the Black",
@@ -460,10 +476,18 @@
   {
     "disciplineName"    : "破坏神",
     "discipline"        : "Saboteur",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Kas'ravool the Insidious",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/4/42/DiscDropperSaboteur.jpg/175px-DiscDropperSaboteur.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/5/51/DisciplineSaboteur.png",
+    "pos"               : [
+      {
+        "location"   : "Sevaath Mere",
+        "coordinates": [
+          67370,
+          36710
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "守护神",
@@ -507,26 +531,50 @@
   {
     "disciplineName"    : "专家",
     "discipline"        : "Savant",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Koss'thrahaa",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/85/DiscDropperSavant.jpg/175px-DiscDropperSavant.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/d/dd/DisciplineSavant.png",
+    "pos"               : [
+      {
+        "location"   : "Vale of Nar Addad",
+        "coordinates": [
+          18080,
+          35360
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "影妖",
     "discipline"        : "Shroudborne",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Acheros the Defiant",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/b9/DiscDropperShroudborne.jpg/175px-DiscDropperShroudborne.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3c/DisciplineShroudborne.png",
+    "pos"               : [
+      {
+        "location"   : "The Doomplain",
+        "coordinates": [
+          39110,
+          52000
+        ]
+      }
+    ]
   },
   {
-    "disciplineName"    : "天舞者",
+    "disciplineName"    : "天空舞者",
     "discipline"        : "Skydancer",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Sss'thalark",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/d2/DiscDropperSkydancer.jpg/175px-DiscDropperSkydancer.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/75/DisciplineSkydancer.png",
+    "pos"               : [
+      {
+        "location"   : "Vale of Nar Addad",
+        "coordinates": [
+          20510,
+          35150
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "风暴之主",
@@ -611,10 +659,18 @@
   {
     "disciplineName"    : "旅行家",
     "discipline"        : "Traveler",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Knellican the Black",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/77/DiscDropperTraveler.jpg/175px-DiscDropperTraveler.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/fe/DisciplineTraveler.png",
+    "pos"               : [
+      {
+        "location"   : "Holloch Forest",
+        "coordinates": [
+          62320,
+          46800
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "不死猎人",
@@ -635,10 +691,18 @@
   {
     "disciplineName"    : "女武神",
     "discipline"        : "Valkyr",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Vorrin's Doom",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/9/93/DiscDropperValkyr.jpg/175px-DiscDropperValkyr.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/32/DisciplineValkyr.png",
+    "pos"               : [
+      {
+        "location"   : "Hethland Holm",
+        "coordinates": [
+          46342,
+          68642
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "熊人",
@@ -659,10 +723,18 @@
   {
     "disciplineName"    : "鼠人",
     "discipline"        : "Wererat",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "",
-    "pos"               : null
+    "dropper"           : "Keelneth Plague-monger",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/b3/DiscDropperWererat.jpg/175px-DiscDropperWererat.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/1/1e/DisciplineWererat.png",
+    "pos"               : [
+      {
+        "location"   : "Sevaath Mere",
+        "coordinates": [
+          67130,
+          36400
+        ]
+      }
+    ]
   },
   {
     "disciplineName"    : "狼人",
@@ -683,8 +755,17 @@
   {
     "disciplineName"    : "屠龙者",
     "discipline"        : "Wyrmslayer",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": ""
+    "dropper"           : "Agrathor the Blac",
+    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/ee/DiscDropperWyrmslayer.jpg/175px-DiscDropperWyrmslayer.jpg",
+    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3d/DisciplineWyrmslayer.png",
+    "pos"               : [
+      {
+        "location"   : "The Black Bog",
+        "coordinates": [
+          61883,
+          35305
+        ]
+      }
+    ]
   }
 ]

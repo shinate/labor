@@ -121,8 +121,8 @@
   "Hethland Holm"       : {
     "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/b/bc/Zone20.jpg/400px-Zone20.jpg",
     "offset": [
-      44800,
-      65800
+      44700,
+      65900
     ]
   },
   "Plain of Ashes"      : {
@@ -130,6 +130,41 @@
     "offset": [
       101200,
       51200
+    ]
+  },
+  "Vale of Nar Addad"   : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/6/6c/Naraddadmap.png/400px-Naraddadmap.png",
+    "offset": [
+      17200,
+      31400
+    ]
+  },
+  "The Doomplain"       : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/e/ec/Zone1.jpg/400px-Zone1.jpg",
+    "offset": [
+      37650,
+      48350
+    ]
+  },
+  "The Black Bog"       : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/a/aa/Zone3.jpg/400px-Zone3.jpg",
+    "offset": [
+      59100,
+      32500
+    ]
+  },
+  "Holloch Forest"      : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/7/70/Zone5.jpg/400px-Zone5.jpg",
+    "offset": [
+      58800,
+      44900
+    ]
+  },
+  "Sevaath Mere"        : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/6/60/Zone9.jpg/400px-Zone9.jpg",
+    "offset": [
+      63760,
+      33400
     ]
   }
 }
