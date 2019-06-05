@@ -245,7 +245,6 @@
     "dropper"           : "Sir Balfour the Blue",
     "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/83/DiscDropperDarkKnight.jpg/175px-DiscDropperDarkKnight.jpg",
     "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/04/DisciplineDarkKnight.png",
-    "pos"               : null,
     "pos"               : [
       {
         "location"   : "Ashfell Plain",
