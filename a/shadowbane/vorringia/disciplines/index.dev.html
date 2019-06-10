@@ -18,6 +18,12 @@
 <div id="main">
     <div>
         <b-table v-if="loaded" striped hover :items="items" :fields="fields">
+            <slot slot="disciplineName" slot-scope="data">
+                <span :id="data.item.disciplineName">{{ data.item.disciplineName }}</span>
+            </slot>
+            <slot slot="discipline" slot-scope="data">
+                <span :id="data.item.discipline">{{ data.item.discipline }}</span>
+            </slot>
             <slot slot="disciplineAnimator" slot-scope="data">
                 <img :src="data.value">
             </slot>
