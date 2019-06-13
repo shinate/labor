@@ -85,6 +85,8 @@
 
                 });
         },
+        mounted: function () {
+        },
         methods: {
             crossZone    : function (pos) {
                 return {

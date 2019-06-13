@@ -86,219 +86,98 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./a/shadowbane/vorringia/disciplines/script.dev.js":
-/*!**********************************************************!*\
-  !*** ./a/shadowbane/vorringia/disciplines/script.dev.js ***!
-  \**********************************************************/
+/***/ "./a/factorio/Supply.dev.js":
+/*!**********************************!*\
+  !*** ./a/factorio/Supply.dev.js ***!
+  \**********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
-/* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom.iterable */ "./node_modules/core-js/modules/web.dom.iterable.js");
-/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es6.string.iterator */ "./node_modules/core-js/modules/es6.string.iterator.js");
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.function.name */ "./node_modules/core-js/modules/es6.function.name.js");
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom.iterable */ "./node_modules/core-js/modules/web.dom.iterable.js");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es6.array.for-each */ "./node_modules/core-js/modules/es6.array.for-each.js");
+/* harmony import */ var core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_for_each__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es6.array.find */ "./node_modules/core-js/modules/es6.array.find.js");
+/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
-
-(function (Vue, $) {
-  function getJSON(url) {
-    return new Promise(function (resolve, reject) {
-      var handler = function handler() {
-        if (this.readyState !== 4) {
-          return;
-        }
-
-        if (this.status === 200) {
-          resolve(this.response);
-        } else {
-          reject(new Error(this.statusText));
-        }
-      };
-
-      var client = new XMLHttpRequest();
-      client.open("GET", url);
-      client.onreadystatechange = handler;
-      client.responseType = "json";
-      client.setRequestHeader("Accept", "application/json");
-      client.send();
-    });
-  }
-
-  var WORD_SIZE = [131000, 99800]; // 因为 Y有个边，多加了1600
-
-  var ZONE_SIZE = [4500, 4500];
-  new Vue({
-    el: '#main',
-    data: function data() {
-      return {
-        fields: [{
-          key: 'disciplineAnimator',
-          label: '图标'
-        }, {
-          key: 'disciplineName',
-          label: '副职（中文）',
-          sortable: true
-        }, {
-          key: 'discipline',
-          label: '副职',
-          sortable: true
-        }, {
-          key: 'dropper',
-          label: '掉落者',
-          sortable: true
-        }, {
-          key: 'zone',
-          label: '怪区'
-        }, {
-          key: 'zonesign',
-          label: '怪区标记'
-        }, {
-          key: 'locationsign',
-          label: '位置标记'
-        }, {
-          key: 'discdropper',
-          label: '掉落者（外观）'
-        }],
-        items: null,
-        zone: null,
-        loaded: false
-      };
-    },
-    created: function created() {
-      var _this = this;
-
-      Promise.all(['./disciplines.json', './zone.json'].map(getJSON)).then(function (params) {
-        var _params = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(params, 2),
-            items = _params[0],
-            zone = _params[1];
-
-        _this.items = items;
-        _this.zone = zone;
-        _this.loaded = true;
-      }).catch(function (reason) {});
-    },
-    mounted: function mounted() {},
-    methods: {
-      crossZone: function crossZone(pos) {
-        return {
-          left: "".concat(100 * pos.coordinates[0] / WORD_SIZE[0], "%"),
-          top: "".concat(100 - 100 * pos.coordinates[1] / WORD_SIZE[1], "%")
-        };
-      },
-      crossLocation: function crossLocation(pos) {
-        return {
-          left: "".concat(100 * (pos.coordinates[0] - this.zone[pos.location].offset[0]) / ZONE_SIZE[0], "%"),
-          top: "".concat(100 - 100 * (pos.coordinates[1] - this.zone[pos.location].offset[1]) / ZONE_SIZE[1], "%")
-        };
-      },
-      mapZone: function mapZone(pos) {
-        if (this.zone.hasOwnProperty(pos.location)) {
-          return this.zone[pos.location].map;
-        }
-
-        return '';
-      }
-    }
+var belt = {
+  yellow: 13.33,
+  red: 26.67,
+  blue: 40.00
+};
+var Supply = $('#supply');
+Supply.find('[role="clean"]').on('click', function () {
+  var form = $(this).parents('form');
+  form.find('input, select').val('');
+});
+Supply.find('[role="run"]').on('click', function () {
+  var form = $(this).parents('form');
+  var data = {};
+  form.serializeArray().forEach(function (item) {
+    data[item.name] = item.value;
   });
-})(window.Vue, window.jQuery);
 
-/***/ }),
+  if (!data.addition) {
+    data.addition = 1;
+  }
 
-/***/ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  if (!data.output) {
+    data.output = 1;
+  }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _arrayWithHoles; });
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
+  if (!data.bonus) {
+    data.bonus = 1;
+  }
 
-/***/ }),
+  if (!data.time) {
+    return;
+  }
 
-/***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  var process_pre_sec = 1 / (data.time / data.addition); // 生产(进程)/s
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _iterableToArrayLimit; });
-function _iterableToArrayLimit(arr, i) {
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
+  var output = {
+    quantity: process_pre_sec * data.output * data.bonus
+  };
+  output.process_pre_belt_yellow = belt.yellow / output.quantity;
+  output.process_pre_belt_red = belt.red / output.quantity;
+  output.process_pre_belt_blue = belt.blue / output.quantity;
+  var supplies = {};
 
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
+  for (var i = 1; i <= 6; i++) {
+    var s = "source_".concat(i);
 
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
+    if (data[s] > 0) {
+      supplies[i] = {};
+      supplies[i].quantity = data[s] * process_pre_sec;
+      supplies[i].process_pre_belt_yellow = belt.yellow / supplies[i].quantity;
+      supplies[i].process_pre_belt_red = belt.red / supplies[i].quantity;
+      supplies[i].process_pre_belt_blue = belt.blue / supplies[i].quantity;
     }
   }
 
-  return _arr;
-}
+  var result = [];
+  result.push("\u8FDB\u7A0B: ".concat(round(process_pre_sec, 2), "/s"));
 
-/***/ }),
+  for (var _i in supplies) {
+    if (supplies.hasOwnProperty(_i)) {
+      result.push("[\u539F\u6599 ".concat(_i, "]"), "\u6570\u91CF: ".concat(round(supplies[_i].quantity, 2), "/s \u9EC4: ").concat(round(supplies[_i].process_pre_belt_yellow, 2), " \u7EA2: ").concat(round(supplies[_i].process_pre_belt_red, 2), " \u84DD: ").concat(round(supplies[_i].process_pre_belt_blue, 2)));
+    }
+  }
 
-/***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  result.push("[\u4EA7\u51FA]", "\u6570\u91CF: ".concat(round(output.quantity, 2), "/s \u9EC4: ").concat(round(output.process_pre_belt_yellow, 2), " \u7EA2: ").concat(round(output.process_pre_belt_red, 2), " \u84DD: ").concat(round(output.process_pre_belt_blue, 2)));
+  Supply.find('[role="result"]').html(result.join('<br>'));
+});
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableRest; });
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _slicedToArray; });
-/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js");
-/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js");
-/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js");
-
-
-
-function _slicedToArray(arr, i) {
-  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
+function round(num) {
+  var radio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  return Math.round(num * Math.pow(10, radio)) / Math.pow(10, radio);
 }
 
 /***/ }),
@@ -1262,34 +1141,6 @@ module.exports = function (method, arg) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/_string-at.js":
-/*!****************************************************!*\
-  !*** ./node_modules/core-js/modules/_string-at.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var toInteger = __webpack_require__(/*! ./_to-integer */ "./node_modules/core-js/modules/_to-integer.js");
-var defined = __webpack_require__(/*! ./_defined */ "./node_modules/core-js/modules/_defined.js");
-// true  -> String#at
-// false -> String#codePointAt
-module.exports = function (TO_STRING) {
-  return function (that, pos) {
-    var s = String(defined(that));
-    var i = toInteger(pos);
-    var l = s.length;
-    var a, b;
-    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
-    a = s.charCodeAt(i);
-    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-      ? TO_STRING ? s.charAt(i) : a
-      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-  };
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/_to-absolute-index.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js/modules/_to-absolute-index.js ***!
@@ -1436,6 +1287,55 @@ $exports.store = store;
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es6.array.find.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.array.find.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/modules/_export.js");
+var $find = __webpack_require__(/*! ./_array-methods */ "./node_modules/core-js/modules/_array-methods.js")(5);
+var KEY = 'find';
+var forced = true;
+// Shouldn't skip holes
+if (KEY in []) Array(1)[KEY](function () { forced = false; });
+$export($export.P + $export.F * forced, 'Array', {
+  find: function find(callbackfn /* , that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+__webpack_require__(/*! ./_add-to-unscopables */ "./node_modules/core-js/modules/_add-to-unscopables.js")(KEY);
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es6.array.for-each.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.array.for-each.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/modules/_export.js");
+var $forEach = __webpack_require__(/*! ./_array-methods */ "./node_modules/core-js/modules/_array-methods.js")(0);
+var STRICT = __webpack_require__(/*! ./_strict-method */ "./node_modules/core-js/modules/_strict-method.js")([].forEach, true);
+
+$export($export.P + $export.F * !STRICT, 'Array', {
+  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
+  forEach: function forEach(callbackfn /* , thisArg */) {
+    return $forEach(this, callbackfn, arguments[1]);
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es6.array.iterator.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js/modules/es6.array.iterator.js ***!
@@ -1482,52 +1382,28 @@ addToUnscopables('entries');
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es6.array.map.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/core-js/modules/es6.array.map.js ***!
-  \*******************************************************/
+/***/ "./node_modules/core-js/modules/es6.function.name.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es6.function.name.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var dP = __webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/modules/_object-dp.js").f;
+var FProto = Function.prototype;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
 
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/modules/_export.js");
-var $map = __webpack_require__(/*! ./_array-methods */ "./node_modules/core-js/modules/_array-methods.js")(1);
-
-$export($export.P + $export.F * !__webpack_require__(/*! ./_strict-method */ "./node_modules/core-js/modules/_strict-method.js")([].map, true), 'Array', {
-  // 22.1.3.15 / 15.4.4.19 Array.prototype.map(callbackfn [, thisArg])
-  map: function map(callbackfn /* , thisArg */) {
-    return $map(this, callbackfn, arguments[1]);
+// 19.2.4.2 name
+NAME in FProto || __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/modules/_descriptors.js") && dP(FProto, NAME, {
+  configurable: true,
+  get: function () {
+    try {
+      return ('' + this).match(nameRE)[1];
+    } catch (e) {
+      return '';
+    }
   }
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es6.string.iterator.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/core-js/modules/es6.string.iterator.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $at = __webpack_require__(/*! ./_string-at */ "./node_modules/core-js/modules/_string-at.js")(true);
-
-// 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(/*! ./_iter-define */ "./node_modules/core-js/modules/_iter-define.js")(String, 'String', function (iterated) {
-  this._t = String(iterated); // target
-  this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var index = this._i;
-  var point;
-  if (index >= O.length) return { value: undefined, done: true };
-  point = $at(O, index);
-  this._i += point.length;
-  return { value: point, done: false };
 });
 
 
@@ -1603,16 +1479,16 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************!*\
-  !*** multi ./a/shadowbane/vorringia/disciplines/script.dev.js ***!
-  \****************************************************************/
+/*!****************************************!*\
+  !*** multi ./a/factorio/Supply.dev.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/shadowbane/vorringia/disciplines/script.dev.js */"./a/shadowbane/vorringia/disciplines/script.dev.js");
+module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/factorio/Supply.dev.js */"./a/factorio/Supply.dev.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=Supply.js.map

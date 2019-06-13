@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train start & acceleration process</title>
+    <!--<link type="text/css" media="all" rel="stylesheet" href="../build/styles/bootstrap.min.css">-->
+    <!--<script src="../build/scripts/jquery.min.js"></script>-->
+    <!--<script src="../build/scripts/bootstrap.min.js"></script>-->
+    <!--<script src="../build/scripts/echarts.min.js"></script>-->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="supply" role="card" class="card mt-3">
+                <div class="card-body p-3 pt-4">
+                    <form class="form">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_1"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 1">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_2"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 2">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_3"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 3">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_4"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 4">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_5"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 5">
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-control form-control-sm"
+                                       name="source_6"
+                                       min="1"
+                                       step="1"
+                                       type="number"
+                                       placeholder="原料 6">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input name="time"
+                                           min="0.5"
+                                           step="0.5"
+                                           type="number"
+                                           class="form-control form-control-sm"
+                                           placeholder="制造时长"/>
+                                    <input name="addition"
+                                           min="0.1"
+                                           step="0.1"
+                                           type="number"
+                                           class="form-control form-control-sm"
+                                           placeholder="速度加成"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input name="output"
+                                           min="1"
+                                           step="1"
+                                           type="number"
+                                           class="form-control form-control-sm"
+                                           placeholder="产出数量"/>
+                                    <input name="bonus"
+                                           min="0.1"
+                                           step="0.1"
+                                           type="number"
+                                           class="form-control form-control-sm"
+                                           placeholder="产出加成"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button role="run" class="btn btn-primary" type="button">计算</button>
+                                <button role="clean" class="btn btn-danger" type="button">清空</button>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <div role="result"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+</script>
+<script src="Supply.min.js"></script>
+</body>
+</html>
