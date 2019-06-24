@@ -1,7 +1,7 @@
 let belt = {
-    yellow: 13.33,
-    red   : 26.67,
-    blue  : 40.00
+    yellow: 15,
+    red   : 30,
+    blue  : 45
 }
 
 let Supply = $('#supply');

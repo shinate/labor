@@ -108,9 +108,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var belt = {
-  yellow: 13.33,
-  red: 26.67,
-  blue: 40.00
+  yellow: 15,
+  red: 30,
+  blue: 45
 };
 var Supply = $('#supply');
 Supply.find('[role="clean"]').on('click', function () {
