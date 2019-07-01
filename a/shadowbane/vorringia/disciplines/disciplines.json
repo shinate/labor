@@ -1,11 +1,11 @@
 [
   {
-    "disciplineName"    : "操偶师",
-    "discipline"        : "Animator",
-    "dropper"           : "Erleggon the Corpse Stealer",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/2/26/DiscDropperAnimator.jpg/175px-DiscDropperAnimator.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/7b/DisciplineAnimator.png",
-    "pos"               : [
+    "name_zh"  : "操偶师",
+    "name"     : "Animator",
+    "target"   : "Erleggon the Corpse Stealer",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/2/26/DiscDropperAnimator.jpg/175px-DiscDropperAnimator.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/7/7b/DisciplineAnimator.png",
+    "pos"      : [
       {
         "location"   : "Grimscairne",
         "coordinates": [
@@ -16,12 +16,12 @@
     ]
   },
   {
-    "disciplineName"    : "射手",
-    "discipline"        : "Archer",
-    "dropper"           : "Herath the Fell",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/0/08/DiscDropperArcher.jpg/175px-DiscDropperArcher.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/f2/DisciplineArcher.png",
-    "pos"               : [
+    "name_zh"  : "射手",
+    "name"     : "Archer",
+    "target"   : "Herath the Fell",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/0/08/DiscDropperArcher.jpg/175px-DiscDropperArcher.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/f/f2/DisciplineArcher.png",
+    "pos"      : [
       {
         "location"   : "Valkos Wilds",
         "coordinates": [
@@ -32,12 +32,12 @@
     ]
   },
   {
-    "disciplineName"    : "大法师",
-    "discipline"        : "Archmage",
-    "dropper"           : "Khorvoss Bloodstealer, Khal'akar",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/5/50/DiscDropperArchmage.jpg/175px-DiscDropperArchmage.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/cd/DisciplineArchmage.png",
-    "pos"               : [
+    "name_zh"  : "大法师",
+    "name"     : "Archmage",
+    "target"   : "Khorvoss Bloodstealer, Khal'akar",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/5/50/DiscDropperArchmage.jpg/175px-DiscDropperArchmage.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/c/cd/DisciplineArchmage.png",
+    "pos"      : [
       {
         "location"   : "Kharsoom",
         "coordinates": [
@@ -48,12 +48,12 @@
     ]
   },
   {
-    "disciplineName"    : "炮术家",
-    "discipline"        : "Artillerist",
-    "dropper"           : "Kalthanax",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/d/da/Kalthanax.png",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/9/93/DisciplineArtillerist.png",
-    "pos"               : [
+    "name_zh"  : "炮术家",
+    "name"     : "Artillerist",
+    "target"   : "Kalthanax",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/d/da/Kalthanax.png",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/9/93/DisciplineArtillerist.png",
+    "pos"      : [
       {
         "location"   : "Ashfell Plain",
         "coordinates": [
@@ -64,12 +64,12 @@
     ]
   },
   {
-    "disciplineName"    : "战争法师",
-    "discipline"        : "Battle Magus",
-    "dropper"           : "Scirrivax the Blue",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/6/69/DiscDropperBattleMagus.jpg/175px-DiscDropperBattleMagus.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/8/85/DisciplineBattleMagus.png",
-    "pos"               : [
+    "name_zh"  : "战争法师",
+    "name"     : "Battle Magus",
+    "target"   : "Scirrivax the Blue",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/6/69/DiscDropperBattleMagus.jpg/175px-DiscDropperBattleMagus.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/8/85/DisciplineBattleMagus.png",
+    "pos"      : [
       {
         "location"   : "The Blood Sands",
         "coordinates": [
@@ -80,12 +80,12 @@
     ]
   },
   {
-    "disciplineName"    : "召唤使(吸血鬼)",
-    "discipline"        : "Belgosch",
-    "dropper"           : "Carlissa the Blood Zealot",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/f/f4/DiscDropperBelgosch.jpg/175px-DiscDropperBelgosch.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/38/DisciplineBelgosch.png",
-    "pos"               : [
+    "name_zh"  : "召唤使(吸血鬼)",
+    "name"     : "Belgosch",
+    "target"   : "Carlissa the Blood Zealot",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/f/f4/DiscDropperBelgosch.jpg/175px-DiscDropperBelgosch.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/3/38/DisciplineBelgosch.png",
+    "pos"      : [
       {
         "location"   : "Bone Marches",
         "coordinates": [
@@ -96,12 +96,12 @@
     ]
   },
   {
-    "disciplineName"    : "狂战士",
-    "discipline"        : "Berserker",
-    "dropper"           : "Hrungar Bear-Lord",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/5/58/DiscDropperBerserker.jpg/175px-DiscDropperBerserker.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/d/d5/DisciplineBerserker.png",
-    "pos"               : [
+    "name_zh"  : "狂战士",
+    "name"     : "Berserker",
+    "target"   : "Hrungar Bear-Lord",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/5/58/DiscDropperBerserker.jpg/175px-DiscDropperBerserker.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/d/d5/DisciplineBerserker.png",
+    "pos"      : [
       {
         "location"   : "Hregend Wildlands",
         "coordinates": [
@@ -112,12 +112,12 @@
     ]
   },
   {
-    "disciplineName"    : "黑色假面",
-    "discipline"        : "Black Mask",
-    "dropper"           : "Taelmar the Spider",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/5/5a/DiscDropperBlackmask.jpg/175px-DiscDropperBlackmask.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/f7/DisciplineBlackmask.png",
-    "pos"               : [
+    "name_zh"  : "黑色假面",
+    "name"     : "Black Mask",
+    "target"   : "Taelmar the Spider",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/5/5a/DiscDropperBlackmask.jpg/175px-DiscDropperBlackmask.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/f/f7/DisciplineBlackmask.png",
+    "pos"      : [
       {
         "location"   : "Grimscairne",
         "coordinates": [
@@ -128,12 +128,12 @@
     ]
   },
   {
-    "disciplineName"    : "大剑师",
-    "discipline"        : "Blade Master",
-    "dropper"           : "Syarl the Obsidian Fox",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/a/aa/DiscDropperBlademaster.jpg/175px-DiscDropperBlademaster.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/c3/DisciplineBlademaster.png",
-    "pos"               : [
+    "name_zh"  : "大剑师",
+    "name"     : "Blade Master",
+    "target"   : "Syarl the Obsidian Fox",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/a/aa/DiscDropperBlademaster.jpg/175px-DiscDropperBlademaster.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/c/c3/DisciplineBlademaster.png",
+    "pos"      : [
       {
         "location"   : "Leth'khalivar Desert",
         "coordinates": [
@@ -144,12 +144,12 @@
     ]
   },
   {
-    "disciplineName"    : "剑舞者",
-    "discipline"        : "Blade Weaver",
-    "dropper"           : "Lirek, Bhalalar Khar'uus",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/0/08/DiscDropperBladeWeaver.jpg/175px-DiscDropperBladeWeaver.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/73/DisciplineBladeWeaver.png",
-    "pos"               : [
+    "name_zh"  : "剑舞者",
+    "name"     : "Blade Weaver",
+    "target"   : "Lirek, Bhalalar Khar'uus",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/0/08/DiscDropperBladeWeaver.jpg/175px-DiscDropperBladeWeaver.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/7/73/DisciplineBladeWeaver.png",
+    "pos"      : [
       {
         "location"   : "Kharsoom",
         "coordinates": [
@@ -160,12 +160,12 @@
     ]
   },
   {
-    "disciplineName"    : "血腥长角",
-    "discipline"        : "Blood Horn",
-    "dropper"           : "Aurrek Elf's-Bane",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/5/5a/DiscDropperBloodHorn.jpg/175px-DiscDropperBloodHorn.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/b/b3/DisciplineBloodhorn.png",
-    "pos"               : [
+    "name_zh"  : "血腥长角",
+    "name"     : "Blood Horn",
+    "target"   : "Aurrek Elf's-Bane",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/5/5a/DiscDropperBloodHorn.jpg/175px-DiscDropperBloodHorn.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/b/b3/DisciplineBloodhorn.png",
+    "pos"      : [
       {
         "location"   : "Aurrochs Skrae",
         "coordinates": [
@@ -176,12 +176,12 @@
     ]
   },
   {
-    "disciplineName"    : "血之先知",
-    "discipline"        : "Blood Prophet",
-    "dropper"           : "Glandor Ingloridan",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/ee/DiscDropperBloodProphet.jpg/175px-DiscDropperBloodProphet.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/44/DisciplineBloodProphet.png",
-    "pos"               : [
+    "name_zh"  : "血之先知",
+    "name"     : "Blood Prophet",
+    "target"   : "Glandor Ingloridan",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/e/ee/DiscDropperBloodProphet.jpg/175px-DiscDropperBloodProphet.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/4/44/DisciplineBloodProphet.png",
+    "pos"      : [
       {
         "location"   : "The Blood Sands",
         "coordinates": [
@@ -192,12 +192,12 @@
     ]
   },
   {
-    "disciplineName"    : "赏金猎人",
-    "discipline"        : "Bounty Hunter",
-    "dropper"           : "Conn MacMorgan, Hillman Renegade",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/de/DiscDropperBountyHunter.jpg/175px-DiscDropperBountyHunter.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/48/DisciplineBountyHunter.png",
-    "pos"               : [
+    "name_zh"  : "赏金猎人",
+    "name"     : "Bounty Hunter",
+    "target"   : "Conn MacMorgan, Hillman Renegade",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/d/de/DiscDropperBountyHunter.jpg/175px-DiscDropperBountyHunter.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/4/48/DisciplineBountyHunter.png",
+    "pos"      : [
       {
         "location"   : "Aedroch Highlands",
         "coordinates": [
@@ -208,12 +208,12 @@
     ]
   },
   {
-    "disciplineName"    : "指挥官",
-    "discipline"        : "Commander",
-    "dropper"           : "Aelginar the Elflord",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/2/27/DiscDropperCommander.jpg/175px-DiscDropperCommander.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/2/24/DisciplineCommander.png",
-    "pos"               : [
+    "name_zh"  : "指挥官",
+    "name"     : "Commander",
+    "target"   : "Aelginar the Elflord",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/2/27/DiscDropperCommander.jpg/175px-DiscDropperCommander.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/2/24/DisciplineCommander.png",
+    "pos"      : [
       {
         "location"   : "Aerath Hellendroth",
         "coordinates": [
@@ -224,12 +224,12 @@
     ]
   },
   {
-    "disciplineName"    : "地狱使者",
-    "discipline"        : "Conjurer",
-    "dropper"           : "Th'verrinax the Banelord",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/76/DiscDropperConjurer.jpg/175px-DiscDropperConjurer.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/ff/DisciplineConjurer.png",
-    "pos"               : [
+    "name_zh"  : "地狱使者",
+    "name"     : "Conjurer",
+    "target"   : "Th'verrinax the Banelord",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/7/76/DiscDropperConjurer.jpg/175px-DiscDropperConjurer.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/f/ff/DisciplineConjurer.png",
+    "pos"      : [
       {
         "location"   : "Pandemonium",
         "coordinates": [
@@ -240,12 +240,12 @@
     ]
   },
   {
-    "disciplineName"    : "黑暗骑士",
-    "discipline"        : "Dark Knight",
-    "dropper"           : "Sir Balfour the Blue",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/83/DiscDropperDarkKnight.jpg/175px-DiscDropperDarkKnight.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/04/DisciplineDarkKnight.png",
-    "pos"               : [
+    "name_zh"  : "黑暗骑士",
+    "name"     : "Dark Knight",
+    "target"   : "Sir Balfour the Blue",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/8/83/DiscDropperDarkKnight.jpg/175px-DiscDropperDarkKnight.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/0/04/DisciplineDarkKnight.png",
+    "pos"      : [
       {
         "location"   : "Ashfell Plain",
         "coordinates": [
@@ -256,12 +256,12 @@
     ]
   },
   {
-    "disciplineName"    : "黑暗火巫",
-    "discipline"        : "Darksworn",
-    "dropper"           : "T'chorrblex the Bloated Terror",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperDarksworn.jpg/175px-DiscDropperDarksworn.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/7d/DisciplineDarksworn.png",
-    "pos"               : [
+    "name_zh"  : "黑暗火巫",
+    "name"     : "Darksworn",
+    "target"   : "T'chorrblex the Bloated Terror",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperDarksworn.jpg/175px-DiscDropperDarksworn.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/7/7d/DisciplineDarksworn.png",
+    "pos"      : [
       {
         "location"   : "Pandemonium",
         "coordinates": [
@@ -272,12 +272,12 @@
     ]
   },
   {
-    "disciplineName"    : "暗夜使",
-    "discipline"        : "Drannok",
-    "dropper"           : "Canghril the Blood Knight",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/4/4f/DiscDropperDrannok.jpg/175px-DiscDropperDrannok.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/73/DisciplineDrannok.png",
-    "pos"               : [
+    "name_zh"  : "暗夜使",
+    "name"     : "Drannok",
+    "target"   : "Canghril the Blood Knight",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/4/4f/DiscDropperDrannok.jpg/175px-DiscDropperDrannok.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/7/73/DisciplineDrannok.png",
+    "pos"      : [
       {
         "location"   : "Bone Marches",
         "coordinates": [
@@ -288,12 +288,12 @@
     ]
   },
   {
-    "disciplineName"    : "巫士",
-    "discipline"        : "Enchanter",
-    "dropper"           : "Sss'shaass'naal",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperEnchanter.jpg/175px-DiscDropperEnchanter.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/5/50/DisciplineEnchanter.png",
-    "pos"               : [
+    "name_zh"  : "巫士",
+    "name"     : "Enchanter",
+    "target"   : "Sss'shaass'naal",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/e/e5/DiscDropperEnchanter.jpg/175px-DiscDropperEnchanter.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/5/50/DisciplineEnchanter.png",
+    "pos"      : [
       {
         "location"   : "Holloch Forest",
         "coordinates": [
@@ -304,12 +304,12 @@
     ]
   },
   {
-    "disciplineName"    : "铸造大师",
-    "discipline"        : "Forge Master",
-    "dropper"           : "Halfdan the Black",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/7c/DiscDropperForgeMaster.jpg/175px-DiscDropperForgeMaster.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/c5/DisciplineForgeMaster.png",
-    "pos"               : [
+    "name_zh"  : "铸造大师",
+    "name"     : "Forge Master",
+    "target"   : "Halfdan the Black",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/7/7c/DiscDropperForgeMaster.jpg/175px-DiscDropperForgeMaster.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/c/c5/DisciplineForgeMaster.png",
+    "pos"      : [
       {
         "location"   : "Hethland Holm",
         "coordinates": [
@@ -320,12 +320,12 @@
     ]
   },
   {
-    "disciplineName"    : "巨人杀手",
-    "discipline"        : "Giant Killer",
-    "dropper"           : "Exiled King Mahn-Tor",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/3/3b/DiscDropperGiantKiller.jpg/175px-DiscDropperGiantKiller.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/e/ed/DisciplineGiantKiller.png",
-    "pos"               : [
+    "name_zh"  : "巨人杀手",
+    "name"     : "Giant Killer",
+    "target"   : "Exiled King Mahn-Tor",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/3/3b/DiscDropperGiantKiller.jpg/175px-DiscDropperGiantKiller.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/e/ed/DisciplineGiantKiller.png",
+    "pos"      : [
       {
         "location"   : "Aurrochs Skrae",
         "coordinates": [
@@ -336,20 +336,20 @@
     ]
   },
   {
-    "disciplineName"    : "角斗士",
-    "discipline"        : "Gladiator",
-    "dropper"           : "",
-    "discdropper"       : "",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/0d/DisciplineGladiator.png",
-    "pos"               : [
+    "name_zh"  : "角斗士",
+    "name"     : "Gladiator",
+    "target"   : "",
+    "target_av": "",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/0/0d/DisciplineGladiator.png",
+    "pos"      : [
       {
         "location"   : "Fellgrim Forest",
         "coordinates": [
           63870,
           52640
         ],
-        "dropper"    : "Guruuk, Chief's Son",
-        "discdropper": "https://morloch.shadowbaneemulator.com/images/thumb/4/44/DiscDropperGladiatorA.jpg/175px-DiscDropperGladiatorA.jpg"
+        "target"     : "Guruuk, Chief's Son",
+        "target_av"  : "https://morloch.shadowbaneemulator.com/images/thumb/4/44/DiscDropperGladiatorA.jpg/175px-DiscDropperGladiatorA.jpg"
       },
       {
         "location"   : "Tainted Swamp",
@@ -357,18 +357,18 @@
           76660,
           45080
         ],
-        "dropper"    : "Krah'gool the Crusher",
-        "discdropper": "https://morloch.shadowbaneemulator.com/images/thumb/6/6a/DiscDropperGladiatorB.jpg/175px-DiscDropperGladiatorB.jpg"
+        "target"     : "Krah'gool the Crusher",
+        "target_av"  : "https://morloch.shadowbaneemulator.com/images/thumb/6/6a/DiscDropperGladiatorB.jpg/175px-DiscDropperGladiatorB.jpg"
       }
     ]
   },
   {
-    "disciplineName"    : "黑暗使",
-    "discipline"        : "Gorgoi",
-    "dropper"           : "Tormescu the Night Fiend",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/1/18/DiscDropperGorgoi.jpg/175px-DiscDropperGorgoi.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/9/9f/DisciplineGorgoi.png",
-    "pos"               : [
+    "name_zh"  : "黑暗使",
+    "name"     : "Gorgoi",
+    "target"   : "Tormescu the Night Fiend",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/1/18/DiscDropperGorgoi.jpg/175px-DiscDropperGorgoi.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/9/9f/DisciplineGorgoi.png",
+    "pos"      : [
       {
         "location"   : "Plain of Ashes",
         "coordinates": [
@@ -379,12 +379,12 @@
     ]
   },
   {
-    "disciplineName"    : "猎人",
-    "discipline"        : "Huntsman",
-    "dropper"           : "Vagheer the Stalker",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/be/DiscDropperHuntsman.jpg/175px-DiscDropperHuntsman.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/c0/DisciplineHuntsman.png",
-    "pos"               : [
+    "name_zh"  : "猎人",
+    "name"     : "Huntsman",
+    "target"   : "Vagheer the Stalker",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/b/be/DiscDropperHuntsman.jpg/175px-DiscDropperHuntsman.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/c/c0/DisciplineHuntsman.png",
+    "pos"      : [
       {
         "location"   : "Valkos Wilds",
         "coordinates": [
@@ -402,12 +402,12 @@
     ]
   },
   {
-    "disciplineName"    : "骑士",
-    "discipline"        : "Knight",
-    "dropper"           : "Sir Rangorn the Strong",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/2/23/DiscDropperKnight.jpg/175px-DiscDropperKnight.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3b/DisciplineKnight.png",
-    "pos"               : [
+    "name_zh"  : "骑士",
+    "name"     : "Knight",
+    "target"   : "Sir Rangorn the Strong",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/2/23/DiscDropperKnight.jpg/175px-DiscDropperKnight.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/3/3b/DisciplineKnight.png",
+    "pos"      : [
       {
         "location"   : "Aedroch Highlands",
         "coordinates": [
@@ -418,12 +418,12 @@
     ]
   },
   {
-    "disciplineName"    : "矿工",
-    "discipline"        : "Prospector",
-    "dropper"           : "Grimtalon the Stonefiend",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/9/97/DiscDropperProspector.jpg/175px-DiscDropperProspector.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/c/c9/DisciplineProspector.png",
-    "pos"               : [
+    "name_zh"  : "矿工",
+    "name"     : "Prospector",
+    "target"   : "Grimtalon the Stonefiend",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/9/97/DiscDropperProspector.jpg/175px-DiscDropperProspector.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/c/c9/DisciplineProspector.png",
+    "pos"      : [
       {
         "location"   : "Aurrochs Skrae",
         "coordinates": [
@@ -441,12 +441,12 @@
     ]
   },
   {
-    "disciplineName"    : "捕鼠者",
-    "discipline"        : "Rat Catcher",
-    "dropper"           : "Marrow Gnawer",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/b1/DiscDropperRatCatcher.jpg/175px-DiscDropperRatCatcher.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/00/DisciplineRatCatcher.png",
-    "pos"               : [
+    "name_zh"  : "捕鼠者",
+    "name"     : "Rat Catcher",
+    "target"   : "Marrow Gnawer",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/b/b1/DiscDropperRatCatcher.jpg/175px-DiscDropperRatCatcher.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/0/00/DisciplineRatCatcher.png",
+    "pos"      : [
       {
         "location"   : "Phaedra's Prize",
         "coordinates": [
@@ -457,12 +457,12 @@
     ]
   },
   {
-    "disciplineName"    : "符石法师",
-    "discipline"        : "Rune Caster",
-    "dropper"           : "Mimmur the One-Eyed",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/9/91/DiscDropperRuneCaster.jpg/175px-DiscDropperRuneCaster.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/0e/DisciplineRuneCaster.png",
-    "pos"               : [
+    "name_zh"  : "符石法师",
+    "name"     : "Rune Caster",
+    "target"   : "Mimmur the One-Eyed",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/9/91/DiscDropperRuneCaster.jpg/175px-DiscDropperRuneCaster.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/0/0e/DisciplineRuneCaster.png",
+    "pos"      : [
       {
         "location"   : "Hregend Wildlands",
         "coordinates": [
@@ -473,12 +473,12 @@
     ]
   },
   {
-    "disciplineName"    : "破坏神",
-    "discipline"        : "Saboteur",
-    "dropper"           : "Kas'ravool the Insidious",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/4/42/DiscDropperSaboteur.jpg/175px-DiscDropperSaboteur.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/5/51/DisciplineSaboteur.png",
-    "pos"               : [
+    "name_zh"  : "破坏神",
+    "name"     : "Saboteur",
+    "target"   : "Kas'ravool the Insidious",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/4/42/DiscDropperSaboteur.jpg/175px-DiscDropperSaboteur.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/5/51/DisciplineSaboteur.png",
+    "pos"      : [
       {
         "location"   : "Sevaath Mere",
         "coordinates": [
@@ -489,12 +489,12 @@
     ]
   },
   {
-    "disciplineName"    : "守护神",
-    "discipline"        : "Sanctifier",
-    "dropper"           : "Skaltok the Burner",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/5/59/DiscDropperSanctifier.jpg/175px-DiscDropperSanctifier.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/0/05/DisciplineSanctifier.png",
-    "pos"               : [
+    "name_zh"  : "守护神",
+    "name"     : "Sanctifier",
+    "target"   : "Skaltok the Burner",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/5/59/DiscDropperSanctifier.jpg/175px-DiscDropperSanctifier.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/0/05/DisciplineSanctifier.png",
+    "pos"      : [
       {
         "location"   : "Ashfell Plain",
         "coordinates": [
@@ -512,12 +512,12 @@
     ]
   },
   {
-    "disciplineName"    : "勘探者",
-    "discipline"        : "Sapper",
-    "dropper"           : "Mak'toth the Destroyer",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/4/4a/DiscDropperSapper.jpg/175px-DiscDropperSapper.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/6/61/DisciplineSapper.png",
-    "pos"               : [
+    "name_zh"  : "勘探者",
+    "name"     : "Sapper",
+    "target"   : "Mak'toth the Destroyer",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/4/4a/DiscDropperSapper.jpg/175px-DiscDropperSapper.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/6/61/DisciplineSapper.png",
+    "pos"      : [
       {
         "location"   : "Aurrochs Skrae",
         "coordinates": [
@@ -528,12 +528,12 @@
     ]
   },
   {
-    "disciplineName"    : "专家",
-    "discipline"        : "Savant",
-    "dropper"           : "Koss'thrahaa",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/85/DiscDropperSavant.jpg/175px-DiscDropperSavant.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/d/dd/DisciplineSavant.png",
-    "pos"               : [
+    "name_zh"  : "专家",
+    "name"     : "Savant",
+    "target"   : "Koss'thrahaa",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/8/85/DiscDropperSavant.jpg/175px-DiscDropperSavant.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/d/dd/DisciplineSavant.png",
+    "pos"      : [
       {
         "location"   : "Vale of Nar Addad",
         "coordinates": [
@@ -544,12 +544,12 @@
     ]
   },
   {
-    "disciplineName"    : "影妖",
-    "discipline"        : "Shroudborne",
-    "dropper"           : "Acheros the Defiant",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/b9/DiscDropperShroudborne.jpg/175px-DiscDropperShroudborne.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3c/DisciplineShroudborne.png",
-    "pos"               : [
+    "name_zh"  : "影妖",
+    "name"     : "Shroudborne",
+    "target"   : "Acheros the Defiant",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/b/b9/DiscDropperShroudborne.jpg/175px-DiscDropperShroudborne.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/3/3c/DisciplineShroudborne.png",
+    "pos"      : [
       {
         "location"   : "The Doomplain",
         "coordinates": [
@@ -560,12 +560,12 @@
     ]
   },
   {
-    "disciplineName"    : "天空舞者",
-    "discipline"        : "Skydancer",
-    "dropper"           : "Sss'thalark",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/d2/DiscDropperSkydancer.jpg/175px-DiscDropperSkydancer.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/7/75/DisciplineSkydancer.png",
-    "pos"               : [
+    "name_zh"  : "天空舞者",
+    "name"     : "Skydancer",
+    "target"   : "Sss'thalark",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/d/d2/DiscDropperSkydancer.jpg/175px-DiscDropperSkydancer.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/7/75/DisciplineSkydancer.png",
+    "pos"      : [
       {
         "location"   : "Vale of Nar Addad",
         "coordinates": [
@@ -576,12 +576,12 @@
     ]
   },
   {
-    "disciplineName"    : "风暴之主",
-    "discipline"        : "Storm Lord",
-    "dropper"           : "Grendohl",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/d4/DiscDropperStormlord.jpg/175px-DiscDropperStormlord.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/b/b1/DisciplineStormlord.png",
-    "pos"               : [
+    "name_zh"  : "风暴之主",
+    "name"     : "Storm Lord",
+    "target"   : "Grendohl",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/d/d4/DiscDropperStormlord.jpg/175px-DiscDropperStormlord.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/b/b1/DisciplineStormlord.png",
+    "pos"      : [
       {
         "location"   : "Hethland Holm",
         "coordinates": [
@@ -592,12 +592,12 @@
     ]
   },
   {
-    "disciplineName"    : "死亡使",
-    "discipline"        : "Strigoi",
-    "dropper"           : "Arnakhul the Blood Beast",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/f/f7/DiscDropperStrigoi.jpg/175px-DiscDropperStrigoi.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/49/DisciplineStrigoi.png",
-    "pos"               : [
+    "name_zh"  : "死亡使",
+    "name"     : "Strigoi",
+    "target"   : "Arnakhul the Blood Beast",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/f/f7/DiscDropperStrigoi.jpg/175px-DiscDropperStrigoi.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/4/49/DisciplineStrigoi.png",
+    "pos"      : [
       {
         "location"   : "Plain of Ashes",
         "coordinates": [
@@ -608,12 +608,12 @@
     ]
   },
   {
-    "disciplineName"    : "召唤使",
-    "discipline"        : "Summoner",
-    "dropper"           : "Trethellar Plague Spawner",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/82/DiscDropperSummoner.jpg/175px-DiscDropperSummoner.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/e/e2/DisciplineSummoner.png",
-    "pos"               : [
+    "name_zh"  : "召唤使",
+    "name"     : "Summoner",
+    "target"   : "Trethellar Plague Spawner",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/8/82/DiscDropperSummoner.jpg/175px-DiscDropperSummoner.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/e/e2/DisciplineSummoner.png",
+    "pos"      : [
       {
         "location"   : "Derros Plains",
         "coordinates": [
@@ -624,12 +624,12 @@
     ]
   },
   {
-    "disciplineName"    : "太阳舞者",
-    "discipline"        : "Sun Dancer",
-    "dropper"           : "Esh, Terror of the Sands",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/d/d3/DiscDropperSunDancer.jpg/175px-DiscDropperSunDancer.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/9/94/DisciplineSunDancer.png",
-    "pos"               : [
+    "name_zh"  : "太阳舞者",
+    "name"     : "Sun Dancer",
+    "target"   : "Esh, Terror of the Sands",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/d/d3/DiscDropperSunDancer.jpg/175px-DiscDropperSunDancer.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/9/94/DisciplineSunDancer.png",
+    "pos"      : [
       {
         "location"   : "Leth'khalivar Desert",
         "coordinates": [
@@ -640,12 +640,12 @@
     ]
   },
   {
-    "disciplineName"    : "战奴",
-    "discipline"        : "Thrall",
-    "dropper"           : "Rath'abroo the Foul",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/0/0a/DiscDropperThrall.jpg/175px-DiscDropperThrall.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/a/ab/DisciplineThrall.png",
-    "pos"               : [
+    "name_zh"  : "战奴",
+    "name"     : "Thrall",
+    "target"   : "Rath'abroo the Foul",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/0/0a/DiscDropperThrall.jpg/175px-DiscDropperThrall.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/a/ab/DisciplineThrall.png",
+    "pos"      : [
       {
         "location"   : "Tainted Swamp",
         "coordinates": [
@@ -656,12 +656,12 @@
     ]
   },
   {
-    "disciplineName"    : "旅行家",
-    "discipline"        : "Traveler",
-    "dropper"           : "Knellican the Black",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/7/77/DiscDropperTraveler.jpg/175px-DiscDropperTraveler.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/f/fe/DisciplineTraveler.png",
-    "pos"               : [
+    "name_zh"  : "旅行家",
+    "name"     : "Traveler",
+    "target"   : "Knellican the Black",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/7/77/DiscDropperTraveler.jpg/175px-DiscDropperTraveler.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/f/fe/DisciplineTraveler.png",
+    "pos"      : [
       {
         "location"   : "Holloch Forest",
         "coordinates": [
@@ -672,12 +672,12 @@
     ]
   },
   {
-    "disciplineName"    : "不死猎人",
-    "discipline"        : "Undead Hunter",
-    "dropper"           : "Lord Althannor the Deathless",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/9/99/DiscDropperUndeadHunter.jpg/175px-DiscDropperUndeadHunter.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/4/4b/DisciplineUndeadHunter.png",
-    "pos"               : [
+    "name_zh"  : "不死猎人",
+    "name"     : "Undead Hunter",
+    "target"   : "Lord Althannor the Deathless",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/9/99/DiscDropperUndeadHunter.jpg/175px-DiscDropperUndeadHunter.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/4/4b/DisciplineUndeadHunter.png",
+    "pos"      : [
       {
         "location"   : "Greensward Pyre",
         "coordinates": [
@@ -688,12 +688,12 @@
     ]
   },
   {
-    "disciplineName"    : "女武神",
-    "discipline"        : "Valkyr",
-    "dropper"           : "Vorrin's Doom",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/9/93/DiscDropperValkyr.jpg/175px-DiscDropperValkyr.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/32/DisciplineValkyr.png",
-    "pos"               : [
+    "name_zh"  : "女武神",
+    "name"     : "Valkyr",
+    "target"   : "Vorrin's Doom",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/9/93/DiscDropperValkyr.jpg/175px-DiscDropperValkyr.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/3/32/DisciplineValkyr.png",
+    "pos"      : [
       {
         "location"   : "Hethland Holm",
         "coordinates": [
@@ -704,12 +704,12 @@
     ]
   },
   {
-    "disciplineName"    : "熊人",
-    "discipline"        : "Werebear",
-    "dropper"           : "Hoaak Frostfangs",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/6/61/DiscDropperWerebear.jpg/175px-DiscDropperWerebear.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/5/54/DisciplineWerebear.png",
-    "pos"               : [
+    "name_zh"  : "熊人",
+    "name"     : "Werebear",
+    "target"   : "Hoaak Frostfangs",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/6/61/DiscDropperWerebear.jpg/175px-DiscDropperWerebear.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/5/54/DisciplineWerebear.png",
+    "pos"      : [
       {
         "location"   : "Hregend Wildlands",
         "coordinates": [
@@ -720,12 +720,12 @@
     ]
   },
   {
-    "disciplineName"    : "鼠人",
-    "discipline"        : "Wererat",
-    "dropper"           : "Keelneth Plague-monger",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/b/b3/DiscDropperWererat.jpg/175px-DiscDropperWererat.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/1/1e/DisciplineWererat.png",
-    "pos"               : [
+    "name_zh"  : "鼠人",
+    "name"     : "Wererat",
+    "target"   : "Keelneth Plague-monger",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/b/b3/DiscDropperWererat.jpg/175px-DiscDropperWererat.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/1/1e/DisciplineWererat.png",
+    "pos"      : [
       {
         "location"   : "Sevaath Mere",
         "coordinates": [
@@ -736,12 +736,12 @@
     ]
   },
   {
-    "disciplineName"    : "狼人",
-    "discipline"        : "Werewolf",
-    "dropper"           : "Lord Valtyr the Wulfhednar",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/8/84/DiscDropperWerewolf.jpg/175px-DiscDropperWerewolf.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/b/b0/DisciplineWerewolf.png",
-    "pos"               : [
+    "name_zh"  : "狼人",
+    "name"     : "Werewolf",
+    "target"   : "Lord Valtyr the Wulfhednar",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/8/84/DiscDropperWerewolf.jpg/175px-DiscDropperWerewolf.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/b/b0/DisciplineWerewolf.png",
+    "pos"      : [
       {
         "location"   : "Valkos Wilds",
         "coordinates": [
@@ -752,12 +752,12 @@
     ]
   },
   {
-    "disciplineName"    : "屠龙者",
-    "discipline"        : "Wyrmslayer",
-    "dropper"           : "Agrathor the Blac",
-    "discdropper"       : "https://morloch.shadowbaneemulator.com/images/thumb/e/ee/DiscDropperWyrmslayer.jpg/175px-DiscDropperWyrmslayer.jpg",
-    "disciplineAnimator": "https://morloch.shadowbaneemulator.com/images/3/3d/DisciplineWyrmslayer.png",
-    "pos"               : [
+    "name_zh"  : "屠龙者",
+    "name"     : "Wyrmslayer",
+    "target"   : "Agrathor the Blac",
+    "target_av": "https://morloch.shadowbaneemulator.com/images/thumb/e/ee/DiscDropperWyrmslayer.jpg/175px-DiscDropperWyrmslayer.jpg",
+    "icon"     : "https://morloch.shadowbaneemulator.com/images/3/3d/DisciplineWyrmslayer.png",
+    "pos"      : [
       {
         "location"   : "The Black Bog",
         "coordinates": [

@@ -1,0 +1,82 @@
+[
+  {
+    "name_zh"  : "精英法杖",
+    "name"     : "Arcane Staff of the Crimson Circle",
+    "target"   : "Elven Stronghold",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Aeran Belendor",
+        "coordinates": [
+          82924,
+          64282
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英法帽",
+    "name"     : "Granite Hood of the Crimson Circle of the Soul",
+    "target"   : "Elven Stronghold",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Aeran Belendor",
+        "coordinates": [
+          84905,
+          65682
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英法袍",
+    "name"     : "Robe of the Crimson Circle",
+    "target"   : "Elven Stronghold",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Aeran Belendor",
+        "coordinates": [
+          83025,
+          65255
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英法手",
+    "name"     : "Lush Gloves of the Crimson Circle of Potency",
+    "target"   : "Elven Stronghold",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Aeran Belendor",
+        "coordinates": [
+          83000,
+          63000
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英法鞋",
+    "name"     : "Boots of the Crimson Circle of Godspeed",
+    "target"   : "Elven Stronghold",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Phaedra's Prize",
+        "coordinates": [
+          56850,
+          46365
+        ]
+      }
+    ]
+  }
+]

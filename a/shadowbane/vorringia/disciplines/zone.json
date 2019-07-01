@@ -166,5 +166,12 @@
       63760,
       33400
     ]
+  },
+  "Aeran Belendor"      : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/5/5e/EliteAB.jpg/400px-EliteAB.jpg",
+    "offset": [
+      82300,
+      61600
+    ]
   }
 }

@@ -33,22 +33,22 @@
             return {
                 fields: [
                     {
-                        key  : 'disciplineAnimator',
+                        key  : 'icon',
                         label: '图标'
                     },
                     {
-                        key     : 'disciplineName',
-                        label   : '副职（中文）',
+                        key     : 'name_zh',
+                        label   : '名称',
                         sortable: true
                     },
                     {
-                        key     : 'discipline',
-                        label   : '副职',
+                        key     : 'name',
+                        label   : '名称(en)',
                         sortable: true
                     },
                     {
-                        key     : 'dropper',
-                        label   : '掉落者',
+                        key     : 'target',
+                        label   : '目标',
                         sortable: true
                     },
                     {
@@ -56,16 +56,16 @@
                         label: '怪区'
                     },
                     {
-                        key  : 'zonesign',
-                        label: '怪区标记'
+                        key  : 'target_av',
+                        label: '目标(图)'
                     },
                     {
                         key  : 'locationsign',
                         label: '位置标记'
                     },
                     {
-                        key  : 'discdropper',
-                        label: '掉落者（外观）'
+                        key  : 'zonesign',
+                        label: '怪区标记'
                     }
                 ],
                 items : null,
@@ -74,10 +74,11 @@
             };
         },
         created: function () {
-            Promise.all(['./disciplines.json', './zone.json'].map(getJSON))
+            Promise.all(['./disciplines.json', './EliteEquipment.json', './zone.json'].map(getJSON))
                 .then(params => {
-                    let [items, zone] = params;
-                    this.items = items;
+                    let [disciplines, EliteEquipment, zone] = params;
+                    console.log(disciplines, EliteEquipment, zone)
+                    this.items = [...disciplines, ...EliteEquipment];
                     this.zone = zone;
                     this.loaded = true;
                 })

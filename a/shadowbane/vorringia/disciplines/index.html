@@ -18,19 +18,19 @@
 <div id="main">
     <div>
         <b-table v-if="loaded" striped hover :items="items" :fields="fields">
-            <slot slot="disciplineName" slot-scope="data">
-                <span :id="data.item.disciplineName">{{ data.item.disciplineName }}</span>
+            <slot slot="name_zh" slot-scope="data">
+                <span :id="data.item.name_zh">{{ data.item.name_zh }}</span>
             </slot>
-            <slot slot="discipline" slot-scope="data">
-                <span :id="data.item.discipline">{{ data.item.discipline }}</span>
+            <slot slot="name" slot-scope="data">
+                <span :id="data.item.name">{{ data.item.name }}</span>
             </slot>
-            <slot slot="disciplineAnimator" slot-scope="data">
+            <slot slot="icon" slot-scope="data">
                 <img :src="data.value">
             </slot>
-            <slot slot="dropper" slot-scope="data">
+            <slot slot="target" slot-scope="data">
                 <template v-if="data.item.pos">
                     <span v-for="pos in data.item.pos" class="sign">
-                        {{ pos.dropper || data.value }}
+                        {{ pos.target || data.value }}
                     </span>
                 </template>
             </slot>
@@ -57,10 +57,10 @@
                     </span>
                 </template>
             </slot>
-            <slot slot="discdropper" slot-scope="data">
+            <slot slot="target_av" slot-scope="data">
                 <template v-if="data.item.pos">
                     <span v-for="pos in data.item.pos" class="sign">
-                        <img :src="pos.discdropper || data.value">
+                        <img :src="pos.target_av || data.value">
                     </span>
                 </template>
             </slot>
