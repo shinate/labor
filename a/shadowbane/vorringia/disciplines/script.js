@@ -142,31 +142,27 @@ __webpack_require__.r(__webpack_exports__);
       return {
         fields: [{
           key: 'icon',
-          label: '图标'
+          label: ''
         }, {
-          key: 'name_zh',
-          label: '名称',
-          sortable: true
-        }, {
-          key: 'name',
-          label: '名称(en)',
-          sortable: true
+          key: 'detail',
+          label: '详情',
+          'class': 'detail'
         }, {
           key: 'target',
           label: '目标',
-          sortable: true
-        }, {
-          key: 'zone',
-          label: '怪区'
+          'class': 'target'
         }, {
           key: 'target_av',
-          label: '目标(图)'
+          label: '目标',
+          'class': 'target_av'
         }, {
           key: 'locationsign',
-          label: '位置标记'
+          label: '位置标记',
+          'class': 'locationsign'
         }, {
           key: 'zonesign',
-          label: '怪区标记'
+          label: '怪区标记',
+          'class': 'zonesign'
         }],
         items: null,
         zone: null,
@@ -180,9 +176,9 @@ __webpack_require__.r(__webpack_exports__);
         var _params = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(params, 3),
             disciplines = _params[0],
             EliteEquipment = _params[1],
-            zone = _params[2];
+            zone = _params[2]; // console.log(disciplines, EliteEquipment, zone)
 
-        console.log(disciplines, EliteEquipment, zone);
+
         _this.items = Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(disciplines).concat(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(EliteEquipment));
         _this.zone = zone;
         _this.loaded = true;
@@ -197,9 +193,31 @@ __webpack_require__.r(__webpack_exports__);
         };
       },
       crossLocation: function crossLocation(pos) {
+        if (!this.zone.hasOwnProperty(pos.location)) {
+          return {
+            left: 0,
+            top: 0
+          };
+        }
+
+        var zone = this.zone[pos.location];
+        var zoneSize, zoneOffset;
+
+        if (zone.hasOwnProperty('offset')) {
+          zoneOffset = zone.offset;
+        } else {
+          zoneOffset = [0, 0];
+        }
+
+        if (zone.hasOwnProperty('size')) {
+          zoneSize = zone.size;
+        } else {
+          zoneSize = ZONE_SIZE;
+        }
+
         return {
-          left: "".concat(100 * (pos.coordinates[0] - this.zone[pos.location].offset[0]) / ZONE_SIZE[0], "%"),
-          top: "".concat(100 - 100 * (pos.coordinates[1] - this.zone[pos.location].offset[1]) / ZONE_SIZE[1], "%")
+          left: "".concat(100 * (pos.coordinates[0] - zoneOffset[0]) / zoneSize[0], "%"),
+          top: "".concat(100 - 100 * (pos.coordinates[1] - zoneOffset[1]) / zoneSize[1], "%")
         };
       },
       mapZone: function mapZone(pos) {

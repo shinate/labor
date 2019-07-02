@@ -18,26 +18,24 @@
 <div id="main">
     <div>
         <b-table v-if="loaded" striped hover :items="items" :fields="fields">
-            <slot slot="name_zh" slot-scope="data">
-                <span :id="data.item.name_zh">{{ data.item.name_zh }}</span>
-            </slot>
-            <slot slot="name" slot-scope="data">
-                <span :id="data.item.name">{{ data.item.name }}</span>
-            </slot>
             <slot slot="icon" slot-scope="data">
                 <img :src="data.value">
+            </slot>
+            <slot slot="detail" slot-scope="data">
+                <span :id="data.item.name_zh">{{ data.item.name_zh }}</span>
+                <span :id="data.item.name">
+                        <a :href="`https://morloch.shadowbaneemulator.com/index.php?title=${data.item.name}`"
+                           target="_blank">{{ data.item.name }}</a></span>
             </slot>
             <slot slot="target" slot-scope="data">
                 <template v-if="data.item.pos">
                     <span v-for="pos in data.item.pos" class="sign">
                         {{ pos.target || data.value }}
-                    </span>
-                </template>
-            </slot>
-            <slot slot="zone" slot-scope="data">
-                <template v-if="data.item.pos">
-                    <span v-for="pos in data.item.pos" class="sign">
-                        {{ pos.location }}
+                        <br>
+                        <a :href="`https://morloch.shadowbaneemulator.com/index.php?title=${pos.location}`"
+                           target="_blank">{{ pos.location }}</a>
+                        <br>
+                        ( {{ pos.coordinates.join(', ') }} )
                     </span>
                 </template>
             </slot>
@@ -45,7 +43,7 @@
                 <template v-if="data.item.pos">
                     <span v-for="pos in data.item.pos" class="sign">
                         <i class="cross-zone" :style="crossZone(pos)"></i>
-                        <img src="https://morloch.shadowbaneemulator.com/images/thumb/0/05/VorringiaSpawnIndex2.jpg/700px-VorringiaSpawnIndex2.jpg">
+                        <img src="https://morloch.shadowbaneemulator.com/images/thumb/3/30/Newvorringia.JPG/700px-Newvorringia.JPG">
                     </span>
                 </template>
             </slot>

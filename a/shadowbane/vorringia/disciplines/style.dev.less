@@ -3,21 +3,16 @@ td {
     max-height: 200px;
   }
 
-  &[aria-colindex="2"],
-  &[aria-colindex="3"] {
-    word-wrap: normal;
-    word-break: keep-all;
-    white-space: nowrap;
-  }
-
-  &[aria-colindex="4"],
-  &[aria-colindex="5"] {
-    .sign {
+  &.target, &.detail {
+    > * {
+      word-break: keep-all;
+      white-space: nowrap;
+      word-wrap: normal;
       display: block;
     }
   }
 
-  &[aria-colindex="6"] {
+  &.target_av {
     text-align: center;
     width: 120px;
     img {
@@ -25,7 +20,7 @@ td {
     }
   }
 
-  &[aria-colindex="7"] {
+  &.locationsign {
     text-align: center;
     width: 225px;
 
@@ -39,7 +34,7 @@ td {
     }
   }
 
-  &[aria-colindex="8"] {
+  &.zonesign {
     text-align: center;
     width: 300px;
   }

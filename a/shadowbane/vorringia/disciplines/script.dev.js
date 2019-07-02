@@ -34,38 +34,32 @@
                 fields: [
                     {
                         key  : 'icon',
-                        label: '图标'
+                        label: ''
                     },
                     {
-                        key     : 'name_zh',
-                        label   : '名称',
-                        sortable: true
+                        key    : 'detail',
+                        label  : '详情',
+                        'class': 'detail'
                     },
                     {
-                        key     : 'name',
-                        label   : '名称(en)',
-                        sortable: true
+                        key    : 'target',
+                        label  : '目标',
+                        'class': 'target'
                     },
                     {
-                        key     : 'target',
-                        label   : '目标',
-                        sortable: true
+                        key    : 'target_av',
+                        label  : '目标',
+                        'class': 'target_av'
                     },
                     {
-                        key  : 'zone',
-                        label: '怪区'
+                        key    : 'locationsign',
+                        label  : '位置标记',
+                        'class': 'locationsign'
                     },
                     {
-                        key  : 'target_av',
-                        label: '目标(图)'
-                    },
-                    {
-                        key  : 'locationsign',
-                        label: '位置标记'
-                    },
-                    {
-                        key  : 'zonesign',
-                        label: '怪区标记'
+                        key    : 'zonesign',
+                        label  : '怪区标记',
+                        'class': 'zonesign'
                     }
                 ],
                 items : null,
@@ -77,7 +71,7 @@
             Promise.all(['./disciplines.json', './EliteEquipment.json', './zone.json'].map(getJSON))
                 .then(params => {
                     let [disciplines, EliteEquipment, zone] = params;
-                    console.log(disciplines, EliteEquipment, zone)
+                    // console.log(disciplines, EliteEquipment, zone)
                     this.items = [...disciplines, ...EliteEquipment];
                     this.zone = zone;
                     this.loaded = true;
@@ -96,9 +90,32 @@
                 };
             },
             crossLocation: function (pos) {
+
+                if (!this.zone.hasOwnProperty(pos.location)) {
+                    return {
+                        left: 0,
+                        top : 0
+                    }
+                }
+
+                let zone = this.zone[pos.location];
+                let zoneSize, zoneOffset;
+
+                if (zone.hasOwnProperty('offset')) {
+                    zoneOffset = zone.offset
+                } else {
+                    zoneOffset = [0, 0]
+                }
+
+                if (zone.hasOwnProperty('size')) {
+                    zoneSize = zone.size
+                } else {
+                    zoneSize = ZONE_SIZE
+                }
+
                 return {
-                    left: `${100 * (pos.coordinates[0] - this.zone[pos.location].offset[0]) / ZONE_SIZE[0]}%`,
-                    top : `${100 - (100 * (pos.coordinates[1] - this.zone[pos.location].offset[1]) / ZONE_SIZE[1])}%`
+                    left: `${100 * (pos.coordinates[0] - zoneOffset[0]) / zoneSize[0]}%`,
+                    top : `${100 - (100 * (pos.coordinates[1] - zoneOffset[1]) / zoneSize[1])}%`
                 };
             },
             mapZone      : function (pos) {

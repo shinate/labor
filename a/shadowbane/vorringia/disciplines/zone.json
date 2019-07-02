@@ -79,8 +79,8 @@
   "Aurrochs Skrae"      : {
     "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/a/a3/Zone13.jpg/400px-Zone13.jpg",
     "offset": [
-      55000,
-      68000
+      51550,
+      77300
     ]
   },
   "Fellgrim Forest"     : {
@@ -170,8 +170,12 @@
   "Aeran Belendor"      : {
     "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/5/5e/EliteAB.jpg/400px-EliteAB.jpg",
     "offset": [
-      82300,
-      61600
+      82400,
+      62100
+    ],
+    "size"  : [
+      3900,
+      3900
     ]
   }
 }
