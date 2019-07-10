@@ -177,5 +177,16 @@
       3900,
       3900
     ]
+  },
+  "Thollok Marsh"       : {
+    "map"   : "https://morloch.shadowbaneemulator.com/images/thumb/b/be/Zone23.jpg/400px-Zone23.jpg",
+    "offset": [
+      54700,
+      34100
+    ],
+    "size"  : [
+      4100,
+      4100
+    ]
   }
 }

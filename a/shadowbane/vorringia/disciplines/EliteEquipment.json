@@ -78,5 +78,149 @@
         ]
       }
     ]
+  },
+  {
+    "name_zh"  : "精英战斧",
+    "name"     : "Vorgrim Legionnaire's Axe",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Grimscairne",
+        "coordinates": [
+          42000,
+          46291
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战头",
+    "name"     : "Scoundrel's Vorgrim Legionnaire's Helm of the Elder",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Grimscairne",
+        "coordinates": [
+          43004,
+          44424
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战手",
+    "name"     : "Scoundrel's Vorgrim Legionnaire's Gauntlets of Precision",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Grimscairne",
+        "coordinates": [
+          44015,
+          46512
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战盾",
+    "name"     : "Blocking Vorgrim Legionnaire's Shield of the Soul",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Thollok Marsh",
+        "coordinates": [
+          58014,
+          36419
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战腿",
+    "name"     : "Loyalists's Vorgrim Legionnaire's Legguards of the Soul",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Thollok Marsh",
+        "coordinates": [
+          56014,
+          36702
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战臂",
+    "name"     : "Loyalists's Vorgrim Legionnaire's Armguards of the Fighter",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Leth'khalivar Desert",
+        "coordinates": [
+          27840,
+          42742
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战剑",
+    "name"     : "Vorgrim Legionnaire's Sword",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Leth'khalivar Desert",
+        "coordinates": [
+          29149,
+          41294
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战胸",
+    "name"     : "Loyalist's Vorgrim Legionnaire's Breastplate of the Bull",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Leth'khalivar Desert",
+        "coordinates": [
+          27085,
+          41954
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "精英战鞋",
+    "name"     : "Vorgrim Legionnaire's Boots of Godspeed",
+    "target"   : "Unknown",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Leth'khalivar Desert",
+        "coordinates": [
+          26606,
+          42326
+        ]
+      }
+    ]
   }
 ]
