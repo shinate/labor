@@ -20,7 +20,7 @@
 <body>
 <div id="contents" class="container" style="max-width: 680px;padding-top: 15px;">
     <button class="btn btn-info btn-block" style="margin-bottom: 15px;">生成</button>
-    <input class="form-control" type="text">
+    <!--<input class="form-control" type="text">-->
 </div>
 <script>
     $('button').on('click', function () {
@@ -29,7 +29,7 @@
             return ('0' + Math.ceil(Math.random() * 255).toString(16).toUpperCase()).slice(-2)
         }).join(':');
 
-        $('input').val(r);
+        $('<input class="form-control" type="text" style="margin-bottom: 15px">').val(r).appendTo($('#contents'));
     })
 </script>
 </body>
