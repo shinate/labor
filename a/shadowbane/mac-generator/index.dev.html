@@ -29,7 +29,7 @@
             return ('0' + Math.ceil(Math.random() * 255).toString(16).toUpperCase()).slice(-2)
         }).join(':');
 
-        $('<input class="form-control" type="text" style="margin-bottom: 15px">').val(r).appendTo($('#contents'));
+        $('<input class="form-control" type="text" style="margin-bottom: 15px">').val(r).insertAfter($(this));
     })
 </script>
 </body>
