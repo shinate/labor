@@ -1,6 +1,5 @@
 (function (Vue, $) {
 
-
     function getJSON(url) {
         return new Promise(function (resolve, reject) {
             const handler = function () {
@@ -64,16 +63,15 @@
                 ],
                 items : null,
                 zone  : null,
-                loaded: false
+                loaded: false,
+                config: $CONFIG
             };
         },
         created: function () {
-            Promise.all(['./disciplines.json', './EliteEquipment.json', './zone.json'].map(getJSON))
+            Promise.all(['../zone.json', ...$DATA].map(getJSON))
                 .then(params => {
-                    let [disciplines, EliteEquipment, zone] = params;
-                    // console.log(disciplines, EliteEquipment, zone)
-                    this.items = [...disciplines, ...EliteEquipment];
-                    this.zone = zone;
+                    this.zone = params.shift();
+                    this.items = [].concat(...params);
                     this.loaded = true;
                 })
                 .catch(function (reason) {

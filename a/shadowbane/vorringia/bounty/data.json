@@ -1,0 +1,66 @@
+[
+  {
+    "name_zh"  : "[10w] 沙漠任务",
+    "name"     : "Veteran Challenge Bounty: Rihata the Kindled",
+    "target"   : "Rihata the Kindled",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Kharsoom",
+        "coordinates": [
+          29450,
+          36410
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[10w] 沙漠任务",
+    "name"     : "Veteran Challenge Bounty: Prince Zulfikar",
+    "target"   : "Prince Zulfikar（王子 祖尔费卡）",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "The Blood Sands",
+        "coordinates": [
+          14270,
+          35130
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[10w] 沙漠任务",
+    "name"     : "Veteran Challenge Bounty: Inquistior Almatius Daltore",
+    "target"   : "Inquistior Almatius Daltore",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Leth'khalivar Desert",
+        "coordinates": [
+          26600,
+          42400
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[10w] 鬼上任务",
+    "name"     : "Veteran Challenge Bounty: Nehruan Samor",
+    "target"   : "Nehruan Samor",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          101880,
+          52220
+        ]
+      }
+    ]
+  }
+]

@@ -7,7 +7,7 @@
     <link type="text/css"
           rel="stylesheet"
           href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
-    <link bundle="on" type="text/css" rel="stylesheet" href="style.css"/>
+    <link bundle="on" type="text/css" rel="stylesheet" href="../style.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>-->
     <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
@@ -23,17 +23,27 @@
             </slot>
             <slot slot="detail" slot-scope="data">
                 <span :id="data.item.name_zh">{{ data.item.name_zh }}</span>
+                <template v-if="config.LINKED_NAME">
                 <span :id="data.item.name">
                         <a :href="`https://morloch.shadowbaneemulator.com/index.php?title=${data.item.name}`"
                            target="_blank">{{ data.item.name }}</a></span>
+                </template>
+                <template v-else>
+                    <span :id="data.item.name">{{ data.item.name }}</span>
+                </template>
             </slot>
             <slot slot="target" slot-scope="data">
                 <template v-if="data.item.pos">
                     <span v-for="pos in data.item.pos" class="sign">
                         {{ pos.target || data.value }}
                         <br>
+                        <template v-if="config.LINKED_LOCATION">
                         <a :href="`https://morloch.shadowbaneemulator.com/index.php?title=${pos.location}`"
                            target="_blank">{{ pos.location }}</a>
+                        </template>
+                        <template v-else>
+                            {{ pos.location }}
+                        </template>
                         <br>
                         ( {{ pos.coordinates.join(', ') }} )
                     </span>
@@ -65,6 +75,13 @@
         </b-table>
     </div>
 </div>
-<script bundle="on" src="script.js"></script>
+<script>
+    window.$DATA = ['./data.json'];
+    window.$CONFIG = {
+        LINKED_NAME    : true,
+        LINKED_LOCATION: true
+    };
+</script>
+<script bundle="on" src="../script.js"></script>
 </body>
 </html>
