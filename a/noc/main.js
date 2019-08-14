@@ -167,7 +167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var core_js_modules_es6_array_filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es6.array.filter */ "./node_modules/core-js/modules/es6.array.filter.js");
 /* harmony import */ var core_js_modules_es6_array_filter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_filter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
 /* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es6.array.find */ "./node_modules/core-js/modules/es6.array.find.js");
 /* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -515,7 +515,7 @@ __webpack_require__.r(__webpack_exports__);
     var _ = this,
         asNavFor = _.getNavTarget();
 
-    if (asNavFor !== null && Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(asNavFor) === 'object') {
+    if (asNavFor !== null && Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(asNavFor) === 'object') {
       asNavFor.each(function () {
         var target = $(this).slick('getSlick');
 
@@ -2873,7 +2873,7 @@ __webpack_require__.r(__webpack_exports__);
         ret;
 
     for (i = 0; i < l; i++) {
-      if (Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(opt) == 'object' || typeof opt == 'undefined') _[i].slick = new Slick(_[i], opt);else ret = _[i].slick[opt].apply(_[i].slick, args);
+      if (Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(opt) == 'object' || typeof opt == 'undefined') _[i].slick = new Slick(_[i], opt);else ret = _[i].slick[opt].apply(_[i].slick, args);
       if (typeof ret != 'undefined') return ret;
     }
 
@@ -5140,7 +5140,7 @@ module.exports = window.jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/noc/main.dev.js */"./a/noc/main.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\noc\main.dev.js */"./a/noc/main.dev.js");
 
 
 /***/ })

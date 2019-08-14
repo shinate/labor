@@ -2028,7 +2028,7 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/cctv/screens.dev.js */"./a/cctv/screens.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\cctv\screens.dev.js */"./a/cctv/screens.dev.js");
 
 
 /***/ })

@@ -141,7 +141,7 @@ document.querySelector('#file-input').addEventListener('change', function (e) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.array.index-of */ "./node_modules/core-js/modules/es6.array.index-of.js");
 /* harmony import */ var core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_index_of__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es6.string.iterator */ "./node_modules/core-js/modules/es6.string.iterator.js");
@@ -152,9 +152,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_typed_int16_array__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_int16_array__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es6.typed.data-view */ "./node_modules/core-js/modules/es6.typed.data-view.js");
 /* harmony import */ var core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_data_view__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es7.symbol.async-iterator */ "./node_modules/core-js/modules/es7.symbol.async-iterator.js");
 /* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es6.symbol */ "./node_modules/core-js/modules/es6.symbol.js");
@@ -187,9 +187,9 @@ var gif =
 /*#__PURE__*/
 function () {
   function gif(imageData) {
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__["default"])(this, gif);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__["default"])(this, gif);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_littleEndian", function () {
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_littleEndian", function () {
       var buffer = new ArrayBuffer(2);
       new DataView(buffer).setInt16(0, 0x100, true
       /* 设置值时使用小端字节序 */
@@ -198,32 +198,32 @@ function () {
       return new Int16Array(buffer)[0] === 0x100;
     }());
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_bytes", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_bytes", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_p", 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "_p", 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "version", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "version", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "frames", []);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "frames", []);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "width", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "width", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "height", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "height", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "colorResolution", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "colorResolution", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "sorted", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "sorted", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "backgroundIndex", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "backgroundIndex", void 0);
 
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "pixelAspectRadio", void 0);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(this, "pixelAspectRadio", void 0);
 
     this.parse(imageData);
     Object(_GIFFrameDecorator__WEBPACK_IMPORTED_MODULE_14__["default"])(this);
     console.log(this);
   }
 
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__["default"])(gif, [{
+  Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__["default"])(gif, [{
     key: "parse",
     value: function parse(imageData) {
       var _this = this;
@@ -305,7 +305,7 @@ function () {
       this.pixelAspectRadio = this.creeping(UINT8, 1);
 
       if (tp & 0x80) {
-        this.palette = Array.apply(void 0, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << this.colorResolution))).map(function () {
+        this.palette = Array.apply(void 0, Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << this.colorResolution))).map(function () {
           return _this.creeping(UINT8, 3, function (r) {
             return Array.prototype.slice.call(r);
           });
@@ -377,7 +377,7 @@ function () {
 
           if (f & 0x80) {
             frame.colorResolution = (f & 0x7) + 1;
-            frame.palette = Array.apply(void 0, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << frame.colorResolution))).map(function () {
+            frame.palette = Array.apply(void 0, Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(Array(1 << frame.colorResolution))).map(function () {
               return _this.creeping(UINT8, 3, function (r) {
                 return Array.prototype.slice.call(r);
               });
@@ -515,11 +515,11 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_construct__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/construct */ "./node_modules/@babel/runtime/helpers/esm/construct.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_construct__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/construct */ "./node_modules/@babel/runtime/helpers/esm/construct.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
 
@@ -529,7 +529,7 @@ var GifFramesRender =
 /*#__PURE__*/
 function () {
   function GifFramesRender(imageParsedData) {
-    Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, GifFramesRender);
+    Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, GifFramesRender);
 
     this.data = imageParsedData;
     this.canvas = document.createElement('canvas');
@@ -541,7 +541,7 @@ function () {
     this.ctx = this.canvas = null;
   }
 
-  Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(GifFramesRender, [{
+  Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(GifFramesRender, [{
     key: "draw",
     value: function draw() {
       var _this = this;
@@ -583,7 +583,7 @@ function () {
     args[_key] = arguments[_key];
   }
 
-  return Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_construct__WEBPACK_IMPORTED_MODULE_0__["default"])(GifFramesRender, args);
+  return Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_construct__WEBPACK_IMPORTED_MODULE_0__["default"])(GifFramesRender, args);
 });
 
 /***/ }),
@@ -738,233 +738,14 @@ var arrayBufferToBase64 = function arrayBufferToBase64(buffer) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "atob", function() { return atob; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "btoa", function() { return btoa; });
-/* harmony import */ var abab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! abab */ "./a/animation-packing/node_modules/abab/index.js");
-/* harmony import */ var abab__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(abab__WEBPACK_IMPORTED_MODULE_0__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'abab'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
-var atob = window == null ? abab__WEBPACK_IMPORTED_MODULE_0___default.a.atob : window.atob;
-var btoa = window == null ? abab__WEBPACK_IMPORTED_MODULE_0___default.a.btoa : window.btoa;
+var atob = window == null ? !(function webpackMissingModule() { var e = new Error("Cannot find module 'abab'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).atob : window.atob;
+var btoa = window == null ? !(function webpackMissingModule() { var e = new Error("Cannot find module 'abab'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).btoa : window.btoa;
 /* harmony default export */ __webpack_exports__["default"] = ({
   atob: atob,
   btoa: btoa
 });
-
-/***/ }),
-
-/***/ "./a/animation-packing/node_modules/abab/index.js":
-/*!********************************************************!*\
-  !*** ./a/animation-packing/node_modules/abab/index.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-const atob = __webpack_require__(/*! ./lib/atob */ "./a/animation-packing/node_modules/abab/lib/atob.js");
-const btoa = __webpack_require__(/*! ./lib/btoa */ "./a/animation-packing/node_modules/abab/lib/btoa.js");
-
-module.exports = {
-  atob,
-  btoa
-};
-
-
-/***/ }),
-
-/***/ "./a/animation-packing/node_modules/abab/lib/atob.js":
-/*!***********************************************************!*\
-  !*** ./a/animation-packing/node_modules/abab/lib/atob.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Implementation of atob() according to the HTML and Infra specs, except that
- * instead of throwing INVALID_CHARACTER_ERR we return null.
- */
-function atob(data) {
-  // Web IDL requires DOMStrings to just be converted using ECMAScript
-  // ToString, which in our case amounts to using a template literal.
-  data = `${data}`;
-  // "Remove all ASCII whitespace from data."
-  data = data.replace(/[ \t\n\f\r]/g, "");
-  // "If data's length divides by 4 leaving no remainder, then: if data ends
-  // with one or two U+003D (=) code points, then remove them from data."
-  if (data.length % 4 === 0) {
-    data = data.replace(/==?$/, "");
-  }
-  // "If data's length divides by 4 leaving a remainder of 1, then return
-  // failure."
-  //
-  // "If data contains a code point that is not one of
-  //
-  // U+002B (+)
-  // U+002F (/)
-  // ASCII alphanumeric
-  //
-  // then return failure."
-  if (data.length % 4 === 1 || /[^+/0-9A-Za-z]/.test(data)) {
-    return null;
-  }
-  // "Let output be an empty byte sequence."
-  let output = "";
-  // "Let buffer be an empty buffer that can have bits appended to it."
-  //
-  // We append bits via left-shift and or.  accumulatedBits is used to track
-  // when we've gotten to 24 bits.
-  let buffer = 0;
-  let accumulatedBits = 0;
-  // "Let position be a position variable for data, initially pointing at the
-  // start of data."
-  //
-  // "While position does not point past the end of data:"
-  for (let i = 0; i < data.length; i++) {
-    // "Find the code point pointed to by position in the second column of
-    // Table 1: The Base 64 Alphabet of RFC 4648. Let n be the number given in
-    // the first cell of the same row.
-    //
-    // "Append to buffer the six bits corresponding to n, most significant bit
-    // first."
-    //
-    // atobLookup() implements the table from RFC 4648.
-    buffer <<= 6;
-    buffer |= atobLookup(data[i]);
-    accumulatedBits += 6;
-    // "If buffer has accumulated 24 bits, interpret them as three 8-bit
-    // big-endian numbers. Append three bytes with values equal to those
-    // numbers to output, in the same order, and then empty buffer."
-    if (accumulatedBits === 24) {
-      output += String.fromCharCode((buffer & 0xff0000) >> 16);
-      output += String.fromCharCode((buffer & 0xff00) >> 8);
-      output += String.fromCharCode(buffer & 0xff);
-      buffer = accumulatedBits = 0;
-    }
-    // "Advance position by 1."
-  }
-  // "If buffer is not empty, it contains either 12 or 18 bits. If it contains
-  // 12 bits, then discard the last four and interpret the remaining eight as
-  // an 8-bit big-endian number. If it contains 18 bits, then discard the last
-  // two and interpret the remaining 16 as two 8-bit big-endian numbers. Append
-  // the one or two bytes with values equal to those one or two numbers to
-  // output, in the same order."
-  if (accumulatedBits === 12) {
-    buffer >>= 4;
-    output += String.fromCharCode(buffer);
-  } else if (accumulatedBits === 18) {
-    buffer >>= 2;
-    output += String.fromCharCode((buffer & 0xff00) >> 8);
-    output += String.fromCharCode(buffer & 0xff);
-  }
-  // "Return output."
-  return output;
-}
-/**
- * A lookup table for atob(), which converts an ASCII character to the
- * corresponding six-bit number.
- */
-function atobLookup(chr) {
-  if (/[A-Z]/.test(chr)) {
-    return chr.charCodeAt(0) - "A".charCodeAt(0);
-  }
-  if (/[a-z]/.test(chr)) {
-    return chr.charCodeAt(0) - "a".charCodeAt(0) + 26;
-  }
-  if (/[0-9]/.test(chr)) {
-    return chr.charCodeAt(0) - "0".charCodeAt(0) + 52;
-  }
-  if (chr === "+") {
-    return 62;
-  }
-  if (chr === "/") {
-    return 63;
-  }
-  // Throw exception; should not be hit in tests
-  return undefined;
-}
-
-module.exports = atob;
-
-
-/***/ }),
-
-/***/ "./a/animation-packing/node_modules/abab/lib/btoa.js":
-/*!***********************************************************!*\
-  !*** ./a/animation-packing/node_modules/abab/lib/btoa.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * btoa() as defined by the HTML and Infra specs, which mostly just references
- * RFC 4648.
- */
-function btoa(s) {
-  let i;
-  // String conversion as required by Web IDL.
-  s = `${s}`;
-  // "The btoa() method must throw an "InvalidCharacterError" DOMException if
-  // data contains any character whose code point is greater than U+00FF."
-  for (i = 0; i < s.length; i++) {
-    if (s.charCodeAt(i) > 255) {
-      return null;
-    }
-  }
-  let out = "";
-  for (i = 0; i < s.length; i += 3) {
-    const groupsOfSix = [undefined, undefined, undefined, undefined];
-    groupsOfSix[0] = s.charCodeAt(i) >> 2;
-    groupsOfSix[1] = (s.charCodeAt(i) & 0x03) << 4;
-    if (s.length > i + 1) {
-      groupsOfSix[1] |= s.charCodeAt(i + 1) >> 4;
-      groupsOfSix[2] = (s.charCodeAt(i + 1) & 0x0f) << 2;
-    }
-    if (s.length > i + 2) {
-      groupsOfSix[2] |= s.charCodeAt(i + 2) >> 6;
-      groupsOfSix[3] = s.charCodeAt(i + 2) & 0x3f;
-    }
-    for (let j = 0; j < groupsOfSix.length; j++) {
-      if (typeof groupsOfSix[j] === "undefined") {
-        out += "=";
-      } else {
-        out += btoaLookup(groupsOfSix[j]);
-      }
-    }
-  }
-  return out;
-}
-
-/**
- * Lookup table for btoa(), which converts a six-bit number into the
- * corresponding ASCII character.
- */
-function btoaLookup(idx) {
-  if (idx < 26) {
-    return String.fromCharCode(idx + "A".charCodeAt(0));
-  }
-  if (idx < 52) {
-    return String.fromCharCode(idx - 26 + "a".charCodeAt(0));
-  }
-  if (idx < 62) {
-    return String.fromCharCode(idx - 52 + "0".charCodeAt(0));
-  }
-  if (idx === 62) {
-    return "+";
-  }
-  if (idx === 63) {
-    return "/";
-  }
-  // Throw INVALID_CHARACTER_ERR exception here -- won't be hit in the tests.
-  return undefined;
-}
-
-module.exports = btoa;
-
 
 /***/ }),
 
@@ -4999,7 +4780,7 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/animation-packing/animation-packing.dev.js */"./a/animation-packing/animation-packing.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\animation-packing\animation-packing.dev.js */"./a/animation-packing/animation-packing.dev.js");
 
 
 /***/ })

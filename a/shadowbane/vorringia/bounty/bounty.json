@@ -1,0 +1,498 @@
+[
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Nehruan Samor",
+    "target": "Nehruan Samor",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Plain of Ashes",
+        "coordinates": [
+          "101880",
+          "52220"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Lady Navrezim",
+    "target": "Lady Navrezim",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Plain of Ashes",
+        "coordinates": [
+          "103620",
+          "54900"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Lord Zerranoc",
+    "target": "Lord Zerranoc",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Plain of Ashes",
+        "coordinates": [
+          "102100",
+          "54100"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][30w][7R]",
+    "name": "Veteran Challenge Bounty: Obsidian Colossus",
+    "target": "Obsidian Colossus",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Plain of Ashes",
+        "coordinates": [
+          "104000",
+          "53900"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Paragon Arlior",
+    "target": "Paragon Arlior",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Bone Marches",
+        "coordinates": [
+          "108133",
+          "45862"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Zharathak Almriniand",
+    "target": "Zharathak Almriniand",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Bone Marches",
+        "coordinates": [
+          "108477",
+          "46452"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Lord Vladisar",
+    "target": "Lord Vladisar",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Bone Marches",
+        "coordinates": [
+          "108160",
+          "47800"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[鬼门安全区][30w][7R]",
+    "name": "Veteran Challenge Bounty: Gravelord Thaniloth",
+    "target": "Gravelord Thaniloth",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Bone Marches",
+        "coordinates": [
+          "106480",
+          "48600"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Chief Zahak",
+    "target": "Chief Zahak",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "105950",
+          "27200"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Chieftain Arkath",
+    "target": "Chieftain Arkath",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "108100",
+          "28700"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Dark Father Jalgon",
+    "target": "Dark Father Jalgon",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "108060",
+          "27300"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Deurithon the Sealed",
+    "target": "Deurithon the Sealed",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "105550",
+          "29100"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Ogdraal-Thiatluu",
+    "target": "Ogdraal-Thiatluu",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "108280",
+          "29500"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][30w][7R]",
+    "name": "Veteran Challenge Bounty: Commander Esten",
+    "target": "Commander Esten",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Pandemonium",
+        "coordinates": [
+          "0",
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][5w][5R]",
+    "name": "Veteran Challenge Bounty: Cindermaw",
+    "target": "Cindermaw",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "102180",
+          "22600"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][5w][5R]",
+    "name": "Veteran Challenge Bounty: Matron Avarissa",
+    "target": "Matron Avarissa",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "103510",
+          "23400"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][5w][5R]",
+    "name": "Veteran Challenge Bounty: Zaurn-Grethod",
+    "target": "Zaurn-Grethod",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "100700",
+          "24300"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: G'luulofthok",
+    "target": "G'luulofthok",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "100750",
+          "22800"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Hzagra-Druun-Sek",
+    "target": "Hzagra-Druun-Sek",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "100730",
+          "25500"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Raalutgoz-Daruumat",
+    "target": "Raalutgoz-Daruumat",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "101540",
+          "25100"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Vrellict The Diabolist",
+    "target": "Vrellict The Diabolist",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "103640",
+          "24300"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Dranneth-varr",
+    "target": "Dranneth-varr",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "101580",
+          "23300"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC上安全区][10w][6R]",
+    "name": "Veteran Challenge Bounty: Gar'quee the Forlorn",
+    "target": "Gar'quee the Forlorn",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "103100",
+          "23900"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[ROC下安全区][30w][7R]",
+    "name": "Veteran Challenge Bounty: Banelord Z'laarsu",
+    "target": "Banelord Z'laarsu",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Southern Battleground",
+        "coordinates": [
+          "102350",
+          "23800"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][10w][6R]",
+    "name": "Veteran Challenge Bounty: Xarnaag the Shatterer",
+    "target": "Xarnaag the Shatterer",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aeran Belendor",
+        "coordinates": [
+          "84942",
+          "64600"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][10w][6R]",
+    "name": "Veteran Challenge Bounty: Doombringer Naerithyl",
+    "target": "Doombringer Naerithyl",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aeran Belendor",
+        "coordinates": [
+          "85094",
+          "63000"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][5w][5R]",
+    "name": "Veteran Challenge Bounty: Elrogil Anfallon",
+    "target": "Elrogil Anfallon",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aerath Hellendroth",
+        "coordinates": [
+          "85507",
+          "59400"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][5w][5R]",
+    "name": "Veteran Challenge Bounty: Uandir the Butcher",
+    "target": "Uandir the Butcher",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aerath Hellendroth",
+        "coordinates": [
+          "86760",
+          "57700"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][10w][6R]",
+    "name": "Veteran Challenge Bounty: Malion Ingloridan",
+    "target": "Malion Ingloridan",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aerath Hellendroth",
+        "coordinates": [
+          "86724",
+          "59700"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][10w][6R]",
+    "name": "Veteran Challenge Bounty: Sulegnach Spinethirst",
+    "target": "Sulegnach Spinethirst",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aerath Hellendroth",
+        "coordinates": [
+          "85357",
+          "57500"
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "[海狗][30w][7R]",
+    "name": "Veteran Challenge Bounty: Tch'lortklaz The Beckoned",
+    "target": "Tch'lortklaz The Beckoned",
+    "target_av": "",
+    "icon": "",
+    "pos": [
+      {
+        "location": "Aerath Hellendroth",
+        "coordinates": [
+          "0",
+          "0"
+        ]
+      }
+    ]
+  }
+]

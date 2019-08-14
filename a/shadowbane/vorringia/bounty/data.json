@@ -1,6 +1,6 @@
 [
   {
-    "name_zh"  : "[10w] 沙漠任务",
+    "name_zh"  : "[KT][10w][6R]",
     "name"     : "Veteran Challenge Bounty: Rihata the Kindled",
     "target"   : "Rihata the Kindled",
     "target_av": "",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "name_zh"  : "[10w] 沙漠任务",
+    "name_zh"  : "[KT][10w][6R]",
     "name"     : "Veteran Challenge Bounty: Prince Zulfikar",
     "target"   : "Prince Zulfikar（王子 祖尔费卡）",
     "target_av": "",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "name_zh"  : "[10w] 沙漠任务",
+    "name_zh"  : "[KT][10w][6R]",
     "name"     : "Veteran Challenge Bounty: Inquistior Almatius Daltore",
     "target"   : "Inquistior Almatius Daltore",
     "target_av": "",
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "name_zh"  : "[10w] 鬼上任务",
+    "name_zh"  : "[鬼安全区][10w][6R]",
     "name"     : "Veteran Challenge Bounty: Nehruan Samor",
     "target"   : "Nehruan Samor",
     "target_av": "",
@@ -59,6 +59,134 @@
         "coordinates": [
           101880,
           52220
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[鬼安全区][10w][6R]",
+    "name"     : "Veteran Challenge Bounty: Lady Navrezim",
+    "target"   : "Lady Navrezim",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          103620,
+          54900
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[鬼安全区][10w][6R]",
+    "name"     : "Veteran Challenge Bounty: Lord Zerranoc",
+    "target"   : "Lord Zerranoc",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          102100,
+          54100
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[鬼安全区][30w][7R]",
+    "name"     : "Veteran Challenge Bounty: Obsidian Colossus",
+    "target"   : "Obsidian Colossus",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Plain of Ashes",
+        "coordinates": [
+          104000,
+          53900
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[大树][1w][4R]",
+    "name"     : "Veteran Challenge Bounty: Caption Skarduhl",
+    "target"   : "Caption Skarduhl",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Fellgrim Forest",
+        "coordinates": [
+          62600,
+          50900
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[大树][1w][4R]",
+    "name"     : "Veteran Challenge Bounty: Graufnod",
+    "target"   : "Graufnod",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Fellgrim Forest",
+        "coordinates": [
+          65363,
+          50800
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[大树][1w][4R]",
+    "name"     : "Veteran Challenge Bounty: Yikk",
+    "target"   : "Yikk",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Fellgrim Forest",
+        "coordinates": [
+          64966,
+          51700
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[大树][10w][6R]",
+    "name"     : "Veteran Challenge Bounty: Gund Earthshaker",
+    "target"   : "Gund Earthshaker",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Fellgrim Forest",
+        "coordinates": [
+          63181,
+          51300
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh"  : "[大树][10w][6R]",
+    "name"     : "Veteran Challenge Bounty: Chief Duruuk",
+    "target"   : "Chief Duruuk",
+    "target_av": "",
+    "icon"     : "",
+    "pos"      : [
+      {
+        "location"   : "Fellgrim Forest",
+        "coordinates": [
+          64062,
+          52500
         ]
       }
     ]

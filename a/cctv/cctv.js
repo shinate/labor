@@ -5333,7 +5333,7 @@ module.exports = function(originalModule) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/cctv/cctv.dev.js */"./a/cctv/cctv.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\cctv\cctv.dev.js */"./a/cctv/cctv.dev.js");
 
 
 /***/ })

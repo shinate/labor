@@ -95,7 +95,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.array.map */ "./node_modules/core-js/modules/es6.array.map.js");
 /* harmony import */ var core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom.iterable */ "./node_modules/core-js/modules/web.dom.iterable.js");
@@ -171,11 +171,11 @@ __webpack_require__.r(__webpack_exports__);
     created: function created() {
       var _this = this;
 
-      Promise.all(['../zone.json'].concat(Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])($DATA)).map(getJSON)).then(function (params) {
+      Promise.all(['../zone.json'].concat(Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])($DATA)).map(getJSON)).then(function (params) {
         var _ref;
 
         _this.zone = params.shift();
-        _this.items = (_ref = []).concat.apply(_ref, Object(_Users_shinate_workspace_codante_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(params));
+        _this.items = (_ref = []).concat.apply(_ref, Object(C_Users_shinate_workspace_labor_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(params));
         _this.loaded = true;
       }).catch(function (reason) {});
     },
@@ -1610,7 +1610,7 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/shadowbane/vorringia/script.dev.js */"./a/shadowbane/vorringia/script.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\shadowbane\vorringia\script.dev.js */"./a/shadowbane/vorringia/script.dev.js");
 
 
 /***/ })

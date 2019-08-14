@@ -4446,7 +4446,7 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/shadowbane/vorringia/altar/script.dev.js */"./a/shadowbane/vorringia/altar/script.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\shadowbane\vorringia\altar\script.dev.js */"./a/shadowbane/vorringia/altar/script.dev.js");
 
 
 /***/ })

@@ -2815,7 +2815,7 @@ __webpack_require__(/*! ./_typed-array */ "./node_modules/core-js/modules/_typed
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shinate/workspace/codante/labor/a/tchernobog/character-attribute.dev.js */"./a/tchernobog/character-attribute.dev.js");
+module.exports = __webpack_require__(/*! C:\Users\shinate\workspace\labor\a\tchernobog\character-attribute.dev.js */"./a/tchernobog/character-attribute.dev.js");
 
 
 /***/ })
