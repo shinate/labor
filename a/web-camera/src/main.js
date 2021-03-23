@@ -1,5 +1,6 @@
 import raf from 'raf'
 import Filters from './Filters'
+import './style.less'
 
 const Effects = {
     FD  : function (idata) {
