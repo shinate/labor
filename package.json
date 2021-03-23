@@ -8,7 +8,8 @@
     "server": "http-server ./ -p 19823",
     "save": "git add . && git commit -m \"RELEASE\" && git push",
     "build": "gulp build",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "make-index": "babel-node .script/makeIndex.js"
   },
   "repository": "git+https://github.com/shinate/labor.git",
   "author": "shinate <shine.wangrs@gmail.com>",

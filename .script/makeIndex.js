@@ -14,6 +14,6 @@ glob('a/*', (err, files) => {
     return `<a href="${p}">${name}</a>`
   })
   const template = fs.readFileSync(path.join('src', 'index.html'), 'utf-8')
-  const content = template.replace(/(<body>).*(<\/body>)/, `$1${links}$2`)
+  const content = template.replace(/(<body>).*(<\/body>)/, `$1${links.join('<br/>')}$2`)
   fs.writeFileSync('index.html', content, 'utf-8')
 })
