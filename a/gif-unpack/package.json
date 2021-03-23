@@ -1,0 +1,26 @@
+{
+  "name": "gif-unpack",
+  "version": "1.0.0",
+  "description": "GIF拆解器",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack --mode=development",
+    "build": "./node_modules/.bin/webpack --mode=production"
+  },
+  "dependencies": {
+    "abab": "^2.0.0",
+    "data-uri-to-buffer": "^2.0.0",
+    "string-to-arraybuffer": "^1.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
+    "path": "^0.12.7",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
