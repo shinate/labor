@@ -1,14 +1,12 @@
 {
-  "name": "web-camera",
+  "name": "catlike",
   "version": "1.0.0",
-  "private": true,
+  "author": "shinate",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "./node_modules/.bin/webpack --mode=development --watch",
     "build": "./node_modules/.bin/webpack --mode=production"
-  },
-  "dependencies": {
-    "raf": "^3.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",

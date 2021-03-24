@@ -1,0 +1,1 @@
+(()=>{"use strict";var a=$('<div class="container"></div>');a.appendTo($(document.body)),a.on("mousedown",(function(n){n.preventDefault();var t=n.pageX,e=n.pageY;$('<div class="point" style="transform: translate3d('.concat(t,"px, ").concat(e,'px, 0)"></div>')).appendTo(a)}))})();

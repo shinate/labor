@@ -13,7 +13,7 @@
   },
   "repository": "git+https://github.com/shinate/labor.git",
   "author": "shinate <shine.wangrs@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shinate/labor/issues"
   },
