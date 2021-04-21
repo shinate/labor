@@ -7,10 +7,17 @@
     <!--<script src="../build/scripts/jquery.min.js"></script>-->
     <!--<script src="../build/scripts/bootstrap.min.js"></script>-->
     <!--<script src="../build/scripts/echarts.min.js"></script>-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.common.min.js"></script>
 </head>
 <body>
@@ -41,120 +48,132 @@
             <div id="report-card" class="card mt-3">
                 <div class="card-body" id="report" style="min-height: 560px;"></div>
             </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <p>
+                        在机械工程中，牵引力是指包括汽车、铁路机车、自行车等轮式车辆载具的传动系统对车轮产生以旋转力矩，通过动轮与地面或钢轨之间的相互作用而产生。力的作用方向与车辆运动方向相同，力的大小取决于原动机的功率和车辆的运动速度，可由车辆使用者根据需要而控制。</p>
+                    <p>一台电力机车的牵引力曲线示意图，假设额定功率为7000千瓦</p>
+                    <p>
+                        牵引力的计算在铁路机车车辆方面尤其常见，是重要的性能指标之一。实际应用的机车牵引力按照力的传递过程可分为几种，由动轮轮周上作用力而产生的切向外力，称为轮周牵引力；车钩牵引力（或称挽钩牵引力）是指机车用来牵引列车的牵引力，等于轮周牵引力减去机车全部运行阻力。而根据车辆的工作状态，牵引力又可分为起动牵引力、持续牵引力和最大牵引力。起动牵引力是指车辆从静止状态起动时所能够发出的牵引力，其发挥受到粘着限制；最大牵引力是指车辆在不对自身机械构成破坏的情况下所能发出的最大牵引力，其值通常与起动牵引力相同；持续牵引力是车辆在持续速度上对应的牵引力。</p>
+                    <p>当铁路车辆以一定功率运行时，随着车辆运行速度的变化，牵引力也在相应地变化。通过计算速度（v）、功率（P）和力（F）的关系（公式P =
+                        vF）可以发现，在功率相同的情况下，牵引力与运动速度成反比。牵引力与速度的关系可以通过牵引力曲线显示出来，称为牵引特性曲线，牵引特性是表示铁路机车车辆工作性能的最重要特性指标之一。右图是一张典型的牵引力曲线示意图，线段AB为机车起动时所能够发挥的最大牵引力，到达持续速度点B点以后为恒功区，机车开始发挥额定功率，同时牵引力随着速度提高而下降。</p>
+                    <p><a target="_blank" href="https://zh.wikipedia.org/wiki/牵引力">牵引力 - 维基百科</a></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script>
 
-    var myChart = echarts.init($('#report').get(0));
+  var myChart = echarts.init($('#report').get(0));
 
-    $('#report-card').hide();
+  $('#report-card').hide();
 
-    $('button').on('click', function (e) {
-        e.preventDefault();
+  $('button').on('click', function (e) {
+    e.preventDefault();
 
-        var DATA = {};
+    var DATA = {};
 
-        $('form').find('input').removeClass('is-invalid');
+    $('form').find('input').removeClass('is-invalid');
 
-        var checked = true;
-        $('form').serializeArray().forEach(function (item) {
-            var value = parseFloat(item.value);
-            if (value && value > 0) {
-                DATA[item.name] = value;
-            } else {
-                $('form').find('input[name="' + item.name + '"]').addClass('is-invalid');
-                checked = false;
-            }
-        });
+    var checked = true;
+    $('form').serializeArray().forEach(function (item) {
+      var value = parseFloat(item.value);
+      if (value && value > 0) {
+        DATA[item.name] = value;
+      } else {
+        $('form').find('input[name="' + item.name + '"]').addClass('is-invalid');
+        checked = false;
+      }
+    });
 
-        if (!checked) {
-            return;
-        }
+    if (!checked) {
+      return;
+    }
 
-        DATA.Po = DATA.P * 735.49875; // n.m/s
-        DATA.Fo = DATA.F * 1000; // n
-        DATA.Vo = DATA.V * 0.2777778; // m/s
-        DATA.Mo = DATA.M * 1000; // kg
+    DATA.Po = DATA.P * 735.49875; // n.m/s
+    DATA.Fo = DATA.F * 1000; // n
+    DATA.Vo = DATA.V * 0.2777778; // m/s
+    DATA.Mo = DATA.M * 1000; // kg
 
-        var V = 0;
-        var T = 0;
-        var timeStep = 0.1;
-        var F;
+    var V = 0;
+    var T = 0;
+    var timeStep = 0.1;
+    var F;
 
-        var FMAP = [];
-        var VMAP = [];
-        var TMAP = [];
+    var FMAP = [];
+    var VMAP = [];
+    var TMAP = [];
 
-        while (V < DATA.Vo) {
-            if (DATA.Fo * V > DATA.Po) {
-                F = DATA.Po / V;
-            } else {
-                F = DATA.Fo;
-            }
-            V += (F / DATA.Mo) * timeStep;
-            T += timeStep;
-            FMAP.push(Math.round((F / 1000) * 100) / 100);
-            VMAP.push(Math.round((V / 0.2777778) * 100) / 100);
-            TMAP.push(Math.round(T * 100) / 100);
-        }
+    while (V < DATA.Vo) {
+      if (DATA.Fo * V > DATA.Po) {
+        F = DATA.Po / V;
+      } else {
+        F = DATA.Fo;
+      }
+      V += (F / DATA.Mo) * timeStep;
+      T += timeStep;
+      FMAP.push(Math.round((F / 1000) * 100) / 100);
+      VMAP.push(Math.round((V / 0.2777778) * 100) / 100);
+      TMAP.push(Math.round(T * 100) / 100);
+    }
 
-        $('#report-card').show();
+    $('#report-card').show();
 
-        myChart.setOption({
-            title: {
-                text: 'Train start & acceleration process'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                right: 0,
-                data: ['牵引力输出', '速度']
-            },
+    myChart.setOption({
+      title  : {
+        text: 'Train start & acceleration process'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend : {
+        right: 0,
+        data : [ '牵引力输出', '速度' ]
+      },
 //            grid: {
 //                left: 0,
 //                right: 0,
 //                bottom: 0,
 //                containLabel: true
 //            },
-            xAxis: [
-                {
-                    boundaryGap: false,
-                    axisLine: {onZero: false},
-                    type: 'category',
-                    data: TMAP,
-                    name: '时间(秒)'
-                }
-            ],
-            yAxis: [
-                {
-                    name: '牵引力(千牛)',
-                    type: 'value'
-                },
-                {
-                    name: '速度(千米/时)',
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: '牵引力输出',
-                    type: 'line',
-                    smooth: true,
-                    data: FMAP
-                },
-                {
-                    name: '速度',
-                    yAxisIndex: 1,
-                    type: 'line', smooth: true,
-                    data: VMAP
-                }
-            ]
-        });
-
-        return false;
+      xAxis  : [
+        {
+          boundaryGap: false,
+          axisLine   : { onZero: false },
+          type       : 'category',
+          data       : TMAP,
+          name       : '时间(秒)'
+        }
+      ],
+      yAxis  : [
+        {
+          name: '牵引力(千牛)',
+          type: 'value'
+        },
+        {
+          name: '速度(千米/时)',
+          type: 'value'
+        }
+      ],
+      series : [
+        {
+          name  : '牵引力输出',
+          type  : 'line',
+          smooth: true,
+          data  : FMAP
+        },
+        {
+          name      : '速度',
+          yAxisIndex: 1,
+          type      : 'line', smooth: true,
+          data      : VMAP
+        }
+      ]
     });
+
+    return false;
+  });
 </script>
 </body>
 </html>
